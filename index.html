@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Livly Tree Tracker</title>
+  <script>
+    // Load the stylesheet with a fresh ?v= each time so the browser never shows an old saved copy.
+    window.LIVLY_BUILD = Date.now();
+    document.write('<link rel="stylesheet" href="css/style.css?v=' + LIVLY_BUILD + '">');
+  </script>
+</head>
+<body>
+  <!-- Top bar: app name, page tabs, language (filled in by scripts/nav.js) -->
+  <nav id="site-nav" class="site-nav"></nav>
+
+  <header class="page-header">
+    <div class="page-toolbar">
+      <div>
+        <p class="page-meta"><span id="subtitle"></span> <span id="stats"></span></p>
+        <ul id="legend" class="legend"></ul>
+      </div>
+      <div class="toolbar-controls">
+      <!-- "Share fruit across accounts" switch (label filled in by scripts/app.js) -->
+      <label id="share-control" class="switch-control">
+        <input id="share-toggle" type="checkbox">
+        <span class="switch" aria-hidden="true"></span>
+        <span id="share-label"></span>
+      </label>
+      <!-- "View" label + Large / Compact / Tiles / Side by side (filled in by scripts/app.js) -->
+      <div class="view-control">
+        <span id="view-label" class="control-label"></span>
+        <div id="view-switch" class="segmented"></div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="accounts">
+    <p class="loading">Loading…</p>
+  </main>
+
+  <script>
+    // Data and scripts (plain .js so the page works when opened directly from disk).
+    // Each file gets a fresh ?v= so edits always show on a normal refresh.
+    [
+      "data/livlies.js",
+      "data/trees.js",
+      "data/accounts.js",
+      "scripts/i18n.js",
+      "scripts/nav.js",
+      "scripts/app.js"
+    ].forEach(function (src) {
+      document.write('<script src="' + src + '?v=' + LIVLY_BUILD + '"><\/script>');
+    });
+  </script>
+</body>
+</html>

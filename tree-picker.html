@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Tree Quick Selector · Livly Tree Tracker</title>
+  <script>
+    // Fresh ?v= each load so the browser never shows an old saved copy.
+    window.LIVLY_BUILD = Date.now();
+    document.write('<link rel="stylesheet" href="css/style.css?v=' + LIVLY_BUILD + '">');
+    document.write('<link rel="stylesheet" href="css/tree-picker.css?v=' + LIVLY_BUILD + '">');
+  </script>
+</head>
+<body>
+  <!-- Top bar: app name, page tabs, language (filled in by scripts/nav.js) -->
+  <nav id="site-nav" class="site-nav"></nav>
+
+  <header class="page-header">
+    <p class="page-meta" id="intro"></p>
+  </header>
+
+  <main class="picker-layout">
+    <section class="picker-main">
+      <div class="picker-toolbar">
+        <input id="search" type="search" autocomplete="off">
+        <select id="load-account"></select>
+        <label class="toggle"><input id="selected-only" type="checkbox"> <span id="selected-only-label"></span></label>
+        <button id="clear" type="button" class="secondary"></button>
+      </div>
+      <div id="tree-grid" class="picker-grid"></div>
+      <p id="no-results" class="no-results" hidden></p>
+    </section>
+
+    <aside class="picker-output">
+      <div class="output-head">
+        <strong id="selected-count"></strong>
+        <button id="copy" type="button"></button>
+      </div>
+      <textarea id="output" readonly spellcheck="false"></textarea>
+      <p id="copy-status" class="copy-status" aria-live="polite"></p>
+    </aside>
+  </main>
+
+  <script>
+    [
+      "data/livlies.js",
+      "data/trees.js",
+      "data/accounts.js",
+      "scripts/i18n.js",
+      "scripts/nav.js",
+      "scripts/tree-picker.js"
+    ].forEach(function (src) {
+      document.write('<script src="' + src + '?v=' + LIVLY_BUILD + '"><\/script>');
+    });
+  </script>
+</body>
+</html>

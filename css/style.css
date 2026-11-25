@@ -1,0 +1,406 @@
+/* ===== Theme ===== */
+:root {
+  --bg: #f4f1ec;
+  --card: #ffffff;
+  --text: #3b3430;
+  --muted: #8a7f78;
+  --tile: #eeeae4;
+  --radius: 16px;
+
+  /* Potion colours: card edges, legend, tooltip */
+  --c-neobelmin: #ef5a5a;   --text-neobelmin: #c43d3d;
+  --c-mix: #4a7df0;         --text-mix: #2f5fcf;
+  --c-plusterin: #f2a516;   --text-plusterin: #b87400;
+  --c-collab: #b45ce0;      --text-collab: #8e3bbb;
+  --c-plusterin-badge: #f2a516;   /* the "P" badge on Plusterin cards */
+
+  /* Tooltip check marks: tree owned by this account / by another account (shared fruit) */
+  --c-this-account: #7ab955;      /* grass green */
+  --c-other-account: #17a99b;     /* teal green (also the share switch when on) */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(#e6e0d7 1px, transparent 1px);
+  background-size: 18px 18px;
+  color: var(--text);
+}
+
+/* ===== Top navigation bar (both pages) ===== */
+.site-nav {
+  display: flex; align-items: center; gap: 24px;
+  height: 56px; padding: 0 32px;
+  background: var(--card); border-bottom: 1px solid #ece6de;
+  position: sticky; top: 0; z-index: 10;
+}
+.nav-brand { font-weight: bold; font-size: 1.05rem; white-space: nowrap; }
+.nav-tabs { display: flex; gap: 4px; height: 100%; }
+.nav-tabs a {
+  display: flex; align-items: center; padding: 0 12px;
+  color: var(--muted); text-decoration: none; font-size: 0.92rem; white-space: nowrap;
+  border-bottom: 3px solid transparent; margin-bottom: -1px;
+}
+.nav-tabs a:hover { color: var(--text); }
+.nav-tabs a.active { color: var(--text); font-weight: 600; border-bottom-color: #5b4b63; }
+.nav-spacer { flex: 1; }
+.lang-select {
+  font: inherit; font-size: 0.85rem; color: var(--text); cursor: pointer;
+  padding: 5px 8px; border-radius: 8px; border: 1px solid #d9d1c6; background: #fff;
+}
+@media (max-width: 640px) {
+  .site-nav { gap: 12px; padding: 0 14px; }
+  .nav-brand { display: none; }
+}
+
+/* ===== Page header (under the top bar) ===== */
+.page-header { padding: 18px 32px 6px; }
+.page-meta { margin: 0 0 8px; color: var(--muted); font-size: 0.9rem; }
+#stats { font-size: 0.85rem; }
+.page-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px;
+}
+
+/* Right side of the toolbar: share switch + View switch */
+.toolbar-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
+
+/* On/off switch ("Share fruit across accounts") */
+.switch-control {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font-size: 0.84rem; color: var(--text); user-select: none;
+}
+.switch-control input { position: absolute; opacity: 0; pointer-events: none; }
+.switch {
+  position: relative; width: 36px; height: 20px; flex: none;
+  border-radius: 999px; background: #d9d1c6; transition: background .15s;
+}
+.switch::after {
+  content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+  border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform .15s;
+}
+.switch-control input:checked + .switch { background: var(--c-other-account); }
+.switch-control input:checked + .switch::after { transform: translateX(16px); }
+.switch-control input:focus-visible + .switch { outline: 2px solid #5b4b63; outline-offset: 2px; }
+
+/* "View" label sits outside the buttons */
+.view-control { display: flex; align-items: center; gap: 8px; }
+.control-label { font-size: 0.82rem; color: var(--muted); }
+
+/* Segmented buttons (View switch) */
+.segmented { display: inline-flex; gap: 2px; background: #e6e0d7; border-radius: 10px; padding: 3px; }
+.segmented button {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 0; background: transparent; color: var(--muted); cursor: pointer;
+  font: inherit; font-size: 0.84rem; padding: 5px 11px; border-radius: 8px;
+}
+.segmented button:hover { color: var(--text); }
+.segmented button.active { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.segmented svg { width: 16px; height: 16px; flex: none; fill: currentColor; }
+@media (max-width: 640px) {
+  .segmented button span { display: none; }   /* icons only on small screens */
+}
+
+.legend {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  list-style: none; padding: 0; margin: 0;
+  font-size: 0.85rem; color: var(--muted);
+}
+.legend li { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+.legend li:has(.type-neobelmin) { color: var(--text-neobelmin); }
+.legend li:has(.type-mix)       { color: var(--text-mix); }
+.legend li:has(.type-plusterin) { color: var(--text-plusterin); }
+.legend li:has(.type-collab)    { color: var(--text-collab); }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.dot.type-neobelmin { background: var(--c-neobelmin); }
+.dot.type-mix       { background: var(--c-mix); }
+.dot.type-plusterin { background: var(--c-plusterin); }
+.dot.type-collab    { background: var(--c-collab); }
+
+main { padding: 8px 32px 48px; }
+.loading, .error-box { color: var(--muted); }
+.error-box {
+  background: #fff3f0; border: 1px solid #f0c4bb; color: #8a3a2c;
+  padding: 16px 20px; border-radius: 12px; max-width: 720px; line-height: 1.6;
+}
+.error-box code { background: #fbe1da; padding: 1px 5px; border-radius: 4px; }
+
+/* ===== Account section ===== */
+.account { margin-top: 28px; }
+.account-header {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;
+  border-bottom: 2px solid #e2dbd2; padding-bottom: 8px; margin-bottom: 14px;
+}
+.account-header h2 { margin: 0; font-size: 1.3rem; }
+.account-count { color: var(--muted); font-size: 0.9rem; }
+
+
+/* ===== Tree grid ===== */
+.tree-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ===== Tree card ===== */
+.tree-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(60, 40, 30, 0.08);
+  border-left: 5px solid transparent;   /* potion colour, see below */
+  display: flex; flex-direction: column; gap: 8px;
+}
+.tree-card.type-neobelmin { border-left-color: var(--c-neobelmin); }
+.tree-card.type-mix       { border-left-color: var(--c-mix); }
+.tree-card.type-plusterin { border-left-color: var(--c-plusterin); }
+.tree-card.type-collab    { border-left-color: var(--c-collab); }
+
+/* Banner (top) */
+.banner {
+  aspect-ratio: 4 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #5b4b63, #2f2a3a);
+  display: flex; align-items: center; justify-content: center;
+}
+.banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.banner-text {
+  color: #fff; text-align: center; padding: 0 10px; line-height: 1.3;
+  font-size: 0.95rem; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+.banner-text small { display: block; font-weight: normal; font-size: 0.72rem; opacity: 0.85; }
+
+/* Body: Livly (left) + tree (right) */
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.livly-slot {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+.livly-slot .livly-img {
+  width: 100%; height: 100%; object-fit: contain;
+  display: block;
+}
+
+/* Plusterin badge: white "P" on an amber circle, overlapping the bottom-left of the Livly */
+.plusterin-badge, .cc-badge {
+  position: absolute; border-radius: 50%;
+  background: var(--c-plusterin-badge); border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; line-height: 1;
+  font-family: "Arial Rounded MT Bold", "Segoe UI", system-ui, sans-serif;
+}
+.plusterin-badge { left: -4px; bottom: -4px; width: 34px; height: 34px; font-size: 1.15rem; }
+
+/* Wrapper that carries the Livly name on hover (both card views) */
+.livly-pic { display: block; width: 100%; height: 100%; }
+.livly-pic > a { display: block; width: 100%; height: 100%; }
+
+/* "+N" chip on the Livly (Large cards) — hover / tap for the ingredient tooltip */
+.more-chip {
+  position: absolute; right: 2px; top: 2px;
+  min-width: 30px; height: 26px; padding: 0 7px; border: 0; border-radius: 999px;
+  background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.25);
+  font: inherit; font-size: 0.78rem; font-weight: bold; color: var(--text); cursor: pointer;
+}
+.more-chip:hover, .more-chip:focus-visible { background: #5b4b63; color: #fff; outline: none; }
+
+.tree-slot {
+  aspect-ratio: 1 / 1;
+  background: var(--tile);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.tree-slot img { width: 90%; height: 90%; object-fit: contain; }
+
+/* Placeholder for missing images */
+.placeholder {
+  width: 100%; height: 100%;
+  border-radius: 12px;
+  background: repeating-linear-gradient(45deg, #eee8e0, #eee8e0 8px, #e6dfd6 8px, #e6dfd6 16px);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 0.75rem;
+}
+
+
+.tree-card.unknown { border: 2px dashed #e0a39a; color: #8a3a2c; font-size: 0.85rem; }
+
+a { color: inherit; }
+
+
+/* Shared potion colours for the small views */
+.compact-card, .tree-tile-card { --ring: var(--c-neobelmin); }
+.type-mix       { --ring: var(--c-mix); }
+.type-plusterin { --ring: var(--c-plusterin); }
+.type-collab    { --ring: var(--c-collab); }
+
+/* ===== A · Compact cards ===== */
+.compact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.compact-card {
+  background: var(--card); border-radius: 12px; padding: 6px;
+  box-shadow: 0 1px 4px rgba(60, 40, 30, 0.08); border-left: 5px solid var(--ring);
+}
+.cc-banner {
+  aspect-ratio: 4 / 1; border-radius: 6px; overflow: hidden;
+  background: linear-gradient(135deg, #5b4b63, #2f2a3a);
+  color: #fff; font-size: 0.6rem; line-height: 1.2; font-weight: bold;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 4px;
+}
+.cc-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cc-banner:has(img) { padding: 0; }
+.cc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+.cc-livly, .cc-tree { position: relative; aspect-ratio: 1 / 1; }
+.cc-livly img, .cc-tree img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cc-tree { background: var(--tile); border-radius: 8px; overflow: hidden; }
+.cc-badge { left: -3px; bottom: -3px; width: 22px; height: 22px; font-size: 0.75rem; }
+.cc-more {
+  position: absolute; right: -3px; top: -3px; min-width: 22px; height: 20px; padding: 0 5px;
+  border: 0; border-radius: 999px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25);
+  font: inherit; font-size: 0.65rem; font-weight: bold; line-height: 20px; text-align: center;
+  color: var(--text); cursor: pointer;
+}
+.cc-more:hover, .cc-more:focus-visible { background: #5b4b63; color: #fff; outline: none; }
+.compact-card .placeholder, .tree-tile-card .placeholder { border-radius: 8px; }
+.compact-card.unknown, .tree-tile-card.unknown {
+  border: 2px dashed #e0a39a; color: #8a3a2c; font-size: 0.75rem; display: flex; align-items: center; justify-content: center;
+}
+
+/* ===== B · Tiles (also used by "Side by side") ===== */
+.tile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr)); gap: 9px; }
+.tree-tile-card {
+  position: relative; aspect-ratio: 1 / 1; padding: 6px;
+  background: var(--card); border-radius: 12px; border: 2px solid var(--ring);
+  box-shadow: 0 1px 4px rgba(60, 40, 30, 0.08);
+}
+.tree-tile-card > img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.tt-livly {
+  position: absolute; left: -6px; bottom: -6px; width: 44%; aspect-ratio: 1 / 1;
+  border-radius: 50%; background: #fff; border: 2px solid var(--ring);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2); overflow: hidden;
+}
+.tt-livly img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* ===== F · Accounts side by side ===== */
+.accounts-columns {
+  display: grid;
+  grid-template-columns: repeat(var(--account-count, 3), minmax(0, 1fr));
+  gap: 14px; align-items: start;
+}
+.accounts-columns .account {
+  margin-top: 18px; background: rgba(255, 255, 255, 0.5); border-radius: 14px; padding: 10px;
+}
+.accounts-columns .account-header h2 { font-size: 1rem; }
+.accounts-columns .tile-grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
+@media (max-width: 900px) {
+  .accounts-columns { grid-template-columns: 1fr; }
+}
+
+
+/* ===== "+N" ingredient tooltip ===== */
+.livly-tip {
+  position: fixed; z-index: 100;
+  --ring: var(--c-neobelmin);   /* rows without a type class use the Neobelmin colour */
+  max-height: calc(100vh - 20px); overflow-y: auto; overscroll-behavior: contain;
+  width: max-content; max-width: min(520px, calc(100vw - 20px));
+  background: #fff; border-radius: 14px; padding: 12px 14px;
+  box-shadow: 0 8px 28px rgba(40, 25, 20, .18), 0 0 0 1px rgba(0,0,0,.04);
+  font-size: 0.82rem; line-height: 1.35; color: var(--text);
+}
+/* Soft bounce in, quick fade out */
+.livly-tip {
+  transform-origin: var(--tip-origin, left top);
+  animation: tipBounceIn 260ms cubic-bezier(.34, 1.56, .64, 1) both;
+}
+.livly-tip.leaving {
+  pointer-events: none;
+  animation: tipFadeOut 100ms ease-in both;
+}
+@keyframes tipBounceIn {
+  from { opacity: 0; transform: scale(.85); }
+  60%  { opacity: 1; }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes tipFadeOut {
+  to { opacity: 0; transform: scale(.97); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .livly-tip, .livly-tip.leaving { animation: none; }
+}
+.livly-tip img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.lt-ph { display: block; width: 100%; height: 100%; background: #eee8e0; }
+.lt-title { font-size: 0.72rem; color: var(--muted); margin: 0 0 6px; }
+
+.lt-chain {
+  display: grid; grid-template-columns: 44px 1fr; gap: 4px 10px; align-items: center; padding: 7px 0;
+}
+.lt-chain + .lt-chain { border-top: 1px solid #f0ebe4; }
+.lt-pic {
+  width: 44px; height: 44px; border-radius: 50%; overflow: hidden;
+  border: 3px solid var(--ring); background: #faf8f5;
+}
+.lt-chain.cannot > .lt-pic { filter: grayscale(.85); opacity: .5; }
+.lt-name { font-weight: 600; }
+.lt-pill {
+  display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px;
+  font-size: 0.64rem; color: #fff; background: var(--ring); vertical-align: 1px;
+}
+.lt-main {
+  display: inline-block; margin-left: 4px; padding: 0 6px; border-radius: 999px;
+  border: 1px solid #d9d1c6; font-size: 0.64rem; color: var(--muted);
+}
+.lt-status { margin-left: 6px; font-size: 0.64rem; white-space: nowrap; }
+.lt-status.ok { color: #4f8a5e; }
+.lt-status.no { color: #b0695c; }
+
+/* recipe trees with counts; ✓ = owned, faded = missing */
+.lt-recipe { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+.lt-ing { display: inline-flex; align-items: center; gap: 2px; font-size: 0.68rem; color: var(--muted); }
+.lt-ing-pic, .lt-p-tree { position: relative; border-radius: 6px; background: #f3efe9; }
+.lt-ing-pic { width: 24px; height: 24px; }
+.lt-ing-pic img, .lt-p-tree img { border-radius: 6px; }
+.lt-ing.missing .lt-ing-pic, .lt-p.no .lt-p-tree { opacity: .35; filter: grayscale(1); }
+.lt-ing.owned .lt-ing-pic::after, .lt-p.ok .lt-p-tree::after {
+  content: "✓"; position: absolute; right: -4px; bottom: -4px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--c-this-account); color: #fff; font-size: 8px; line-height: 12px; text-align: center;
+}
+.lt-ing.other .lt-ing-pic::after, .lt-p.ok.other .lt-p-tree::after {
+  content: "✓"; position: absolute; right: -4px; bottom: -4px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--c-other-account); color: #fff; font-size: 8px; line-height: 12px; text-align: center;
+}
+
+/* Plusterins of that Neobelmin */
+.lt-plus { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+.lt-arrow { align-self: center; color: var(--muted); font-size: 0.75rem; }
+.lt-p { width: 40px; text-align: center; font-size: 0.64rem; color: var(--muted); }
+.lt-p.ok { color: #4f8a5e; font-weight: 600; }
+.lt-p-pic {
+  width: 34px; height: 34px; margin: 0 auto 2px; border-radius: 50%; overflow: hidden;
+  border: 2px solid var(--c-plusterin); background: #faf8f5;
+}
+.lt-p.no .lt-p-pic { filter: grayscale(.85); opacity: .5; }
+.lt-p-tree { width: 20px; height: 20px; margin: 2px auto 0; }
+.lt-legend {
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+  margin-top: 8px; padding-top: 7px; border-top: 1px solid #f0ebe4;
+  font-size: 0.68rem; color: var(--muted);
+}
+.lt-key { display: inline-flex; align-items: center; gap: 5px; }
+/* same badges as on the recipe trees */
+.lt-check {
+  width: 13px; height: 13px; border-radius: 50%; flex: none;
+  color: #fff; font-size: 8px; line-height: 13px; text-align: center;
+}
+.lt-check.owned { background: var(--c-this-account); }
+.lt-check.other { background: var(--c-other-account); }
