@@ -6,7 +6,9 @@
  *
  * Saved shape (also the export file's shape):
  *   { "app": "livly-tree-tracker", "version": 1,
- *     "accounts": [ { "id": "...", "name": "Hazy", "trees": ["1001-1-001", ...] } ] }
+ *     "accounts": [ { "id": "...", "name": "Hazy", "trees": ["1001-1-001", ...],
+ *                     "wishlist": ["1019-1-001", ...] } ] }
+ * "wishlist" = trees the account wants; never includes trees it owns.
  * ========================================================= */
 
 window.LivlyStore = (function () {
@@ -32,13 +34,16 @@ window.LivlyStore = (function () {
     } catch (e) { return false; }
   }
 
-  /** Cleans one account: string name, unique trees, starters always first. */
+  const idList = (value) => (Array.isArray(value) ? value : []).filter((id) => typeof id === "string");
+
+  /** Cleans one account: string name, unique trees, starters always first, wishlist without owned trees. */
   function cleanAccount(acc) {
     const name = typeof acc.name === "string" ? acc.name
       : (acc.name && (acc.name.en || acc.name.ja)) || "";
-    const trees = [...new Set([...STARTERS, ...(Array.isArray(acc.trees) ? acc.trees : [])]
-      .filter((id) => typeof id === "string"))];
-    return { id: typeof acc.id === "string" && acc.id ? acc.id : newId(), name: name.trim(), trees };
+    const trees = [...new Set([...STARTERS, ...idList(acc.trees)])];
+    const owned = new Set(trees);
+    const wishlist = [...new Set(idList(acc.wishlist))].filter((id) => !owned.has(id));
+    return { id: typeof acc.id === "string" && acc.id ? acc.id : newId(), name: name.trim(), trees, wishlist };
   }
 
   function list() {
@@ -77,7 +82,25 @@ window.LivlyStore = (function () {
     },
     rename: (id, name) => update(id, (acc) => { acc.name = name.trim(); }),
     remove(id) { save(list().filter((a) => a.id !== id)); },
-    setTrees: (id, trees) => update(id, (acc) => { acc.trees = cleanAccount({ trees }).trees; }),
+    /** Owned trees. A tree that becomes owned leaves the wishlist. */
+    setTrees: (id, trees) => update(id, (acc) => {
+      const clean = cleanAccount({ trees, wishlist: acc.wishlist });
+      acc.trees = clean.trees;
+      acc.wishlist = clean.wishlist;
+    }),
+
+    /** Adds or removes one tree from an account's wishlist (owned trees are ignored). */
+    toggleWish: (id, treeId) => update(id, (acc) => {
+      if (acc.trees.includes(treeId)) return;
+      acc.wishlist = acc.wishlist.includes(treeId)
+        ? acc.wishlist.filter((t) => t !== treeId) : [...acc.wishlist, treeId];
+    }),
+
+    /** "Got it": moves a wished tree into the owned trees. */
+    gotIt: (id, treeId) => update(id, (acc) => {
+      if (!acc.trees.includes(treeId)) acc.trees = [...acc.trees, treeId];
+      acc.wishlist = acc.wishlist.filter((t) => t !== treeId);
+    }),
 
     /** The object written to the export file. */
     exportData() {
@@ -98,9 +121,11 @@ window.LivlyStore = (function () {
       let skipped = 0;
       const accounts = raw.map((a) => {
         const acc = cleanAccount(a);
-        const known = acc.trees.filter((id) => knownTrees[id]);
-        skipped += acc.trees.length - known.length;
-        acc.trees = known;
+        for (const key of ["trees", "wishlist"]) {
+          const known = acc[key].filter((id) => knownTrees[id]);
+          skipped += acc[key].length - known.length;
+          acc[key] = known;
+        }
         return acc;
       });
       return { accounts, skipped };

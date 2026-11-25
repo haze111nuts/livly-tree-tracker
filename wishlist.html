@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Wishlist · Livly Tree Tracker</title>
+  <script>
+    // Fresh ?v= each load so the browser never shows an old saved copy.
+    window.LIVLY_BUILD = Date.now();
+    document.write('<link rel="stylesheet" href="css/style.css?v=' + LIVLY_BUILD + '">');
+    document.write('<link rel="stylesheet" href="css/wishlist.css?v=' + LIVLY_BUILD + '">');
+  </script>
+</head>
+<body>
+  <!-- Top bar: app name, page tabs, language (filled in by scripts/nav.js) -->
+  <nav id="site-nav" class="site-nav"></nav>
+
+  <!-- Page title + "My wishlist / Find trees" switch (filled in by scripts/wishlist.js) -->
+  <header class="wish-header">
+    <h1><span class="wish-star" aria-hidden="true">★</span> <span id="wish-title"></span></h1>
+    <div id="wish-tabs" class="segmented"></div>
+  </header>
+
+  <main class="wish-main">
+    <!-- Find trees: filters -->
+    <div id="find-filters" class="find-filters" hidden>
+      <label class="filter-label"><span id="missing-label"></span> <select id="missing-from"></select></label>
+      <input id="find-search" type="search" autocomplete="off">
+      <label class="toggle"><input id="only-useful" type="checkbox"> <span id="only-useful-label"></span></label>
+      <span id="find-count" class="find-count"></span>
+    </div>
+    <!-- What ✓ and +1 on a Livly mean -->
+    <div id="wish-key" class="wish-key"></div>
+    <div id="wish-content"></div>
+  </main>
+
+  <script>
+    [
+      "data/livlies.js",
+      "data/trees.js",
+      "scripts/i18n.js",
+      "scripts/store.js",
+      "scripts/dialog.js",
+      "scripts/nav.js",
+      "scripts/wishlist.js"
+    ].forEach(function (src) {
+      document.write('<script src="' + src + '?v=' + LIVLY_BUILD + '"><\/script>');
+    });
+  </script>
+</body>
+</html>

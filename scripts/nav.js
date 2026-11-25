@@ -8,6 +8,7 @@ window.LivlyNav = (function () {
   const PAGES = [
     { id: "viewer", href: "index.html", label: (t) => t.navViewer },
     { id: "picker", href: "tree-checklist.html", label: (t) => t.navPicker },
+    { id: "wishlist", href: "wishlist.html", label: (t) => t.navWishlist },
   ];
 
   // Icons for the View switch, from biggest cards to smallest

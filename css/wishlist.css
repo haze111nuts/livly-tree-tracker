@@ -1,0 +1,144 @@
+/* ===== Wishlist page (extends style.css) ===== */
+
+.wish-header {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+  padding: 18px 32px 6px;
+}
+.wish-header h1 { margin: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
+.wish-star { color: #e0a100; }
+.wish-header .segmented button { padding: 6px 16px; font-size: 0.9rem; }
+
+.wish-main { padding: 6px 32px 48px; }
+
+/* What ✓ / +1 mean */
+.wish-key { display: flex; flex-wrap: wrap; gap: 16px; margin: 4px 0 6px; font-size: 0.82rem; color: var(--muted); }
+.wish-key span { display: inline-flex; align-items: center; gap: 6px; }
+.wish-key i { position: static; box-shadow: none; }
+
+.wish-empty { color: var(--muted); margin: 6px 0 0; }
+
+/* ---------- Livly picture with ✓ / +N ---------- */
+.wl-livly {
+  position: relative; flex: none;
+  width: 46px; height: 46px; border-radius: 10px; background: #f4efe9;
+  display: grid; place-items: center;
+  box-shadow: inset 0 0 0 2px var(--c-neobelmin);
+}
+.wl-livly.type-mix       { box-shadow: inset 0 0 0 2px var(--c-mix); }
+.wl-livly.type-plusterin { box-shadow: inset 0 0 0 2px var(--c-plusterin); }
+.wl-livly.type-collab    { box-shadow: inset 0 0 0 2px var(--c-collab); }
+.wl-livly-img { width: 42px; height: 42px; object-fit: contain; }
+.img-missing { display: block; border-radius: 8px; background: repeating-linear-gradient(45deg, #ece5dc 0 6px, #f4efe9 6px 12px); }
+.wl-livly .img-missing { width: 34px; height: 34px; }
+.wl-p {
+  position: absolute; left: -5px; top: -5px; z-index: 1;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--c-plusterin-badge); color: #fff; font-size: 0.6rem; font-weight: 700;
+  display: grid; place-items: center; box-shadow: 0 0 0 1.5px #fff;
+}
+.wl-can, .wl-need {
+  position: absolute; right: -5px; bottom: -5px;
+  min-width: 17px; height: 17px; padding: 0 4px; border-radius: 9px;
+  font-size: 0.62rem; font-style: normal; font-weight: 700;
+  display: inline-grid; place-items: center; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.wl-can  { background: var(--c-this-account); color: #fff; }
+.wl-need { background: #fff; color: var(--muted); border: 1px solid #d9d1c6; }
+
+.wl-livly-named { width: 58px; text-align: center; }
+.wl-livly-named .wl-livly { margin: 0 auto; }
+.wl-livly-named small {
+  display: block; margin-top: 4px; font-size: 0.64rem; line-height: 1.2; color: var(--text);
+  overflow: hidden; max-height: 2.4em; word-break: break-word;
+}
+
+/* ---------- My wishlist ---------- */
+.wish-account { margin-top: 24px; }
+.wish-account-header {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;
+  border-bottom: 2px dashed #e3cfa0; padding-bottom: 8px; margin-bottom: 16px;
+}
+.wish-account-header h2 { margin: 0; font-size: 1.3rem; }
+.wish-account-header span { color: var(--muted); font-size: 0.9rem; }
+
+.wish-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+
+/* Wished = not owned yet: cream card, dashed gold outline, ★ in the corner */
+.wish-card {
+  position: relative; display: flex; flex-direction: column;
+  background: #fffdf7; border: 2px dashed #e6c97c; border-radius: 14px; padding: 8px;
+}
+.wish-badge {
+  position: absolute; top: -10px; left: -10px; z-index: 1;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #f2b51b; color: #fff; font-size: 0.8rem;
+  display: grid; place-items: center; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.wish-remove {
+  position: absolute; top: 12px; right: 12px; z-index: 1;
+  width: 22px; height: 22px; padding: 0; border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9); color: var(--muted); font-size: 1rem; line-height: 1; cursor: pointer;
+  opacity: 0; transition: opacity .12s;
+}
+.wish-card:hover .wish-remove, .wish-remove:focus-visible { opacity: 1; }
+.wish-remove:hover { color: #c94a3d; }
+.wish-banner { height: 44px; border-radius: 8px; background: #5b4b63 center / cover no-repeat; }
+.wish-banner.text {
+  display: grid; place-items: center; padding: 0 8px; text-align: center;
+  color: #fff; font-size: 0.72rem; font-weight: 600;
+}
+.wish-name { font-size: 0.82rem; font-weight: 600; margin: 7px 2px 4px; }
+.wish-body { display: flex; gap: 8px; align-items: center; flex: 1; }
+.wish-tree { width: 84px; height: 84px; object-fit: contain; flex: none; }
+.wish-body .img-missing.wish-tree { width: 84px; height: 84px; }
+.wish-livlies { display: flex; flex-wrap: wrap; gap: 8px; }
+.wish-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  margin-top: 8px; font-size: 0.76rem; color: var(--muted);
+}
+.btn.got-it { font-size: 0.78rem; padding: 3px 10px; border-color: #5b8c4a; color: #3f7a34; }
+.btn.got-it:hover { background: #eef6ea; }
+
+/* ---------- Find trees ---------- */
+.find-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 6px 0 12px; }
+.find-filters[hidden] { display: none; }
+.find-filters select, .find-filters input[type="search"] {
+  font: inherit; font-size: 0.9rem; color: var(--text);
+  padding: 7px 11px; border-radius: 10px; border: 1px solid #d9d1c6; background: #fff;
+}
+.find-filters input[type="search"] { flex: 1 1 220px; max-width: 340px; }
+.filter-label { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; }
+.toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; color: var(--muted); cursor: pointer; }
+.find-count { margin-left: auto; color: var(--muted); font-size: 0.88rem; }
+
+.find-head, .find-row {
+  display: grid; grid-template-columns: 64px minmax(150px, 220px) 1fr auto; gap: 16px; align-items: center;
+}
+.find-head { padding: 8px 12px 4px; font-size: 0.75rem; font-weight: 600; color: var(--muted); }
+.find-head span:last-child { text-align: right; }
+.find-rows { display: flex; flex-direction: column; gap: 8px; }
+.find-row { background: var(--card); border-radius: 12px; padding: 8px 12px; box-shadow: 0 1px 4px rgba(60, 40, 30, 0.07); }
+.find-tree { width: 64px; height: 64px; object-fit: contain; }
+.find-row .img-missing.find-tree { width: 64px; height: 64px; }
+.find-name b { display: block; font-size: 0.88rem; }
+.find-name small { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--muted); line-height: 1.35; }
+.find-livlies { display: flex; flex-wrap: wrap; gap: 10px 6px; }
+
+.wish-pills { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; max-width: 300px; }
+.wish-pill {
+  font: inherit; font-size: 0.8rem; white-space: nowrap; cursor: pointer;
+  padding: 3px 10px; border-radius: 999px; border: 1px solid #e2dbd2; background: #fff; color: var(--muted);
+}
+.wish-pill:hover { border-color: #e6c97c; color: #8a6400; }
+.wish-pill.on { background: #fff3cf; border-color: #f2b51b; color: #8a6400; font-weight: 600; }
+.wish-pill.owned { cursor: default; border-style: dashed; color: #9fb79a; background: transparent; }
+.wish-pill.owned:hover { border-color: #e2dbd2; }
+
+@media (max-width: 760px) {
+  .wish-header, .wish-main { padding-left: 14px; padding-right: 14px; }
+  .find-head { display: none; }
+  .find-row { grid-template-columns: 56px 1fr; }
+  .find-tree, .find-row .img-missing.find-tree { width: 56px; height: 56px; }
+  .find-livlies, .wish-pills { grid-column: 1 / -1; }
+  .wish-pills { justify-content: flex-start; max-width: none; }
+}
