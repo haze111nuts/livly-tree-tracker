@@ -1,33 +1,27 @@
 /* =========================================================
  * Tree Checklist (tree-checklist.html)
- * Click the trees an account owns; the "trees": [...] block for
- * data/accounts.js is rebuilt after every click, ready to copy.
- * Uses the same data files as the viewer. No server needed.
+ * Pick an account at the top, then click the trees it owns.
+ * Every click is saved straight away to the accounts kept in this
+ * browser (scripts/store.js), so the Tree Viewer shows it too.
+ * No server needed.
  * ========================================================= */
 
 const LANGS = ["ja", "en"];
-const LANG_STORAGE_KEY = "livlyTreeViewer.lang";        // shared with the viewer
-const SELECTION_STORAGE_KEY = "livlyTreeViewer.pickerSelection";
-
-// The 3 starter trees every player has and can't discard: always selected.
-const ALWAYS_OWNED = ["1001-1-001", "1001-1-003", "1001-1-005"];
+const LANG_STORAGE_KEY = "livlyTreeViewer.lang";              // shared with the viewer
+const LAST_ACCOUNT_KEY = "livlyTreeTracker.checklistAccount"; // account picked last time
+const NEW_ACCOUNT = "__new__";                                // dropdown value for "+ New account…"
 
 const data = window.LIVLY_DATA || {};
 const trees = data.trees || {};
-const treeIds = Object.keys(trees);                      // display + output order
+const treeIds = Object.keys(trees);                           // display order (same as the wiki)
+const isLocked = (id) => LivlyStore.STARTERS.includes(id);    // starter trees can't be unticked
 
 let lang = pickLanguage();
-let selected = withStarters(loadSelection());
+let accountId = null;
+let selected = new Set();
 const ui = () => window.LIVLY_I18N[lang];
 
 /* ---------- small helpers ---------- */
-
-/** A selection set that always includes the starter trees. */
-function withStarters(ids) {
-  return new Set([...ALWAYS_OWNED.filter((id) => trees[id]), ...ids]);
-}
-
-const isLocked = (id) => ALWAYS_OWNED.includes(id);
 
 function pickLanguage() {
   const fromUrl = new URLSearchParams(location.search).get("lang");
@@ -43,16 +37,8 @@ function store(key, value) {
   try { localStorage.setItem(key, value); } catch (e) { /* ignore */ }
 }
 
-/** Remembers the selection so a refresh doesn't lose your clicks. */
-function loadSelection() {
-  try {
-    const ids = JSON.parse(localStorage.getItem(SELECTION_STORAGE_KEY) || "[]");
-    return Array.isArray(ids) ? ids.filter((id) => trees[id]) : [];
-  } catch (e) { return []; }
-}
-
-function saveSelection() {
-  store(SELECTION_STORAGE_KEY, JSON.stringify([...selected]));
+function safeGet(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
 }
 
 function tr(value) {
@@ -78,26 +64,60 @@ function el(tag, attrs = {}, ...children) {
 
 const $ = (id) => document.getElementById(id);
 
-/* ---------- output text ---------- */
-
-/** Builds the block exactly as it should be pasted into data/accounts.js. */
-function buildOutput() {
-  const ids = treeIds.filter((id) => selected.has(id));
-  if (!ids.length) return '    "trees": []';
-
-  const lines = ids.map((id, i) => {
-    const t = trees[id];
-    const sep = i < ids.length - 1 ? "," : " ";
-    return `      "${id}"${sep} // ${t.name.ja} / ${t.name.en}`;
-  });
-  return ['    "trees": [', ...lines, "    ]"].join("\n");
+function accountName(acc) {
+  const index = LivlyStore.list().findIndex((a) => a.id === acc.id);
+  return acc.name || ui().defaultAccountName(index + 1);
 }
 
-function updateOutput() {
-  $("output").value = buildOutput();
-  $("selected-count").textContent = ui().selectedCount(selected.size, treeIds.length);
-  $("copy-status").textContent = "";
-  saveSelection();
+/* ---------- which account ---------- */
+
+/** ?account=<id> (from the viewer's "Edit trees") wins, then the last one used, then the first. */
+function pickAccount() {
+  const accounts = LivlyStore.list();
+  const wanted = [new URLSearchParams(location.search).get("account"), safeGet(LAST_ACCOUNT_KEY)];
+  const found = wanted.map((id) => accounts.find((a) => a.id === id)).find(Boolean) || accounts[0];
+  return found ? found.id : null;
+}
+
+function useAccount(id) {
+  const acc = id && LivlyStore.get(id);
+  accountId = acc ? acc.id : null;
+  selected = new Set(acc ? acc.trees : []);
+  if (accountId) store(LAST_ACCOUNT_KEY, accountId);
+  // Keep the address in step, so a refresh stays on this account
+  const url = new URL(location.href);
+  if (accountId) url.searchParams.set("account", accountId); else url.searchParams.delete("account");
+  history.replaceState(null, "", url);
+}
+
+async function createAccount() {
+  const t = ui();
+  const r = await LivlyDialog.open({
+    title: t.addTitle,
+    input: { value: "", placeholder: t.namePlaceholder },
+    buttons: [{ label: t.cancel }, { label: t.add, value: "ok", primary: true }],
+  });
+  if (r) {
+    const acc = LivlyStore.add(r.text || t.defaultAccountName(LivlyStore.list().length + 1));
+    useAccount(acc.id);
+  }
+  renderAll();
+}
+
+/* ---------- saving ---------- */
+
+/** Saves the ticks, keeping the account's existing order and adding new trees at the end. */
+function save() {
+  const acc = LivlyStore.get(accountId);
+  if (!acc) return;
+  const kept = acc.trees.filter((id) => selected.has(id));
+  const added = treeIds.filter((id) => selected.has(id) && !kept.includes(id));
+  LivlyStore.setTrees(accountId, [...kept, ...added]);
+  const note = $("saved-note");
+  if (note) {
+    note.textContent = ui().savedNow;
+    note.classList.remove("flash"); void note.offsetWidth; note.classList.add("flash");
+  }
 }
 
 /* ---------- grid ---------- */
@@ -117,27 +137,32 @@ function searchText(t) {
 }
 
 function toggle(id, tile) {
-  if (isLocked(id)) return;                // starter trees can't be unselected
+  if (isLocked(id) || !accountId) return;
   if (selected.has(id)) selected.delete(id); else selected.add(id);
   tile.classList.toggle("selected", selected.has(id));
   tile.setAttribute("aria-pressed", String(selected.has(id)));
-  updateOutput();
+  save();
+  renderPanel(false);
   if ($("selected-only").checked) applyFilter();
 }
 
 function renderGrid() {
+  $("tree-grid").classList.toggle("disabled", !accountId);
   $("tree-grid").replaceChildren(...treeIds.map((id) => {
     const t = trees[id];
+    const on = selected.has(id) || (isLocked(id) && !accountId);
     const tile = el("button", {
       type: "button",
-      class: `tree-tile${selected.has(id) ? " selected" : ""}${isLocked(id) ? " locked" : ""}`,
+      class: `tree-tile${on ? " selected" : ""}${isLocked(id) ? " locked" : ""}`,
       title: tooltip(t, id),
-      "aria-pressed": String(selected.has(id)),
+      "aria-pressed": String(on),
       "aria-label": tr(t.name),
       "data-id": id,
       "data-search": searchText(t),
     });
-    const img = el("img", { src: t.image, alt: "", loading: "lazy" });
+    // URL as-is; a plain filename is looked up in assets/trees (same rule as the viewer)
+    const src = /^(https?:)?\/\//.test(t.image) || String(t.image).startsWith("data:") ? t.image : `assets/trees/${t.image}`;
+    const img = el("img", { src, alt: "", loading: "lazy" });
     img.addEventListener("error", () => img.replaceWith(el("span", { class: "tile-fallback" }, tr(t.name))), { once: true });
     tile.append(img, el("span", { class: "check" }, isLocked(id) ? "🔒" : "✓"));
     tile.addEventListener("click", () => toggle(id, tile));
@@ -151,42 +176,44 @@ function applyFilter() {
   const onlySelected = $("selected-only").checked;
   let visible = 0;
   for (const tile of $("tree-grid").children) {
-    const show = (!q || tile.dataset.search.includes(q)) && (!onlySelected || selected.has(tile.dataset.id));
+    const show = (!q || tile.dataset.search.includes(q)) && (!onlySelected || tile.classList.contains("selected"));
     tile.hidden = !show;
     if (show) visible++;
   }
   $("no-results").hidden = visible > 0;
 }
 
-/* ---------- toolbar ---------- */
+/* ---------- account dropdown + right-hand panel ---------- */
 
-function renderAccountMenu() {
-  const accounts = data.accounts || [];
-  $("load-account").replaceChildren(
-    el("option", { value: "" }, ui().loadAccount),
-    ...accounts.map((acc, i) => el("option", { value: String(i) }, tr(acc.name))));
+function renderAccountSelect() {
+  const select = $("account-select");
+  select.replaceChildren(
+    ...LivlyStore.list().map((acc) => el("option", { value: acc.id }, accountName(acc))),
+    el("option", { value: NEW_ACCOUNT }, ui().newAccountOption));
+  select.value = accountId || NEW_ACCOUNT;
 }
 
-function loadAccount(index) {
-  const acc = (data.accounts || [])[index];
-  if (!acc) return;
-  if (selected.size > ALWAYS_OWNED.length && !confirm(ui().confirmReplace)) return;
-  selected = withStarters((acc.trees || []).filter((id) => trees[id]));
-  renderGrid();
-  updateOutput();
-}
-
-async function copyOutput() {
-  const text = $("output").value;
-  try {
-    await navigator.clipboard.writeText(text);
-    $("copy-status").textContent = ui().copied;
-  } catch (e) {
-    // Older/locked-down browsers: fall back to selecting the text and copying it.
-    $("output").select();
-    const ok = document.execCommand && document.execCommand("copy");
-    $("copy-status").textContent = ok ? ui().copied : ui().copyFailed;
+/** full = true redraws the panel; false only updates the tree count (keeps the "Saved" note). */
+function renderPanel(full = true) {
+  const t = ui();
+  const panel = $("account-panel");
+  const acc = accountId && LivlyStore.get(accountId);
+  if (!acc) {
+    panel.replaceChildren(el("div", { class: "panel-empty" },
+      el("div", { class: "panel-name" }, t.noAccountTitle),
+      el("p", {}, t.noAccountText),
+      el("button", { type: "button", class: "btn primary", onclick: createAccount }, t.addAccount)));
+    return;
   }
+  if (!full && $("panel-count")) {
+    $("panel-count").textContent = t.ownedCount(selected.size, treeIds.length);
+    return;
+  }
+  panel.replaceChildren(
+    el("div", { class: "panel-name" }, accountName(acc)),
+    el("div", { id: "panel-count" }, t.ownedCount(selected.size, treeIds.length)),
+    el("div", { id: "saved-note", class: "panel-saved", "aria-live": "polite" }, t.savedNote),
+    el("a", { class: "panel-link", href: `index.html#account-${encodeURIComponent(acc.id)}` }, t.viewAccount(accountName(acc))));
 }
 
 /* ---------- language + static text ---------- */
@@ -197,15 +224,22 @@ function renderText() {
   document.title = `${t.pickerTitle} · ${t.appName}`;
   LivlyNav.render("picker", lang, (code) => {
     lang = code; store(LANG_STORAGE_KEY, code);
-    renderText(); renderGrid(); updateOutput();
+    renderAll();
   });
   $("intro").textContent = t.pickerIntro;
+  $("account-label").textContent = t.accountLabel;
   $("search").placeholder = t.search;
   $("selected-only-label").textContent = t.showSelectedOnly;
-  $("clear").textContent = t.clear;
-  $("copy").textContent = t.copy;
+  $("reset").textContent = t.reset;
+  $("reset").disabled = !accountId;
   $("no-results").textContent = t.noResults;
-  renderAccountMenu();
+}
+
+function renderAll() {
+  renderText();
+  renderAccountSelect();
+  renderPanel();
+  renderGrid();
 }
 
 /* ---------- start ---------- */
@@ -215,21 +249,43 @@ function init() {
     $("tree-grid").replaceChildren(el("div", { class: "error-box" }, ui().missingFiles("data/trees.js")));
     return;
   }
-  renderText();
-  renderGrid();
-  updateOutput();
+  if (!LivlyStore.available()) {
+    renderText();
+    $("tree-grid").replaceChildren(el("div", { class: "error-box" }, ui().noStorage));
+    return;
+  }
+  try { localStorage.removeItem("livlyTreeViewer.pickerSelection"); } catch (e) { /* old version's key */ }
+
+  useAccount(pickAccount());
+  renderAll();
 
   $("search").addEventListener("input", applyFilter);
   $("selected-only").addEventListener("change", applyFilter);
-  $("load-account").addEventListener("change", (e) => {
-    if (e.target.value !== "") loadAccount(Number(e.target.value));
-    e.target.value = "";
+  $("account-select").addEventListener("change", (e) => {
+    if (e.target.value === NEW_ACCOUNT) { createAccount(); return; }
+    useAccount(e.target.value);
+    renderAll();
   });
-  $("clear").addEventListener("click", () => {
-    if (selected.size <= ALWAYS_OWNED.length || !confirm(ui().confirmClear)) return;
-    selected = withStarters([]); renderGrid(); updateOutput();
+  $("reset").addEventListener("click", async () => {
+    if (!accountId || selected.size <= LivlyStore.STARTERS.length) return;
+    const t = ui();
+    const r = await LivlyDialog.open({
+      title: t.resetTitle, message: t.resetText,
+      buttons: [{ label: t.cancel }, { label: t.reset, value: "ok", danger: true }],
+    });
+    if (!r) return;
+    selected = new Set(LivlyStore.STARTERS);
+    save();
+    renderPanel(false);
+    renderGrid();
   });
-  $("copy").addEventListener("click", copyOutput);
+
+  // Accounts changed in another tab (e.g. renamed or deleted in the viewer)
+  window.addEventListener("storage", (e) => {
+    if (e.key !== "livlyTreeTracker.accounts") return;
+    useAccount(LivlyStore.get(accountId) ? accountId : pickAccount());
+    renderAll();
+  });
 }
 
 init();

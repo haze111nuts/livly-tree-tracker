@@ -40,6 +40,8 @@
   <main id="accounts">
     <p class="loading">Loading…</p>
   </main>
+  <!-- File picker used by Import (at the bottom of the page and on the welcome box) -->
+  <input id="import-file" type="file" accept=".json,application/json" hidden>
 
   <script>
     // Data and scripts (plain .js so the page works when opened directly from disk).
@@ -47,8 +49,9 @@
     [
       "data/livlies.js",
       "data/trees.js",
-      "data/accounts.js",
       "scripts/i18n.js",
+      "scripts/store.js",
+      "scripts/dialog.js",
       "scripts/nav.js",
       "scripts/app.js"
     ].forEach(function (src) {

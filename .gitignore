@@ -1,0 +1,6 @@
+# Personal backups exported from the tracker (keep them off GitHub)
+livly-tree-tracker-backup*.json
+
+# Windows clutter
+Thumbs.db
+desktop.ini

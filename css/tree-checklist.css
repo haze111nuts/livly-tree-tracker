@@ -24,13 +24,8 @@
 .picker-toolbar input[type="search"] { flex: 1 1 220px; min-width: 180px; }
 .toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; color: var(--muted); cursor: pointer; }
 
-button {
-  font: inherit; font-size: 0.9rem; cursor: pointer;
-  padding: 7px 16px; border-radius: 10px; border: 0;
-  background: #5b4b63; color: #fff;
-}
-button.secondary { background: #e6e0d7; color: var(--text); }
-button:hover { filter: brightness(1.08); }
+/* Tree tiles are <button>s: reset the browser's button look */
+.tree-tile { font: inherit; cursor: pointer; }
 
 /* Tree tiles */
 .picker-grid {
@@ -74,23 +69,26 @@ button:hover { filter: brightness(1.08); }
 
 .no-results { color: var(--muted); }
 
-/* Output box */
+/* Account summary on the right */
 .picker-output {
   position: sticky; top: 72px;   /* below the sticky top bar */
   background: var(--card);
   border-radius: var(--radius);
-  padding: 14px;
+  padding: 16px 18px;
   box-shadow: 0 2px 8px rgba(60, 40, 30, 0.08);
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
 }
-.output-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 0.9rem; }
-#output {
-  width: 100%;
-  height: min(60vh, 520px);
-  resize: vertical;
-  font-family: Consolas, "Cascadia Mono", Menlo, monospace;
-  font-size: 0.78rem; line-height: 1.5;
-  padding: 10px; border-radius: 10px; border: 1px solid #e2dbd2; background: #faf8f5; color: var(--text);
-  white-space: pre; overflow: auto;
-}
-.copy-status { margin: 0; min-height: 1.2em; font-size: 0.85rem; color: #5b9b6b; }
+.panel-name { font-size: 1.15rem; font-weight: 700; word-break: break-word; }
+.panel-saved { color: #3f8a3a; font-size: 0.88rem; min-height: 1.2em; }
+.panel-saved.flash { animation: savedFlash 600ms ease-out; }
+@keyframes savedFlash { from { color: #1f6a1a; font-weight: 600; } }
+.panel-link { color: #2f5fcf; font-size: 0.9rem; text-decoration: none; padding-top: 10px; border-top: 1px solid #eee5db; align-self: stretch; }
+.panel-link:hover { text-decoration: underline; }
+.panel-empty p { margin: 0 0 6px; color: var(--muted); line-height: 1.5; }
+
+/* Account dropdown */
+.account-picker { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+.picker-toolbar .account-picker select { font-weight: 600; max-width: 220px; }
+
+/* No account yet: tiles can't be ticked */
+.picker-grid.disabled { opacity: .5; pointer-events: none; }

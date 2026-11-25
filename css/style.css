@@ -15,7 +15,7 @@
   --c-plusterin-badge: #f2a516;   /* the "P" badge on Plusterin cards */
 
   /* Tooltip check marks: tree owned by this account / by another account (shared fruit) */
-  --c-this-account: #7ab955;      /* grass green */
+  --c-this-account: #4caf50;      /* grass green */
   --c-other-account: #17a99b;     /* teal green (also the share switch when on) */
 }
 
@@ -135,6 +135,82 @@ main { padding: 8px 32px 48px; }
 }
 .account-header h2 { margin: 0; font-size: 1.3rem; }
 .account-count { color: var(--muted); font-size: 0.9rem; }
+.account { scroll-margin-top: 72px; }   /* below the sticky top bar when jumped to */
+.account-header { align-items: center; }
+.account-actions { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+
+/* ===== Buttons (both pages) ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: 0.85rem; line-height: 1.2; cursor: pointer; white-space: nowrap;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid #e2dbd2; background: #fff; color: var(--text); text-decoration: none;
+}
+.btn:hover { background: #f7f3ee; filter: none; }
+.btn:disabled { opacity: .45; cursor: default; background: #fff; }
+.btn svg { width: 15px; height: 15px; flex: none; }
+.btn.primary { background: #5b8c4a; border-color: #5b8c4a; color: #fff; }
+.btn.primary:hover { background: #4f7c40; }
+.btn.danger { background: #c94a3d; border-color: #c94a3d; color: #fff; }
+.btn.danger:hover { background: #b23e32; }
+.icon-btn {
+  display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0;
+  border: 0; border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer;
+}
+.icon-btn:hover { background: #ebe4db; color: var(--text); filter: none; }
+.icon-btn svg { width: 17px; height: 17px; }
+/* Bottom line: "Saved in this browser only · Export backup · Import" */
+.data-footer {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 14px; padding: 14px; border-top: 1px solid #e2dbd2;
+  color: var(--muted); font-size: 0.85rem;
+}
+.link-btn {
+  display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; background: none;
+  font: inherit; color: #2f5fcf; cursor: pointer;
+}
+.link-btn:hover { text-decoration: underline; filter: none; }
+.link-btn svg { width: 14px; height: 14px; }
+
+/* "+ Add account" after the last account */
+.add-account {
+  display: block; width: 100%; margin-top: 28px; padding: 16px;
+  font: inherit; font-weight: 600; font-size: 0.95rem; color: var(--text); cursor: pointer;
+  background: transparent; border: 2px dashed #d8cfc4; border-radius: 12px;
+}
+.add-account:hover { background: rgba(255, 255, 255, 0.6); border-color: #b9ad9f; }
+
+/* First visit: no accounts yet */
+.empty-state {
+  max-width: 520px; margin: 56px auto; padding: 32px 36px; text-align: center;
+  background: var(--card); border-radius: 16px; box-shadow: 0 2px 10px rgba(60, 40, 30, 0.06);
+}
+.empty-art { font-size: 42px; }
+.empty-state h2 { margin: 6px 0 8px; font-size: 1.35rem; }
+.empty-state p { color: var(--muted); margin: 0 0 20px; line-height: 1.6; }
+.empty-buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.empty-buttons .btn { font-size: 0.95rem; padding: 8px 16px; }
+.empty-state small { display: block; margin-top: 18px; color: var(--muted); line-height: 1.5; }
+
+/* Pop-up box (scripts/dialog.js) */
+.dialog-backdrop {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px;
+  background: rgba(40, 30, 20, 0.35); animation: dialogFade 120ms ease-out;
+}
+.dialog {
+  width: min(380px, 100%); background: var(--card); border-radius: 14px; padding: 22px 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); animation: tipBounceIn 220ms cubic-bezier(.34, 1.56, .64, 1);
+}
+.dialog h3 { margin: 0 0 10px; font-size: 1.05rem; }
+.dialog p { margin: 0 0 4px; color: var(--muted); line-height: 1.6; font-size: 0.92rem; }
+.dialog input {
+  width: 100%; box-sizing: border-box; margin-top: 4px;
+  font: inherit; padding: 8px 10px; border: 1px solid #d8cfc4; border-radius: 8px; color: var(--text);
+}
+.dialog input:focus { outline: 2px solid #5b8c4a; outline-offset: 0; border-color: transparent; }
+.dialog-buttons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+@keyframes dialogFade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .dialog-backdrop, .dialog { animation: none; } }
 
 
 /* ===== Tree grid ===== */
@@ -300,6 +376,11 @@ a { color: inherit; }
   margin-top: 18px; background: rgba(255, 255, 255, 0.5); border-radius: 14px; padding: 10px;
 }
 .accounts-columns .account-header h2 { font-size: 1rem; }
+.accounts-columns .account-header { gap: 6px; }
+.accounts-columns .edit-trees span { display: none; }   /* icon only in narrow columns */
+.accounts-columns .edit-trees { padding: 5px 8px; }
+.accounts-columns .add-account { grid-column: 1 / -1; margin-top: 4px; }
+.accounts-columns .data-footer { grid-column: 1 / -1; margin-top: 0; }
 .accounts-columns .tile-grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
 @media (max-width: 900px) {
   .accounts-columns { grid-template-columns: 1fr; }

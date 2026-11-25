@@ -1,14 +1,13 @@
 /* =========================================================
  * Livly Tree Tracker (Tree Viewer page)
- * Reads window.LIVLY_DATA (filled by data/*.js) and renders
- * one tree grid per account, in Japanese or English.
- * No server needed.
+ * Reads the game data (data/*.js) and the accounts saved in this
+ * browser (scripts/store.js), and renders one tree grid per account,
+ * in Japanese or English. No server needed.
  * ========================================================= */
 
 const DATA_FILES = {
   trees: "data/trees.js",
   livlies: "data/livlies.js",
-  accounts: "data/accounts.js",
 };
 
 // Local image folders (used when an image field is a filename, not a URL)
@@ -16,7 +15,6 @@ const ASSET_DIRS = {
   banner: "assets/banners",
   tree: "assets/trees",
   livly: "assets/livlies",
-  icon: "assets/icons",
 };
 
 
@@ -213,8 +211,8 @@ function variantLabel(l, data) {
   return (base && full.replace(tr(base.name), "").trim()) || full;
 }
 
-function tipImg(src) {
-  return imgOrFallback(resolveImage(src, "livly"), "", "", () => el("span", { class: "lt-ph" }));
+function tipImg(src, kind = "livly") {
+  return imgOrFallback(resolveImage(src, kind), "", "", () => el("span", { class: "lt-ph" }));
 }
 
 function buildIngredientTip(tree, data, ownership) {
@@ -230,7 +228,7 @@ function buildIngredientTip(tree, data, ownership) {
     const recipe = (l.recipe || []).map((r) => {
       const rt = data.trees[r.tree];
       return el("span", { class: `lt-ing ${treeState(r.tree, ownership)}` },
-        el("span", { class: "lt-ing-pic" }, tipImg(rt && rt.image)), `×${r.count}`);
+        el("span", { class: "lt-ing-pic" }, tipImg(rt && rt.image, "tree")), `×${r.count}`);
     });
 
     const chain = el("div", { class: `lt-chain${ok ? "" : " cannot"}` },
@@ -254,7 +252,7 @@ function buildIngredientTip(tree, data, ownership) {
           return el("div", { class: `lt-p ${pok ? "ok" : "no"} ${pok && treeState(extraTreeId, ownership) === "other" ? "other" : ""}` },
             el("div", { class: "lt-p-pic" }, tipImg(p.image)),
             variantLabel(p, data),
-            extraTree ? el("div", { class: "lt-p-tree" }, tipImg(extraTree.image)) : null);
+            extraTree ? el("div", { class: "lt-p-tree" }, tipImg(extraTree.image, "tree")) : null);
         })));
     }
     box.append(chain);
@@ -447,20 +445,150 @@ const GRID_CLASS = {
   columns: "tile-grid",
 };
 
-function renderAccount(account, data, allTrees) {
+/* ---------- accounts: add / rename / delete / import / export ---------- */
+
+const ICONS = {
+  rename: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>',
+  delete: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+  edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>',
+  import: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></svg>',
+  export: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>',
+};
+
+/** Button with an SVG icon and an optional text label. */
+function iconButton(cls, icon, label, title, onclick) {
+  const btn = el("button", { type: "button", class: cls, title, "aria-label": title, onclick });
+  btn.innerHTML = ICONS[icon];
+  if (label) btn.append(el("span", {}, label));
+  return btn;
+}
+
+const accountName = (acc, index) => acc.name || ui().defaultAccountName(index + 1);
+
+async function addAccount() {
+  const t = ui();
+  const r = await LivlyDialog.open({
+    title: t.addTitle,
+    input: { value: "", placeholder: t.namePlaceholder },
+    buttons: [{ label: t.cancel }, { label: t.add, value: "ok", primary: true }],
+  });
+  if (!r) return;
+  const acc = LivlyStore.add(r.text || t.defaultAccountName(LivlyStore.list().length + 1));
+  scrollToAccount(acc.id);
+}
+
+async function renameAccount(acc, index) {
+  const t = ui();
+  const r = await LivlyDialog.open({
+    title: t.renameTitle,
+    input: { value: accountName(acc, index), placeholder: t.namePlaceholder },
+    buttons: [{ label: t.cancel }, { label: t.save, value: "ok", primary: true }],
+  });
+  if (r && r.text) LivlyStore.rename(acc.id, r.text);
+}
+
+async function deleteAccount(acc, index) {
+  const t = ui();
+  const r = await LivlyDialog.open({
+    title: t.deleteTitle(accountName(acc, index)),
+    message: t.deleteText(acc.trees.length),
+    buttons: [{ label: t.cancel }, { label: t.deleteAccount, value: "ok", danger: true }],
+  });
+  if (r) LivlyStore.remove(acc.id);
+}
+
+function showMessage(title, message) {
+  return LivlyDialog.open({ title, message, buttons: [{ label: ui().ok, value: "ok", primary: true }] });
+}
+
+/** Reads the chosen .json file and asks whether to add or replace. */
+async function importFromFile(file) {
+  const t = ui();
+  let result;
+  try {
+    result = LivlyStore.parseImport(await file.text(), window.LIVLY_DATA.trees);
+  } catch (e) {
+    console.error(e);
+    await showMessage(t.importTitle, t.importError);
+    return;
+  }
+  const { accounts, skipped } = result;
+  const treeTotal = accounts.reduce((sum, a) => sum + a.trees.length, 0);
+  let mode = "replace";
+  if (LivlyStore.list().length) {
+    const r = await LivlyDialog.open({
+      title: t.importTitle,
+      message: t.importText(accounts.length, treeTotal),
+      buttons: [{ label: t.cancel }, { label: t.importReplace, value: "replace" },
+        { label: t.importAdd, value: "add", primary: true }],
+    });
+    if (!r) return;
+    mode = r.value;
+  }
+  LivlyStore.importAccounts(accounts, mode);
+  await showMessage(t.importTitle,
+    [t.importDone(accounts.length), skipped ? t.importSkipped(skipped) : ""].join(" ").trim());
+}
+
+function openImport() {
+  const input = document.getElementById("import-file");
+  input.value = "";
+  input.onchange = () => { if (input.files[0]) importFromFile(input.files[0]); };
+  input.click();
+}
+
+function scrollToAccount(id) {
+  const section = document.getElementById(`account-${id}`);
+  if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderAccount(account, index, data, allTrees) {
+  const t = ui();
   const owned = [...new Set(account.trees || [])];
   const own = new Set(owned);
   // With shared fruit, every account's trees count as available
   const ownership = { own, pool: sharedFruit ? allTrees : own, shared: sharedFruit };
   const renderCard = CARD_RENDERERS[view];
 
-  return el("section", { class: "account" },
+  const edit = el("a", { class: "btn primary edit-trees", href: `tree-checklist.html?account=${encodeURIComponent(account.id)}`, title: t.editTrees });
+  edit.innerHTML = ICONS.edit;
+  edit.append(el("span", {}, t.editTrees));
+
+  return el("section", { class: "account", id: `account-${account.id}` },
     el("div", { class: "account-header" },
-      el("h2", {}, tr(account.name)),
-      el("span", { class: "account-count" }, ui().treeCount(owned.length))),
+      el("h2", {}, accountName(account, index)),
+      el("span", { class: "account-count" }, t.treeCount(owned.length)),
+      el("div", { class: "account-actions" },
+        iconButton("icon-btn", "rename", null, t.renameAccount, () => renameAccount(account, index)),
+        iconButton("icon-btn", "delete", null, t.deleteAccount, () => deleteAccount(account, index)),
+        edit)),
     el("div", { class: GRID_CLASS[view] },
       owned.map((id) => renderCard(id, data, ownership)))
   );
+}
+
+/** Quiet line at the bottom: "Saved in this browser only · Export backup · Import". */
+function renderDataFooter() {
+  const t = ui();
+  return el("div", { class: "data-footer" },
+    el("span", {}, t.savedLocally),
+    el("span", { class: "sep", "aria-hidden": "true" }, "·"),
+    iconButton("link-btn", "export", t.exportBackup, t.exportHint, () => LivlyStore.download()),
+    el("span", { class: "sep", "aria-hidden": "true" }, "·"),
+    iconButton("link-btn", "import", t.importData, t.importHint, openImport));
+}
+
+/** First visit (no accounts yet). */
+function renderEmptyState() {
+  const t = ui();
+  return el("div", { class: "empty-state" },
+    el("div", { class: "empty-art", "aria-hidden": "true" }, "🌳"),
+    el("h2", {}, t.emptyTitle),
+    el("p", {}, t.emptyText),
+    el("div", { class: "empty-buttons" },
+      el("button", { type: "button", class: "btn primary", onclick: addAccount }, t.addAccount),
+      iconButton("btn", "import", t.importFile, t.importHint, openImport)),
+    el("small", {}, t.emptyNote));
 }
 
 /** Top bar, header text, legend and the View switch. */
@@ -529,13 +657,27 @@ function render() {
   }
 
   renderChrome(data);
+  const root = document.getElementById("accounts");
+  if (!LivlyStore.available()) {
+    root.className = "";
+    root.replaceChildren(el("div", { class: "error-box" }, ui().noStorage));
+    return;
+  }
   try {
-    const root = document.getElementById("accounts");
+    const accounts = LivlyStore.list();
+    if (!accounts.length) {
+      root.className = "";
+      root.replaceChildren(renderEmptyState());
+      return;
+    }
     // "columns" puts every account next to each other
     root.className = view === "columns" ? "accounts-columns" : "";
-    root.style.setProperty("--account-count", data.accounts.length);
-    const allTrees = new Set(data.accounts.flatMap((acc) => acc.trees || []));
-    root.replaceChildren(...data.accounts.map((acc) => renderAccount(acc, data, allTrees)));
+    root.style.setProperty("--account-count", accounts.length);
+    const allTrees = new Set(accounts.flatMap((acc) => acc.trees || []));
+    root.replaceChildren(
+      ...accounts.map((acc, i) => renderAccount(acc, i, data, allTrees)),
+      el("button", { type: "button", class: "add-account", onclick: addAccount }, ui().addAccount),
+      renderDataFooter());
   } catch (err) {
     console.error(err);
     showError(err.message);
@@ -543,3 +685,7 @@ function render() {
 }
 
 render();
+// Re-draw after any change, including edits made on the Tree Checklist in another tab
+LivlyStore.onChange(render);
+// Opened from the checklist's "View … trees" link: jump to that account
+if (location.hash.startsWith("#account-")) scrollToAccount(location.hash.slice(9));

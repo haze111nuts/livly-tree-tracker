@@ -23,31 +23,27 @@
   <main class="picker-layout">
     <section class="picker-main">
       <div class="picker-toolbar">
+        <!-- Which saved account is being edited -->
+        <label class="account-picker"><span id="account-label"></span> <select id="account-select"></select></label>
         <input id="search" type="search" autocomplete="off">
-        <select id="load-account"></select>
         <label class="toggle"><input id="selected-only" type="checkbox"> <span id="selected-only-label"></span></label>
-        <button id="clear" type="button" class="secondary"></button>
+        <button id="reset" type="button" class="btn"></button>
       </div>
       <div id="tree-grid" class="picker-grid"></div>
       <p id="no-results" class="no-results" hidden></p>
     </section>
 
-    <aside class="picker-output">
-      <div class="output-head">
-        <strong id="selected-count"></strong>
-        <button id="copy" type="button"></button>
-      </div>
-      <textarea id="output" readonly spellcheck="false"></textarea>
-      <p id="copy-status" class="copy-status" aria-live="polite"></p>
-    </aside>
+    <!-- Summary of the account being edited (filled in by scripts/tree-checklist.js) -->
+    <aside id="account-panel" class="picker-output"></aside>
   </main>
 
   <script>
     [
       "data/livlies.js",
       "data/trees.js",
-      "data/accounts.js",
       "scripts/i18n.js",
+      "scripts/store.js",
+      "scripts/dialog.js",
       "scripts/nav.js",
       "scripts/tree-checklist.js"
     ].forEach(function (src) {
