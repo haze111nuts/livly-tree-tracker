@@ -6,16 +6,17 @@ Just double-click `index.html`, or open the GitHub Pages link. No server needed.
 ## Your accounts
 Accounts are saved **in your browser** (localStorage), so everyone who opens the page
 keeps their own list. Nothing is sent anywhere.
-- **+ Add account** (bottom of the Tree Viewer) adds one; the ✏️ and 🗑 icons next to an account rename or delete it.
-- **Edit trees** opens the Tree Checklist for that account.
-- **Export backup** (bottom of the Tree Viewer) downloads all accounts as a `.json` file.
+- **+ Add account** (bottom of My trees → Overview) adds one; the ✏️ and 🗑 icons next to an account rename or delete it.
+- **Edit trees** opens My trees → Edit trees for that account.
+- **Export backup** (bottom of the Overview) downloads all accounts as a `.json` file.
   Use it as a backup, or to move your accounts to another browser or computer with
   **Import** next to it (you can add them to your current accounts or replace everything).
 
 Saved data is per browser: clearing your browser's site data erases it, so export now and then.
 Files named `livly-tree-tracker-backup*.json` are kept out of git by `.gitignore`.
 
-The top bar switches between the two pages (**Tree Viewer** and **Tree Checklist**) and has the 🌐 language menu at the right.
+The top bar has two sections, **My trees** and **★ Wishlist**, plus the 🌐 language menu at the right.
+Each section has a switch under its title: My trees → **Overview** | **Edit trees**, Wishlist → **My wishlist** | **Find trees**.
 
 Use the **View** switch to pick a layout, from biggest to smallest: **Large cards**, **Compact** (default), **Tiles**, **Side by side** (all accounts in columns). The page remembers your choice; you can also open `index.html?view=tiles` etc.
 
@@ -24,7 +25,7 @@ Use the **View** switch to pick a layout, from biggest to smallest: **Large card
 Use the 🌐 language menu at the top right to switch between 日本語 and English. The pages
 remember your choice. You can also open `index.html?lang=en` or `index.html?lang=ja`.
 
-## Tree Checklist (`tree-checklist.html`)
+## My trees → Edit trees (`tree-checklist.html`)
 1. Pick the account in the **Account** menu (or "+ New account…").
 2. Click every tree the account owns. Each click is saved straight away.
    Hover a tree to see its name; the search box finds trees by tree, fruit or gacha name (Japanese or English).
@@ -44,7 +45,7 @@ Two tabs:
   finds Livly names; **Only trees that unlock something I can make** hides trees that wouldn't let
   you make anything new on their own.
 
-Ticking a wished tree on the Tree Checklist removes it from the wishlist automatically. When
+Ticking a wished tree under Edit trees removes it from the wishlist automatically. When
 **Share fruit across accounts** is on in the viewer, ✓ / +1 count every account's trees.
 Wishlists are included in Export / Import.
 
@@ -52,7 +53,7 @@ Wishlists are included in Export / Import.
 - `index.html` – page shell
 - `css/style.css` – styles
 - `scripts/app.js` – reads the data and renders the grids
-- `tree-checklist.html`, `scripts/tree-checklist.js`, `css/tree-checklist.css` – the Tree Checklist
+- `tree-checklist.html`, `scripts/tree-checklist.js`, `css/tree-checklist.css` – My trees → Edit trees
 - `wishlist.html`, `scripts/wishlist.js`, `css/wishlist.css` – the Wishlist
 - `scripts/nav.js` – the shared top bar (page tabs + language menu)
 - `scripts/store.js` – saving accounts in the browser, import / export

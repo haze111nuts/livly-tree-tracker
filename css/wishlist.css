@@ -1,13 +1,5 @@
 /* ===== Wishlist page (extends style.css) ===== */
 
-.wish-header {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
-  padding: 18px 32px 6px;
-}
-.wish-header h1 { margin: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
-.wish-star { color: #e0a100; }
-.wish-header .segmented button { padding: 6px 16px; font-size: 0.9rem; }
-
 .wish-main { padding: 6px 32px 48px; }
 
 /* What ✓ / +1 mean */
@@ -135,7 +127,7 @@
 .wish-pill.owned:hover { border-color: #e2dbd2; }
 
 @media (max-width: 760px) {
-  .wish-header, .wish-main { padding-left: 14px; padding-right: 14px; }
+  .wish-main { padding-left: 14px; padding-right: 14px; }
   .find-head { display: none; }
   .find-row { grid-template-columns: 56px 1fr; }
   .find-tree, .find-row .img-missing.find-tree { width: 56px; height: 56px; }

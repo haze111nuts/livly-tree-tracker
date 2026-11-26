@@ -152,11 +152,9 @@ function renderChrome() {
   document.documentElement.lang = lang;
   document.title = `${t.wishTitle} · ${t.appName}`;
   LivlyNav.render("wishlist", lang, (code) => { lang = code; store(LANG_STORAGE_KEY, code); render(); });
-  $("wish-title").textContent = t.wishTitle;
-  $("wish-tabs").replaceChildren(...TABS.map((code) => el("button", {
-    type: "button",
-    class: code === tab ? "active" : null,
-    "aria-pressed": String(code === tab),
+  LivlyNav.header($("section-header"), "wishlist", t.wishTitle, TABS.map((code) => ({
+    label: t.wishTabs[code],
+    active: code === tab,
     onclick: () => {
       if (code === tab) return;
       tab = code;
@@ -166,7 +164,7 @@ function renderChrome() {
       history.replaceState(null, "", url);
       render();
     },
-  }, t.wishTabs[code])));
+  })));
   $("wish-key").replaceChildren(
     el("span", {}, el("i", { class: "wl-can" }, "✓"), t.wishKeyCan),
     el("span", {}, el("i", { class: "wl-need" }, "+1"), t.wishKeyNeed));
@@ -314,7 +312,7 @@ function render() {
   $("find-filters").hidden = tab !== "find" || !accounts.length;
   if (!accounts.length) {
     content.replaceChildren(el("p", { class: "wish-empty" },
-      t.wishNoAccounts, " ", el("a", { href: "index.html" }, t.navViewer)));
+      t.wishNoAccounts, " ", el("a", { href: "index.html" }, t.navMyTrees)));
     return;
   }
   if (tab === "find") {
@@ -330,7 +328,7 @@ $("missing-from").addEventListener("change", render);
 $("only-useful").addEventListener("change", render);
 let searchTimer = null;
 $("find-search").addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(render, 150); });
-// Accounts changed in another tab (Tree Viewer or Checklist)
+// Accounts changed in another tab (Overview or Edit trees)
 window.addEventListener("storage", (e) => {
   if (e.key === "livlyTreeTracker.accounts" || e.key === SHARED_STORAGE_KEY) render();
 });

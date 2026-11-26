@@ -1,8 +1,8 @@
 /* =========================================================
- * Tree Checklist (tree-checklist.html)
+ * My trees → Edit trees (tree-checklist.html)
  * Pick an account at the top, then click the trees it owns.
  * Every click is saved straight away to the accounts kept in this
- * browser (scripts/store.js), so the Tree Viewer shows it too.
+ * browser (scripts/store.js), so the Overview shows it too.
  * No server needed.
  * ========================================================= */
 
@@ -221,11 +221,12 @@ function renderPanel(full = true) {
 function renderText() {
   const t = ui();
   document.documentElement.lang = lang;
-  document.title = `${t.pickerTitle} · ${t.appName}`;
+  document.title = `${t.tabEdit} · ${t.appName}`;
   LivlyNav.render("picker", lang, (code) => {
     lang = code; store(LANG_STORAGE_KEY, code);
     renderAll();
   });
+  LivlyNav.treesHeader($("section-header"), lang, "picker", location.pathname.split("/").pop() + location.search);
   $("intro").textContent = t.pickerIntro;
   $("account-label").textContent = t.accountLabel;
   $("search").placeholder = t.search;

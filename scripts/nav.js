@@ -1,15 +1,23 @@
 /* =========================================================
- * Shared top navigation bar (used by both pages):
- *   [App name]  [Tree Viewer] [Tree Checklist]  ......  [🌐 Language ▾]
+ * Shared page chrome (used by every page):
+ *  - Top bar:   [App name]  [My trees] [★ Wishlist]  ......  [🌐 Language ▾]
+ *  - Section header under it: icon + title + a two-way switch
+ *      My trees  : Overview (index.html) | Edit trees (tree-checklist.html)
+ *      Wishlist  : My wishlist | Find trees (tabs inside wishlist.html)
  * Also holds the small size icons used by the View switch.
  * ========================================================= */
 
 window.LivlyNav = (function () {
-  const PAGES = [
-    { id: "viewer", href: "index.html", label: (t) => t.navViewer },
-    { id: "picker", href: "tree-checklist.html", label: (t) => t.navPicker },
-    { id: "wishlist", href: "wishlist.html", label: (t) => t.navWishlist },
+  // Top-bar sections, and which pages belong to each
+  const SECTIONS = [
+    { id: "trees", href: "index.html", label: (t) => t.navMyTrees, pages: ["viewer", "picker"] },
+    { id: "wishlist", href: "wishlist.html", label: (t) => t.navWishlist, pages: ["wishlist"] },
   ];
+
+  const ICONS = {
+    trees: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7 6 5 9.5 5 13a7 7 0 0 0 6 6.9V22h2v-2.1A7 7 0 0 0 19 13c0-3.5-2-7-7-11z"/></svg>',
+    wishlist: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>',
+  };
 
   // Icons for the View switch, from biggest cards to smallest
   const VIEW_ICONS = {
@@ -36,11 +44,11 @@ window.LivlyNav = (function () {
 
     const tabs = document.createElement("div");
     tabs.className = "nav-tabs";
-    for (const page of PAGES) {
+    for (const section of SECTIONS) {
       const a = document.createElement("a");
-      a.href = page.href;
-      a.textContent = page.label(t);
-      if (page.id === activePage) {
+      a.href = section.href;
+      a.textContent = section.label(t);
+      if (section.pages.includes(activePage)) {
         a.className = "active";
         a.setAttribute("aria-current", "page");
       }
@@ -65,5 +73,41 @@ window.LivlyNav = (function () {
     nav.replaceChildren(brand, tabs, spacer, select);
   }
 
-  return { render, VIEW_ICONS };
+  /**
+   * Fills a <header class="section-header"> with the section's icon, title and switch.
+   *   section: "trees" | "wishlist"
+   *   tabs: [{ label, href } or { label, onclick }, ...] with active: true on the current one
+   */
+  function header(container, section, title, tabs) {
+    const h1 = document.createElement("h1");
+    const icon = document.createElement("span");
+    icon.className = `section-icon section-${section}`;
+    icon.innerHTML = ICONS[section];
+    h1.append(icon, document.createTextNode(title));
+
+    const sw = document.createElement("div");
+    sw.className = "segmented section-switch";
+    for (const tab of tabs) {
+      const item = document.createElement(tab.href ? "a" : "button");
+      if (tab.href) item.href = tab.href; else { item.type = "button"; item.addEventListener("click", tab.onclick); }
+      item.textContent = tab.label;
+      if (tab.active) {
+        item.className = "active";
+        item.setAttribute("aria-current", "page");
+      }
+      sw.append(item);
+    }
+    container.replaceChildren(h1, sw);
+  }
+
+  /** The My trees switch: Overview | Edit trees. extraQuery keeps e.g. ?account=… on the edit link. */
+  function treesHeader(container, lang, active, editHref = "tree-checklist.html") {
+    const t = window.LIVLY_I18N[lang];
+    header(container, "trees", t.navMyTrees, [
+      { label: t.tabOverview, href: "index.html", active: active === "viewer" },
+      { label: t.tabEdit, href: editHref, active: active === "picker" },
+    ]);
+  }
+
+  return { render, header, treesHeader, VIEW_ICONS };
 })();

@@ -10,8 +10,7 @@ window.LIVLY_I18N = {
     languageLabel: "言語",
     appName: "リヴリー 木の管理帳",
     pageTitle: "リヴリー 木の管理帳",
-    subtitle: "全アカウントの木",
-    stats: (livlies, trees) => `・リヴリー${livlies}種／木${trees}種を収録`,
+    stats: (livlies, trees) => `リヴリー${livlies}種／木${trees}種を収録`,
     treeCount: (n) => `${n}本`,
     potion: {
       neobelmin: "ネオベルミン",
@@ -21,7 +20,6 @@ window.LIVLY_I18N = {
     },
     baseNeobelmin: (name) => `${name}のネオベルミン`,
     tipTitle: (n) => `この実で作れるリヴリー（ほか${n}種）`,
-    mainTag: "メイン",
     canMake: "✓ 作れる",
     missingTrees: "木が足りない",
     keyThisAccount: "このアカウントの木",
@@ -40,9 +38,10 @@ window.LIVLY_I18N = {
     views: { large: "大きく", compact: "標準", tiles: "小さく", columns: "横並び" },
 
     // Navigation
-    navViewer: "木の一覧",
-    navPicker: "木のチェックリスト",
+    navMyTrees: "持っている木",
     navWishlist: "★ ほしい木",
+    tabOverview: "一覧",
+    tabEdit: "木を編集",
 
     // Wishlist page
     wishTitle: "ほしい木リスト",
@@ -51,7 +50,7 @@ window.LIVLY_I18N = {
     wishKeyNeed: "あと1本、別の木が必要",
     wishSummary: (wished, owned) => `★ ${wished}本 ・ 所持 ${owned}本`,
     wishEmpty: "まだありません。「木をさがす」から追加できます。",
-    wishNoAccounts: "アカウントがまだありません。まず木の一覧でアカウントを追加してください。",
+    wishNoAccounts: "アカウントがまだありません。まず「持っている木」でアカウントを追加してください。",
     readyToMake: (n) => `すぐ作れる ${n}種`,
     gotIt: "✓ 手に入れた",
     gotItHint: "持っている木に移動します",
@@ -81,7 +80,7 @@ window.LIVLY_I18N = {
     renameAccount: "名前を変更",
     deleteAccount: "削除",
     emptyTitle: "木の記録をはじめましょう",
-    emptyText: "まずアカウントを追加して、木のチェックリストで持っている木を選んでください。",
+    emptyText: "まずアカウントを追加して、「木を編集」で持っている木を選んでください。",
     importFile: "ファイルから読み込む",
     emptyNote: "データはこのブラウザの中だけに保存されます。バックアップや別の端末への移動には、ページ下の「バックアップを書き出す」を使ってください。",
     noStorage: "このブラウザではデータを保存できません（プライベートブラウズなど）。通常のウィンドウで開いてください。",
@@ -104,7 +103,6 @@ window.LIVLY_I18N = {
     ok: "OK",
 
     // Tree Checklist
-    pickerTitle: "木のチェックリスト",
     pickerIntro: "持っている木をクリックして選んでください。選んだ内容はすぐに保存されます。",
     accountLabel: "アカウント",
     newAccountOption: "＋ 新しいアカウント…",
@@ -128,8 +126,7 @@ window.LIVLY_I18N = {
     languageLabel: "Language",
     appName: "Livly Tree Tracker",
     pageTitle: "Livly Tree Tracker",
-    subtitle: "My trees across all accounts",
-    stats: (livlies, trees) => `· ${livlies} Livlies · ${trees} trees loaded`,
+    stats: (livlies, trees) => `${livlies} Livlies · ${trees} trees loaded`,
     treeCount: (n) => `${n} ${n === 1 ? "tree" : "trees"}`,
     potion: {
       neobelmin: "Neobelmin",
@@ -139,7 +136,6 @@ window.LIVLY_I18N = {
     },
     baseNeobelmin: (name) => `${name} Neobelmin`,
     tipTitle: (n) => `Livlies that use this fruit (+${n})`,
-    mainTag: "Main",
     canMake: "✓ Can make",
     missingTrees: "Missing trees",
     keyThisAccount: "This account",
@@ -158,9 +154,10 @@ window.LIVLY_I18N = {
     views: { large: "Large cards", compact: "Compact", tiles: "Tiles", columns: "Side by side" },
 
     // Navigation
-    navViewer: "Tree Viewer",
-    navPicker: "Tree Checklist",
+    navMyTrees: "My trees",
     navWishlist: "★ Wishlist",
+    tabOverview: "Overview",
+    tabEdit: "Edit trees",
 
     // Wishlist page
     wishTitle: "Wishlist",
@@ -169,7 +166,7 @@ window.LIVLY_I18N = {
     wishKeyNeed: "still needs 1 more tree",
     wishSummary: (wished, owned) => `★ ${wished} wished · ${owned} owned`,
     wishEmpty: "Nothing yet. Add trees from Find trees.",
-    wishNoAccounts: "No accounts yet. Add one on the Tree Viewer first.",
+    wishNoAccounts: "No accounts yet. Add one under My trees first.",
     readyToMake: (n) => `${n} ready to make`,
     gotIt: "✓ Got it",
     gotItHint: "Move this tree to the account's owned trees",
@@ -199,7 +196,7 @@ window.LIVLY_I18N = {
     renameAccount: "Rename",
     deleteAccount: "Delete",
     emptyTitle: "Start tracking your trees",
-    emptyText: "Add your first account, then tick the trees you own on the Tree Checklist.",
+    emptyText: "Add your first account, then tick the trees you own under Edit trees.",
     importFile: "Import file",
     emptyNote: "Your data is saved in this browser only. Use \"Export backup\" at the bottom of the page to back it up or move it to another device.",
     noStorage: "This browser can't save data (for example in a private window). Please open the page in a normal window.",
@@ -222,7 +219,6 @@ window.LIVLY_I18N = {
     ok: "OK",
 
     // Tree Checklist
-    pickerTitle: "Tree Checklist",
     pickerIntro: "Click the trees you own. Changes are saved straight away.",
     accountLabel: "Account",
     newAccountOption: "+ New account…",

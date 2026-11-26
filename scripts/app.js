@@ -1,5 +1,5 @@
 /* =========================================================
- * Livly Tree Tracker (Tree Viewer page)
+ * Livly Tree Tracker (My trees → Overview, index.html)
  * Reads the game data (data/*.js) and the accounts saved in this
  * browser (scripts/store.js), and renders one tree grid per account,
  * in Japanese or English. No server needed.
@@ -218,7 +218,6 @@ function tipImg(src, kind = "livly") {
 function buildIngredientTip(tree, data, ownership) {
   const t = ui();
   const rows = potionChains(tree, data);
-  const mainId = (tree.livlies || [])[0];
   const box = el("div", { class: "livly-tip", role: "tooltip" },
     el("p", { class: "lt-title" }, t.tipTitle(extraCount(tree, data))));
 
@@ -237,7 +236,6 @@ function buildIngredientTip(tree, data, ownership) {
         el("div", { class: "lt-name-line" },
           el("span", { class: "lt-name" }, tr(l.name)),
           el("span", { class: `lt-pill type-${l.potion}` }, t.potion[l.potion]),
-          row.id === mainId ? el("span", { class: "lt-main" }, t.mainTag) : null,
           el("span", { class: `lt-status ${ok ? "ok" : "no"}` }, ok ? t.canMake : t.missingTrees)),
         el("div", { class: "lt-recipe" }, recipe)));
 
@@ -597,7 +595,7 @@ function renderChrome(data) {
   document.documentElement.lang = lang;
   document.title = t.pageTitle;
   LivlyNav.render("viewer", lang, (code) => { lang = code; saveLanguage(code); render(); });
-  document.getElementById("subtitle").textContent = t.subtitle;
+  LivlyNav.treesHeader(document.getElementById("section-header"), lang, "viewer");
 
   const stats = document.getElementById("stats");
   stats.textContent = data
@@ -685,7 +683,7 @@ function render() {
 }
 
 render();
-// Re-draw after any change, including edits made on the Tree Checklist in another tab
+// Re-draw after any change, including edits made under Edit trees in another tab
 LivlyStore.onChange(render);
 // Opened from the checklist's "View … trees" link: jump to that account
 if (location.hash.startsWith("#account-")) scrollToAccount(location.hash.slice(9));
