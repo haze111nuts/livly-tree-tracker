@@ -22,13 +22,14 @@ Use the **View** switch to pick a layout, from biggest to smallest: **Large card
 
 **Share fruit across accounts** (switch next to View): when on, the "+N" tooltip counts trees from all your accounts as ingredients, so "Can make" means any of your accounts has the trees. Trees from another account get a teal ✓. Also `index.html?shared=1`.
 
-Use the 🌐 language menu at the top right to switch between 日本語 and English. The pages
-remember your choice. You can also open `index.html?lang=en` or `index.html?lang=ja`.
+Use the 🌐 language menu at the top right to switch between 日本語, English and 繁體中文. The pages
+remember your choice. You can also open `index.html?lang=en`, `?lang=ja` or `?lang=zh` (Traditional Chinese, Taiwan).
+Chinese names come from the Taiwan-server fan site; the few entries it doesn't name yet are shown in English.
 
 ## My trees → Edit trees (`tree-checklist.html`)
 1. Pick the account in the **Account** menu (or "+ New account…").
 2. Click every tree the account owns. Each click is saved straight away.
-   Hover a tree to see its name; the search box finds trees by tree, fruit or gacha name (Japanese or English).
+   Hover a tree to see its name; the search box finds trees by tree, fruit or gacha name (any of the three languages).
 
 The 3 starting apple trees are always ticked (🔒), since every player has them and can't
 discard them. **Reset to starter trees** unticks everything else.
@@ -63,8 +64,9 @@ Wishlists are included in Export / Import.
 - `assets/banners`, `assets/trees`, `assets/livlies` – optional: your own images (see the `image` / `banner` fields below). Empty for now; all images currently load from the web.
 
 ## Data files
-All data uses **language-neutral ids**. Every name is stored as a pair:
-`{ "ja": "雨上がりの虹の木", "en": "Rainbow Tree" }`.
+All data uses **language-neutral ids**. Every name is stored per language:
+`{ "ja": "雨上がりの虹の木", "en": "Rainbow Tree", "zh": "雨後的彩虹樹" }`.
+`"zh"` can be left out; the page then shows the English name.
 
 Each data file is plain JSON with one line in front (`LIVLY_DATA.trees = ...`)
 and a `;` at the end. That is what lets the page load it from disk.
@@ -108,3 +110,4 @@ see the tree name, fruit and where it comes from.
 - Japanese names, recipes, images: https://www.livly.com/picturebook/
 - English names: https://livlyislandnewedition.wiki.gg/wiki/Trees and /wiki/Livly
 - Banners: https://livly-guide.com/gacha-list/
+- Traditional Chinese names (Taiwan server, fan site): https://livlyislandyabi.blogspot.com/

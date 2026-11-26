@@ -6,7 +6,7 @@
  * No server needed.
  * ========================================================= */
 
-const LANGS = ["ja", "en"];
+const LANGS = ["ja", "en", "zh"];   // zh = Traditional Chinese (Taiwan)
 const LANG_STORAGE_KEY = "livlyTreeViewer.lang";              // shared with the viewer
 const LAST_ACCOUNT_KEY = "livlyTreeTracker.checklistAccount"; // account picked last time
 const NEW_ACCOUNT = "__new__";                                // dropdown value for "+ New account…"
@@ -30,7 +30,7 @@ function pickLanguage() {
     const saved = localStorage.getItem(LANG_STORAGE_KEY);
     if (LANGS.includes(saved)) return saved;
   } catch (e) { /* ignore */ }
-  return (navigator.language || "").toLowerCase().startsWith("ja") ? "ja" : "en";
+  return browserLanguage();
 }
 
 function store(key, value) {
@@ -41,10 +41,19 @@ function safeGet(key) {
   try { return localStorage.getItem(key); } catch (e) { return null; }
 }
 
+/** First language from the browser settings that the page supports. */
+function browserLanguage() {
+  const code = (navigator.language || "").toLowerCase();
+  if (code.startsWith("ja")) return "ja";
+  if (code.startsWith("zh")) return "zh";
+  return "en";
+}
+
 function tr(value) {
   if (value == null) return "";
   if (typeof value === "string") return value;
-  return value[lang] || value.ja || value.en || "";
+  // Chinese names are missing for a few entries: show English there (closer for most readers than Japanese)
+  return value[lang] || (lang === "zh" ? value.en || value.ja : value.ja || value.en) || "";
 }
 
 function el(tag, attrs = {}, ...children) {
@@ -124,7 +133,7 @@ function save() {
 
 function tooltip(t, id) {
   return [
-    `${t.name.ja} / ${t.name.en}`,
+    [t.name[lang], t.name.ja, t.name.en].filter((v, i, all) => v && all.indexOf(v) === i).join(" / "),
     `${ui().fruit}: ${tr(t.fruit)}`,
     `${ui().source}: ${tr(t.source)}`,
     isLocked(id) ? ui().alwaysOwned : null,
@@ -133,7 +142,7 @@ function tooltip(t, id) {
 
 /** Text used by the search box: every name in both languages. */
 function searchText(t) {
-  return [t.name, t.fruit, t.source].flatMap((v) => [v?.ja, v?.en]).join(" ").toLowerCase();
+  return [t.name, t.fruit, t.source].flatMap((v) => [v?.ja, v?.en, v?.zh]).join(" ").toLowerCase();
 }
 
 function toggle(id, tile) {
@@ -220,7 +229,7 @@ function renderPanel(full = true) {
 
 function renderText() {
   const t = ui();
-  document.documentElement.lang = lang;
+  document.documentElement.lang = lang === "zh" ? "zh-Hant-TW" : lang;
   document.title = `${t.tabEdit} · ${t.appName}`;
   LivlyNav.render("picker", lang, (code) => {
     lang = code; store(LANG_STORAGE_KEY, code);

@@ -1,16 +1,17 @@
 // ============================================================
 // Livlies — key = official picturebook id (e.g. "001-m-001").
-//   name     : { ja, en }
+//   name     : { ja, en, zh }   (zh = Taiwan Traditional Chinese; missing → English is shown)
 //   potion   : neobelmin / mix / plusterin / collab
 //   base     : (plusterin only) id of the Livly whose Neobelmin is needed
 //   recipe   : [{ tree: <tree id from trees.js>, count }]
 // Sources: livly.com/picturebook (JA) · livlyislandnewedition.wiki.gg (EN)
+//          · livlyislandyabi.blogspot.com (ZH, fan site for the Taiwan server)
 // Keep the "LIVLY_DATA.livlies =" line and the final semicolon.
 // ============================================================
 window.LIVLY_DATA = window.LIVLY_DATA || {};
 LIVLY_DATA.livlies = {
   "001-m-000": {
-    "name": { "ja": "ピグミー", "en": "Pygmy" },
+    "name": { "ja": "ピグミー", "en": "Pygmy", "zh": "提可咪" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/001-m-000/mono_pygmy_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/001-m-000/",
@@ -19,7 +20,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "001-m-001": {
-    "name": { "ja": "ピグミー P-1", "en": "Pygmy P-1" },
+    "name": { "ja": "ピグミー P-1", "en": "Pygmy P-1", "zh": "提可咪P-1" },
     "potion": "plusterin",
     "base": "001-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/001-m-001/mono_pygmy_P1_Idle.png",
@@ -29,7 +30,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "001-m-002": {
-    "name": { "ja": "ピグミー P-2", "en": "Pygmy P-2" },
+    "name": { "ja": "ピグミー P-2", "en": "Pygmy P-2", "zh": "提可咪P-2" },
     "potion": "plusterin",
     "base": "001-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/001-m-002/mono_pygmy_P2_Idle.png",
@@ -39,7 +40,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "001-m-003": {
-    "name": { "ja": "ピグミー P-3", "en": "Pygmy P-3" },
+    "name": { "ja": "ピグミー P-3", "en": "Pygmy P-3", "zh": "提可咪P-3" },
     "potion": "plusterin",
     "base": "001-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/001-m-003/mono_pygmy_P3_Idle.png",
@@ -49,7 +50,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "001-m-004": {
-    "name": { "ja": "ピグミー P-4", "en": "Pygmy P-4" },
+    "name": { "ja": "ピグミー P-4", "en": "Pygmy P-4", "zh": "提可咪P-4" },
     "potion": "plusterin",
     "base": "001-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/001-m-004/mono_pygmy_P4_Idle.png",
@@ -59,7 +60,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "002-n-000": {
-    "name": { "ja": "コルヌレプス", "en": "Cornu Lepus" },
+    "name": { "ja": "コルヌレプス", "en": "Cornu Lepus", "zh": "有角兔" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/002-n-000/mono_cornulepus_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/002-n-000/",
@@ -68,7 +69,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "002-n-001": {
-    "name": { "ja": "コルヌレプス P-1", "en": "Cornu Lepus P-1" },
+    "name": { "ja": "コルヌレプス P-1", "en": "Cornu Lepus P-1", "zh": "有角兔P-1" },
     "potion": "plusterin",
     "base": "002-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/002-n-001/mono_cornulepus_P1_Idle.png",
@@ -78,7 +79,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "002-n-002": {
-    "name": { "ja": "コルヌレプス P-2", "en": "Cornu Lepus P-2" },
+    "name": { "ja": "コルヌレプス P-2", "en": "Cornu Lepus P-2", "zh": "有角兔P-2" },
     "potion": "plusterin",
     "base": "002-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/002-n-002/mono_cornulepus_P2_Idle.png",
@@ -88,7 +89,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "002-n-003": {
-    "name": { "ja": "コルヌレプス P-3", "en": "Cornu Lepus P-3" },
+    "name": { "ja": "コルヌレプス P-3", "en": "Cornu Lepus P-3", "zh": "有角兔P-3" },
     "potion": "plusterin",
     "base": "002-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/002-n-003/mono_cornulepus_P3_Idle.png",
@@ -98,7 +99,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "002-n-004": {
-    "name": { "ja": "コルヌレプス P-4", "en": "Cornu Lepus P-4" },
+    "name": { "ja": "コルヌレプス P-4", "en": "Cornu Lepus P-4", "zh": "有角兔P-4" },
     "potion": "plusterin",
     "base": "002-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/002-n-004/mono_cornulepus_P4_Idle.png",
@@ -108,7 +109,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "003-n-000": {
-    "name": { "ja": "モモス", "en": "Momoth" },
+    "name": { "ja": "モモス", "en": "Momoth", "zh": "萌萌象" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/003-n-000/mono_momoth_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/003-n-000/",
@@ -117,7 +118,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "003-n-001": {
-    "name": { "ja": "モモス P-1", "en": "Momoth P-1" },
+    "name": { "ja": "モモス P-1", "en": "Momoth P-1", "zh": "萌萌象P-1" },
     "potion": "plusterin",
     "base": "003-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/003-n-001/mono_momoth_P1_Idle.png",
@@ -127,7 +128,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "003-n-002": {
-    "name": { "ja": "モモス P-2", "en": "Momoth P-2" },
+    "name": { "ja": "モモス P-2", "en": "Momoth P-2", "zh": "萌萌象P-2" },
     "potion": "plusterin",
     "base": "003-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/003-n-002/mono_momoth_P2_Idle.png",
@@ -137,7 +138,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "003-n-003": {
-    "name": { "ja": "モモス P-3", "en": "Momoth P-3" },
+    "name": { "ja": "モモス P-3", "en": "Momoth P-3", "zh": "萌萌象P-3" },
     "potion": "plusterin",
     "base": "003-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/003-n-003/mono_momoth_P3_Idle.png",
@@ -147,7 +148,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "003-n-004": {
-    "name": { "ja": "モモス P-4", "en": "Momoth P-4" },
+    "name": { "ja": "モモス P-4", "en": "Momoth P-4", "zh": "萌萌象P-4" },
     "potion": "plusterin",
     "base": "003-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/003-n-004/mono_momoth_P4_Idle.png",
@@ -157,7 +158,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "004-m-000": {
-    "name": { "ja": "ブラックドッグ", "en": "Black Dog" },
+    "name": { "ja": "ブラックドッグ", "en": "Black Dog", "zh": "黑犬" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/004-m-000/mono_blackdog_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/004-m-000/",
@@ -166,7 +167,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "004-m-001": {
-    "name": { "ja": "ブラックドッグ P-1", "en": "Black Dog P-1" },
+    "name": { "ja": "ブラックドッグ P-1", "en": "Black Dog P-1", "zh": "黑犬P-1" },
     "potion": "plusterin",
     "base": "004-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/004-m-001/mono_blackdog_P1_Idle.png",
@@ -176,7 +177,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "004-m-002": {
-    "name": { "ja": "ブラックドッグ P-2", "en": "Black Dog P-2" },
+    "name": { "ja": "ブラックドッグ P-2", "en": "Black Dog P-2", "zh": "黑犬P-2" },
     "potion": "plusterin",
     "base": "004-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/004-m-002/mono_blackdog_P2_Idle.png",
@@ -186,7 +187,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "004-m-003": {
-    "name": { "ja": "ブラックドッグ P-3", "en": "Black Dog P-3" },
+    "name": { "ja": "ブラックドッグ P-3", "en": "Black Dog P-3", "zh": "黑犬P-3" },
     "potion": "plusterin",
     "base": "004-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/004-m-003/mono_blackdog_P3_Idle.png",
@@ -196,7 +197,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "004-m-004": {
-    "name": { "ja": "ブラックドッグ P-4", "en": "Black Dog P-4" },
+    "name": { "ja": "ブラックドッグ P-4", "en": "Black Dog P-4", "zh": "黑犬P-4" },
     "potion": "plusterin",
     "base": "004-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/004-m-004/mono_blackdog_P4_Idle.png",
@@ -206,7 +207,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "005-n-000": {
-    "name": { "ja": "ツノリムル", "en": "Tsunoriml" },
+    "name": { "ja": "ツノリムル", "en": "Tsunoriml", "zh": "有角利木爾" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/005-n-000/mono_tsunoriml_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/005-n-000/",
@@ -215,7 +216,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "005-n-001": {
-    "name": { "ja": "ツノリムル P-1", "en": "Tsunoriml P-1" },
+    "name": { "ja": "ツノリムル P-1", "en": "Tsunoriml P-1", "zh": "有角利木爾P-1" },
     "potion": "plusterin",
     "base": "005-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/005-n-001/mono_tsunoriml_P1_Idle.png",
@@ -225,7 +226,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "005-n-002": {
-    "name": { "ja": "ツノリムル P-2", "en": "Tsunoriml P-2" },
+    "name": { "ja": "ツノリムル P-2", "en": "Tsunoriml P-2", "zh": "有角利木爾P-2" },
     "potion": "plusterin",
     "base": "005-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/005-n-002/mono_tsunoriml_P2_Idle.png",
@@ -235,7 +236,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "005-n-003": {
-    "name": { "ja": "ツノリムル P-3", "en": "Tsunoriml P-3" },
+    "name": { "ja": "ツノリムル P-3", "en": "Tsunoriml P-3", "zh": "有角利木爾P-3" },
     "potion": "plusterin",
     "base": "005-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/005-n-003/mono_tsunoriml_P3_Idle.png",
@@ -245,7 +246,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "005-n-004": {
-    "name": { "ja": "ツノリムル P-4", "en": "Tsunoriml P-4" },
+    "name": { "ja": "ツノリムル P-4", "en": "Tsunoriml P-4", "zh": "有角利木爾P-4" },
     "potion": "plusterin",
     "base": "005-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/005-n-004/mono_tsunoriml_P4_Idle.png",
@@ -255,7 +256,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "006-m-000": {
-    "name": { "ja": "パキケ", "en": "Pakike" },
+    "name": { "ja": "パキケ", "en": "Pakike", "zh": "毛咩咩" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/006-m-000/mono_pakike_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/006-m-000/",
@@ -264,7 +265,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "006-m-001": {
-    "name": { "ja": "パキケ P-1", "en": "Pakike P-1" },
+    "name": { "ja": "パキケ P-1", "en": "Pakike P-1", "zh": "毛咩咩P-1" },
     "potion": "plusterin",
     "base": "006-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/006-m-001/mono_pakike_P1_Idle.png",
@@ -274,7 +275,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "006-m-002": {
-    "name": { "ja": "パキケ P-2", "en": "Pakike P-2" },
+    "name": { "ja": "パキケ P-2", "en": "Pakike P-2", "zh": "毛咩咩P-2" },
     "potion": "plusterin",
     "base": "006-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/006-m-002/mono_pakike_P2_Idle.png",
@@ -284,7 +285,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "006-m-003": {
-    "name": { "ja": "パキケ P-3", "en": "Pakike P-3" },
+    "name": { "ja": "パキケ P-3", "en": "Pakike P-3", "zh": "毛咩咩P-3" },
     "potion": "plusterin",
     "base": "006-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/006-m-003/mono_pakike_P3_Idle.png",
@@ -294,7 +295,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "007-m-000": {
-    "name": { "ja": "オーガ", "en": "Ogre" },
+    "name": { "ja": "オーガ", "en": "Ogre", "zh": "歐卡" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/007-m-000/mono_ogre_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/007-m-000/",
@@ -303,7 +304,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "007-m-001": {
-    "name": { "ja": "オーガ P-1", "en": "Ogre P-1" },
+    "name": { "ja": "オーガ P-1", "en": "Ogre P-1", "zh": "歐卡P-1" },
     "potion": "plusterin",
     "base": "007-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/007-m-001/mono_oga_P1_Idle.png",
@@ -313,7 +314,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "007-m-002": {
-    "name": { "ja": "オーガ P-2", "en": "Ogre P-2" },
+    "name": { "ja": "オーガ P-2", "en": "Ogre P-2", "zh": "歐卡P-2" },
     "potion": "plusterin",
     "base": "007-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/007-m-002/mono_ogre_P2_Idle.png",
@@ -323,7 +324,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "007-m-003": {
-    "name": { "ja": "オーガ P-3", "en": "Ogre P-3" },
+    "name": { "ja": "オーガ P-3", "en": "Ogre P-3", "zh": "歐卡P-3" },
     "potion": "plusterin",
     "base": "007-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/007-m-003/mono_ogre_P3_Idle.png",
@@ -333,7 +334,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "007-m-004": {
-    "name": { "ja": "オーガ P-4", "en": "Ogre P-4" },
+    "name": { "ja": "オーガ P-4", "en": "Ogre P-4", "zh": "歐卡P-4" },
     "potion": "plusterin",
     "base": "007-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/007-m-004/mono_ogre_P4_Idle.png",
@@ -343,7 +344,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "008-m-000": {
-    "name": { "ja": "ネオピグミー", "en": "Neo Pygmy" },
+    "name": { "ja": "ネオピグミー", "en": "Neo Pygmy", "zh": "新提可咪" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/008-m-000/mono_neopygmy_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/008-m-000/",
@@ -354,7 +355,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "008-m-001": {
-    "name": { "ja": "ネオピグミー P-1", "en": "Neo Pygmy P-1" },
+    "name": { "ja": "ネオピグミー P-1", "en": "Neo Pygmy P-1", "zh": "新提可咪P-1" },
     "potion": "plusterin",
     "base": "008-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/008-m-001/mono_neopygmy_P1_Idle.png",
@@ -364,7 +365,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "008-m-002": {
-    "name": { "ja": "ネオピグミー P-2", "en": "Neo Pygmy P-2" },
+    "name": { "ja": "ネオピグミー P-2", "en": "Neo Pygmy P-2", "zh": "新提可咪P-2" },
     "potion": "plusterin",
     "base": "008-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/008-m-002/mono_neopygmy_P2_Idle.png",
@@ -374,7 +375,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "008-m-003": {
-    "name": { "ja": "ネオピグミー P-3", "en": "Neo Pygmy P-3" },
+    "name": { "ja": "ネオピグミー P-3", "en": "Neo Pygmy P-3", "zh": "新提可咪P-3" },
     "potion": "plusterin",
     "base": "008-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/008-m-003/mono_neopygmy_P3_Idle.png",
@@ -384,7 +385,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "008-m-004": {
-    "name": { "ja": "ネオピグミー P-4", "en": "Neo Pygmy P-4" },
+    "name": { "ja": "ネオピグミー P-4", "en": "Neo Pygmy P-4", "zh": "新提可咪P-4" },
     "potion": "plusterin",
     "base": "008-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/008-m-004/mono_neopygmy_P4_Idle.png",
@@ -394,7 +395,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "009-n-000": {
-    "name": { "ja": "ソニモグリ", "en": "Sonimoguri" },
+    "name": { "ja": "ソニモグリ", "en": "Sonimoguri", "zh": "音速鼹鳥" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/009-n-000/mono_sonimoguri_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/009-n-000/",
@@ -403,7 +404,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "009-n-001": {
-    "name": { "ja": "ソニモグリ P-1", "en": "Sonimoguri P-1" },
+    "name": { "ja": "ソニモグリ P-1", "en": "Sonimoguri P-1", "zh": "音速鼹鳥P-1" },
     "potion": "plusterin",
     "base": "009-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/009-n-001/mono_sonimoguri_P1_Idle.png",
@@ -413,7 +414,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "009-n-002": {
-    "name": { "ja": "ソニモグリ P-2", "en": "Sonimoguri P-2" },
+    "name": { "ja": "ソニモグリ P-2", "en": "Sonimoguri P-2", "zh": "音速鼹鳥P-2" },
     "potion": "plusterin",
     "base": "009-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/009-n-002/mono_sonimoguri_P2_Idle.png",
@@ -423,7 +424,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "009-n-003": {
-    "name": { "ja": "ソニモグリ P-3", "en": "Sonimoguri P-3" },
+    "name": { "ja": "ソニモグリ P-3", "en": "Sonimoguri P-3", "zh": "音速鼹鳥P-3" },
     "potion": "plusterin",
     "base": "009-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/009-n-003/mono_sonimoguri_P3_Idle.png",
@@ -433,7 +434,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "010-m-000": {
-    "name": { "ja": "ワタメ", "en": "Watame" },
+    "name": { "ja": "ワタメ", "en": "Watame", "zh": "綿綿貓" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/010-m-000/mono_watame_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/010-m-000/",
@@ -442,7 +443,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "010-m-001": {
-    "name": { "ja": "ワタメ P-1", "en": "Watame P-1" },
+    "name": { "ja": "ワタメ P-1", "en": "Watame P-1", "zh": "綿綿貓P-1" },
     "potion": "plusterin",
     "base": "010-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/010-m-001/mono_watame_P1_Idle.png",
@@ -452,7 +453,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "010-m-002": {
-    "name": { "ja": "ワタメ P-2", "en": "Watame P-2" },
+    "name": { "ja": "ワタメ P-2", "en": "Watame P-2", "zh": "綿綿貓P-2" },
     "potion": "plusterin",
     "base": "010-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/010-m-002/mono_watame_P2_Idle.png",
@@ -462,7 +463,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "010-m-003": {
-    "name": { "ja": "ワタメ P-3", "en": "Watame P-3" },
+    "name": { "ja": "ワタメ P-3", "en": "Watame P-3", "zh": "綿綿貓P-3" },
     "potion": "plusterin",
     "base": "010-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/010-m-003/mono_watame_P3_Idle.png",
@@ -472,7 +473,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "010-m-004": {
-    "name": { "ja": "ワタメ P-4", "en": "Watame P-4" },
+    "name": { "ja": "ワタメ P-4", "en": "Watame P-4", "zh": "綿綿貓P-4" },
     "potion": "plusterin",
     "base": "010-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/010-m-004/mono_watame_P4_Idle.png",
@@ -482,7 +483,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "011-n-000": {
-    "name": { "ja": "グレムリン", "en": "Gremlin" },
+    "name": { "ja": "グレムリン", "en": "Gremlin", "zh": "小精怪" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/011-n-000/mono_gremlin_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/011-n-000/",
@@ -491,7 +492,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "011-n-001": {
-    "name": { "ja": "グレムリン P-1", "en": "Gremlin P-1" },
+    "name": { "ja": "グレムリン P-1", "en": "Gremlin P-1", "zh": "小精怪P-1" },
     "potion": "plusterin",
     "base": "011-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/011-n-001/mono_gremlin_P1_Idle.png",
@@ -501,7 +502,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "011-n-002": {
-    "name": { "ja": "グレムリン P-2", "en": "Gremlin P-2" },
+    "name": { "ja": "グレムリン P-2", "en": "Gremlin P-2", "zh": "小精怪P-2" },
     "potion": "plusterin",
     "base": "011-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/011-n-002/mono_gremlin_P2_Idle.png",
@@ -511,7 +512,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "011-n-003": {
-    "name": { "ja": "グレムリン P-3", "en": "Gremlin P-3" },
+    "name": { "ja": "グレムリン P-3", "en": "Gremlin P-3", "zh": "小精怪P-3" },
     "potion": "plusterin",
     "base": "011-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/011-n-003/mono_gremlin_P3_Idle.png",
@@ -521,7 +522,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "012-m-000": {
-    "name": { "ja": "ヴォルグ", "en": "Volg" },
+    "name": { "ja": "ヴォルグ", "en": "Volg", "zh": "戰神蝙蝠" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/012-m-000/mono_volg_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/012-m-000/",
@@ -531,7 +532,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "012-m-001": {
-    "name": { "ja": "ヴォルグ P-1", "en": "Volg P-1" },
+    "name": { "ja": "ヴォルグ P-1", "en": "Volg P-1", "zh": "戰神蝙蝠P-1" },
     "potion": "plusterin",
     "base": "012-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/012-m-001/mono_volg_P1_Idle.png",
@@ -541,7 +542,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "012-m-002": {
-    "name": { "ja": "ヴォルグ P-2", "en": "Volg P-2" },
+    "name": { "ja": "ヴォルグ P-2", "en": "Volg P-2", "zh": "戰神蝙蝠P-2" },
     "potion": "plusterin",
     "base": "012-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/012-m-002/mono_volg_P2_Idle.png",
@@ -551,7 +552,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "012-m-003": {
-    "name": { "ja": "ヴォルグ P-3", "en": "Volg P-3" },
+    "name": { "ja": "ヴォルグ P-3", "en": "Volg P-3", "zh": "戰神蝙蝠P-3" },
     "potion": "plusterin",
     "base": "012-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/012-m-003/mono_volg_P3_Idle.png",
@@ -561,7 +562,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "012-m-004": {
-    "name": { "ja": "ヴォルグ P-4", "en": "Volg P-4" },
+    "name": { "ja": "ヴォルグ P-4", "en": "Volg P-4", "zh": "戰神蝙蝠P-4" },
     "potion": "plusterin",
     "base": "012-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/012-m-004/mono_volg_P4_Idle.png",
@@ -571,7 +572,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "013-m-000": {
-    "name": { "ja": "マダラカガ", "en": "Madarakaga" },
+    "name": { "ja": "マダラカガ", "en": "Madarakaga", "zh": "斑斑" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/013-m-000/mono_madarakaga_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/013-m-000/",
@@ -581,7 +582,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "013-m-001": {
-    "name": { "ja": "マダラカガ P-1", "en": "Madarakaga P-1" },
+    "name": { "ja": "マダラカガ P-1", "en": "Madarakaga P-1", "zh": "斑斑P-1" },
     "potion": "plusterin",
     "base": "013-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/013-m-001/mono_madarakaga_P1_Idle.png",
@@ -591,7 +592,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "013-m-002": {
-    "name": { "ja": "マダラカガ P-2", "en": "Madarakaga P-2" },
+    "name": { "ja": "マダラカガ P-2", "en": "Madarakaga P-2", "zh": "斑斑P-2" },
     "potion": "plusterin",
     "base": "013-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/013-m-002/mono_madarakaga_P2_Idle.png",
@@ -601,7 +602,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "013-m-003": {
-    "name": { "ja": "マダラカガ P-3", "en": "Madarakaga P-3" },
+    "name": { "ja": "マダラカガ P-3", "en": "Madarakaga P-3", "zh": "斑斑P-3" },
     "potion": "plusterin",
     "base": "013-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/013-m-003/mono_madarakaga_P3_Idle.png",
@@ -611,7 +612,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "014-m-000": {
-    "name": { "ja": "トビネ", "en": "Tobine" },
+    "name": { "ja": "トビネ", "en": "Tobine", "zh": "豆鼻鼠" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/014-m-000/mono_tobine_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/014-m-000/",
@@ -620,7 +621,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "014-m-001": {
-    "name": { "ja": "トビネ P-1", "en": "Tobine P-1" },
+    "name": { "ja": "トビネ P-1", "en": "Tobine P-1", "zh": "豆鼻鼠P-1" },
     "potion": "plusterin",
     "base": "014-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/014-m-001/mono_tobine_P1_Idle.png",
@@ -630,7 +631,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "014-m-002": {
-    "name": { "ja": "トビネ P-2", "en": "Tobine P-2" },
+    "name": { "ja": "トビネ P-2", "en": "Tobine P-2", "zh": "豆鼻鼠P-2" },
     "potion": "plusterin",
     "base": "014-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/014-m-002/mono_tobine_P2_Idle.png",
@@ -640,7 +641,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "014-m-003": {
-    "name": { "ja": "トビネ P-3", "en": "Tobine P-3" },
+    "name": { "ja": "トビネ P-3", "en": "Tobine P-3", "zh": "豆鼻鼠P-3" },
     "potion": "plusterin",
     "base": "014-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/014-m-003/mono_tobine_P3_Idle.png",
@@ -650,7 +651,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "015-m-000": {
-    "name": { "ja": "ケマリ", "en": "Kemari" },
+    "name": { "ja": "ケマリ", "en": "Kemari", "zh": "冰淇淋雪球" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/015-m-000/mono_kemari_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/015-m-000/",
@@ -660,7 +661,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "015-m-001": {
-    "name": { "ja": "ケマリ P-1", "en": "Kemari P-1" },
+    "name": { "ja": "ケマリ P-1", "en": "Kemari P-1", "zh": "冰淇淋雪球P-1" },
     "potion": "plusterin",
     "base": "015-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/015-m-001/mono_kemari_P1_Idle.png",
@@ -670,7 +671,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "015-m-002": {
-    "name": { "ja": "ケマリ P-2", "en": "Kemari P-2" },
+    "name": { "ja": "ケマリ P-2", "en": "Kemari P-2", "zh": "冰淇淋雪球P-2" },
     "potion": "plusterin",
     "base": "015-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/015-m-002/mono_kemari_P2_Idle.png",
@@ -680,7 +681,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "015-m-003": {
-    "name": { "ja": "ケマリ P-3", "en": "Kemari P-3" },
+    "name": { "ja": "ケマリ P-3", "en": "Kemari P-3", "zh": "冰淇淋雪球P-3" },
     "potion": "plusterin",
     "base": "015-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/015-m-003/mono_kemari_P3_Idle.png",
@@ -690,7 +691,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "016-a-000": {
-    "name": { "ja": "ハナパキケ", "en": "Hanapakike" },
+    "name": { "ja": "ハナパキケ", "en": "Hanapakike", "zh": "花樣毛咩咩" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/016-a-000/mono_hanapakike_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/016-a-000/",
@@ -699,7 +700,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "016-a-001": {
-    "name": { "ja": "ハナパキケ P-1", "en": "Hanapakike P-1" },
+    "name": { "ja": "ハナパキケ P-1", "en": "Hanapakike P-1", "zh": "花樣毛咩咩P-1" },
     "potion": "plusterin",
     "base": "016-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/016-a-001/mono_hanapakike_P1_Idle.png",
@@ -709,7 +710,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "016-a-002": {
-    "name": { "ja": "ハナパキケ P-2", "en": "Hanapakike P-2" },
+    "name": { "ja": "ハナパキケ P-2", "en": "Hanapakike P-2", "zh": "花樣毛咩咩P-2" },
     "potion": "plusterin",
     "base": "016-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/016-a-002/mono_hanapakike_P2_Idle.png",
@@ -719,7 +720,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "016-a-003": {
-    "name": { "ja": "ハナパキケ P-3", "en": "Hanapakike P-3" },
+    "name": { "ja": "ハナパキケ P-3", "en": "Hanapakike P-3", "zh": "花樣毛咩咩P-3" },
     "potion": "plusterin",
     "base": "016-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/016-a-003/mono_hanapakike_P3_Idle.png",
@@ -729,7 +730,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "017-m-000": {
-    "name": { "ja": "ビャッコ", "en": "Byakko" },
+    "name": { "ja": "ビャッコ", "en": "Byakko", "zh": "白虎" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/017-m-000/mono_byakko_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/017-m-000/",
@@ -738,7 +739,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "017-m-001": {
-    "name": { "ja": "ビャッコ P-1", "en": "Byakko P-1" },
+    "name": { "ja": "ビャッコ P-1", "en": "Byakko P-1", "zh": "白虎P-1" },
     "potion": "plusterin",
     "base": "017-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/017-m-001/mono_byakko_P1_Idle.png",
@@ -748,7 +749,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "017-m-002": {
-    "name": { "ja": "ビャッコ P-2", "en": "Byakko P-2" },
+    "name": { "ja": "ビャッコ P-2", "en": "Byakko P-2", "zh": "白虎P-2" },
     "potion": "plusterin",
     "base": "017-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/017-m-002/mono_byakko_P2_Idle.png",
@@ -758,7 +759,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "017-m-003": {
-    "name": { "ja": "ビャッコ P-3", "en": "Byakko P-3" },
+    "name": { "ja": "ビャッコ P-3", "en": "Byakko P-3", "zh": "白虎P-3" },
     "potion": "plusterin",
     "base": "017-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/017-m-003/mono_byakko_P3_Idle.png",
@@ -768,7 +769,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "017-m-004": {
-    "name": { "ja": "ビャッコ P-4", "en": "Byakko P-4" },
+    "name": { "ja": "ビャッコ P-4", "en": "Byakko P-4", "zh": "白虎P-4" },
     "potion": "plusterin",
     "base": "017-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/017-m-004/mono_byakko_P4_Idle.png",
@@ -778,7 +779,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "018-m-000": {
-    "name": { "ja": "ラヴォクス", "en": "Lovox" },
+    "name": { "ja": "ラヴォクス", "en": "Lovox", "zh": "派端絲犬" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/018-m-000/mono_lovox_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/018-m-000/",
@@ -788,7 +789,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "018-m-001": {
-    "name": { "ja": "ラヴォクス P-1", "en": "Lovox P-1" },
+    "name": { "ja": "ラヴォクス P-1", "en": "Lovox P-1", "zh": "派端絲犬P-1" },
     "potion": "plusterin",
     "base": "018-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/018-m-001/mono_lovox_P1_Idle.png",
@@ -798,7 +799,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "018-m-002": {
-    "name": { "ja": "ラヴォクス P-2", "en": "Lovox P-2" },
+    "name": { "ja": "ラヴォクス P-2", "en": "Lovox P-2", "zh": "派端絲犬P-2" },
     "potion": "plusterin",
     "base": "018-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/018-m-002/mono_lovox_P2_Idle.png",
@@ -808,7 +809,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "018-m-003": {
-    "name": { "ja": "ラヴォクス P-3", "en": "Lovox P-3" },
+    "name": { "ja": "ラヴォクス P-3", "en": "Lovox P-3", "zh": "派端絲犬P-3" },
     "potion": "plusterin",
     "base": "018-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/018-m-003/mono_lovox_P3_Idle.png",
@@ -818,7 +819,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "019-m-000": {
-    "name": { "ja": "ハナマキ", "en": "Hanamaki" },
+    "name": { "ja": "ハナマキ", "en": "Hanamaki", "zh": "大耳呆" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/019-m-000/mono_hanamaki_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/019-m-000/",
@@ -827,7 +828,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "019-m-001": {
-    "name": { "ja": "ハナマキ P-1", "en": "Hanamaki P-1" },
+    "name": { "ja": "ハナマキ P-1", "en": "Hanamaki P-1", "zh": "大耳呆P-1" },
     "potion": "plusterin",
     "base": "019-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/019-m-001/mono_hanamaki_P1_Idle.png",
@@ -837,7 +838,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "019-m-002": {
-    "name": { "ja": "ハナマキ P-2", "en": "Hanamaki P-2" },
+    "name": { "ja": "ハナマキ P-2", "en": "Hanamaki P-2", "zh": "大耳呆P-2" },
     "potion": "plusterin",
     "base": "019-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/019-m-002/mono_hanamaki_P2_Idle.png",
@@ -847,7 +848,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "019-m-003": {
-    "name": { "ja": "ハナマキ P-3", "en": "Hanamaki P-3" },
+    "name": { "ja": "ハナマキ P-3", "en": "Hanamaki P-3", "zh": "大耳呆P-3" },
     "potion": "plusterin",
     "base": "019-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/019-m-003/mono_hanamaki_P3_Idle.png",
@@ -857,7 +858,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "020-n-000": {
-    "name": { "ja": "モノコーン", "en": "Monocorn" },
+    "name": { "ja": "モノコーン", "en": "Monocorn", "zh": "毛毛長角獸" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/020-n-000/mono_monocorn_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/020-n-000/",
@@ -866,7 +867,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "020-n-001": {
-    "name": { "ja": "モノコーン P-1", "en": "Monocorn P-1" },
+    "name": { "ja": "モノコーン P-1", "en": "Monocorn P-1", "zh": "毛毛長角獸P-1" },
     "potion": "plusterin",
     "base": "020-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/020-n-001/mono_monocorn_P1_Idle.png",
@@ -876,7 +877,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "020-n-002": {
-    "name": { "ja": "モノコーン P-2", "en": "Monocorn P-2" },
+    "name": { "ja": "モノコーン P-2", "en": "Monocorn P-2", "zh": "毛毛長角獸P-2" },
     "potion": "plusterin",
     "base": "020-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/020-n-002/mono_monocorn_P2_Idle.png",
@@ -886,7 +887,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "020-n-003": {
-    "name": { "ja": "モノコーン P-3", "en": "Monocorn P-3" },
+    "name": { "ja": "モノコーン P-3", "en": "Monocorn P-3", "zh": "毛毛長角獸P-3" },
     "potion": "plusterin",
     "base": "020-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/020-n-003/mono_monocorn_P3_Idle.png",
@@ -896,7 +897,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "021-m-000": {
-    "name": { "ja": "ムシチョウ", "en": "Mushicho" },
+    "name": { "ja": "ムシチョウ", "en": "Mushicho", "zh": "藍鳳凰" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/021-m-000/mono_mushicho_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/021-m-000/",
@@ -906,7 +907,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "021-m-001": {
-    "name": { "ja": "ムシチョウ P-1", "en": "Mushicho P-1" },
+    "name": { "ja": "ムシチョウ P-1", "en": "Mushicho P-1", "zh": "藍鳳凰P-1" },
     "potion": "plusterin",
     "base": "021-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/021-m-001/mono_mushicho_P1_Idle.png",
@@ -916,7 +917,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "021-m-002": {
-    "name": { "ja": "ムシチョウ P-2", "en": "Mushicho P-2" },
+    "name": { "ja": "ムシチョウ P-2", "en": "Mushicho P-2", "zh": "藍鳳凰P-2" },
     "potion": "plusterin",
     "base": "021-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/021-m-002/mono_mushicho_P2_Idle.png",
@@ -926,7 +927,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "021-m-003": {
-    "name": { "ja": "ムシチョウ P-3", "en": "Mushicho P-3" },
+    "name": { "ja": "ムシチョウ P-3", "en": "Mushicho P-3", "zh": "藍鳳凰P-3" },
     "potion": "plusterin",
     "base": "021-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/021-m-003/mono_mushicho_P3_Idle.png",
@@ -936,7 +937,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "022-m-000": {
-    "name": { "ja": "ピキ", "en": "Piki" },
+    "name": { "ja": "ピキ", "en": "Piki", "zh": "畢琦" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/022-m-000/mono_piki_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/022-m-000/",
@@ -945,7 +946,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "022-m-001": {
-    "name": { "ja": "ピキ P-1", "en": "Piki P-1" },
+    "name": { "ja": "ピキ P-1", "en": "Piki P-1", "zh": "畢琦P-1" },
     "potion": "plusterin",
     "base": "022-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/022-m-001/mono_piki_P1_Idle.png",
@@ -955,7 +956,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "022-m-002": {
-    "name": { "ja": "ピキ P-2", "en": "Piki P-2" },
+    "name": { "ja": "ピキ P-2", "en": "Piki P-2", "zh": "畢琦P-2" },
     "potion": "plusterin",
     "base": "022-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/022-m-002/mono_piki_P2_Idle.png",
@@ -965,7 +966,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "022-m-003": {
-    "name": { "ja": "ピキ P-3", "en": "Piki P-3" },
+    "name": { "ja": "ピキ P-3", "en": "Piki P-3", "zh": "畢琦P-3" },
     "potion": "plusterin",
     "base": "022-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/022-m-003/mono_piki_P3_Idle.png",
@@ -975,7 +976,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "022-m-004": {
-    "name": { "ja": "ピキ P-4", "en": "Piki P-4" },
+    "name": { "ja": "ピキ P-4", "en": "Piki P-4", "zh": "畢琦P-4" },
     "potion": "plusterin",
     "base": "022-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/022-m-004/mono_piki_P4_Idle.png",
@@ -985,7 +986,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "023-n-000": {
-    "name": { "ja": "ファードット", "en": "Furdot" },
+    "name": { "ja": "ファードット", "en": "Furdot", "zh": "絨絨斑" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/023-n-000/mono_furdot_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/023-n-000/",
@@ -994,7 +995,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "023-n-001": {
-    "name": { "ja": "ファードット P-1", "en": "Furdot P-1" },
+    "name": { "ja": "ファードット P-1", "en": "Furdot P-1", "zh": "絨絨斑P-1" },
     "potion": "plusterin",
     "base": "023-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/023-n-001/mono_furdot_P1_Idle.png",
@@ -1004,7 +1005,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "023-n-002": {
-    "name": { "ja": "ファードット P-2", "en": "Furdot P-2" },
+    "name": { "ja": "ファードット P-2", "en": "Furdot P-2", "zh": "絨絨斑P-2" },
     "potion": "plusterin",
     "base": "023-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/023-n-002/mono_furdot_P2_Idle.png",
@@ -1014,7 +1015,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "023-n-003": {
-    "name": { "ja": "ファードット P-3", "en": "Furdot P-3" },
+    "name": { "ja": "ファードット P-3", "en": "Furdot P-3", "zh": "絨絨斑P-3" },
     "potion": "plusterin",
     "base": "023-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/023-n-003/mono_furdot_P3_Idle.png",
@@ -1024,7 +1025,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "024-m-000": {
-    "name": { "ja": "アメノヒグラシ", "en": "Amenohigurashi" },
+    "name": { "ja": "アメノヒグラシ", "en": "Amenohigurashi", "zh": "哈美蛙" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/024-m-000/mono_amenohigurashi_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/024-m-000/",
@@ -1033,7 +1034,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "024-m-001": {
-    "name": { "ja": "アメノヒグラシ P-1", "en": "Amenohigurashi P-1" },
+    "name": { "ja": "アメノヒグラシ P-1", "en": "Amenohigurashi P-1", "zh": "哈美蛙P-1" },
     "potion": "plusterin",
     "base": "024-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/024-m-001/mono_amenohigurashi_P1_Idle.png",
@@ -1043,7 +1044,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "024-m-002": {
-    "name": { "ja": "アメノヒグラシ P-2", "en": "Amenohigurashi P-2" },
+    "name": { "ja": "アメノヒグラシ P-2", "en": "Amenohigurashi P-2", "zh": "哈美蛙P-2" },
     "potion": "plusterin",
     "base": "024-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/024-m-002/mono_amenohigurashi_P2_Idle.png",
@@ -1053,7 +1054,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "024-m-003": {
-    "name": { "ja": "アメノヒグラシ P-3", "en": "Amenohigurashi P-3" },
+    "name": { "ja": "アメノヒグラシ P-3", "en": "Amenohigurashi P-3", "zh": "哈美蛙P-3" },
     "potion": "plusterin",
     "base": "024-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/024-m-003/mono_amenohigurashi_P3_Idle.png",
@@ -1063,7 +1064,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "025-m-000": {
-    "name": { "ja": "クロメ", "en": "Kurome" },
+    "name": { "ja": "クロメ", "en": "Kurome", "zh": "黑翼貓" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/025-m-000/mono_kurome_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/025-m-000/",
@@ -1073,7 +1074,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "025-m-001": {
-    "name": { "ja": "クロメ P-1", "en": "Kurome P-1" },
+    "name": { "ja": "クロメ P-1", "en": "Kurome P-1", "zh": "黑翼貓P-1" },
     "potion": "plusterin",
     "base": "025-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/025-m-001/mono_kurome_P1_Idle.png",
@@ -1083,7 +1084,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "025-m-002": {
-    "name": { "ja": "クロメ P-2", "en": "Kurome P-2" },
+    "name": { "ja": "クロメ P-2", "en": "Kurome P-2", "zh": "黑翼貓P-2" },
     "potion": "plusterin",
     "base": "025-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/025-m-002/mono_kurome_P2_Idle.png",
@@ -1093,7 +1094,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "025-m-003": {
-    "name": { "ja": "クロメ P-3", "en": "Kurome P-3" },
+    "name": { "ja": "クロメ P-3", "en": "Kurome P-3", "zh": "黑翼貓P-3" },
     "potion": "plusterin",
     "base": "025-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/025-m-003/mono_kurome_P3_Idle.png",
@@ -1103,7 +1104,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "026-m-000": {
-    "name": { "ja": "カンボジャク", "en": "Kambojaku" },
+    "name": { "ja": "カンボジャク", "en": "Kambojaku", "zh": "金瓜雀" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/026-m-000/mono_kambojaku_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/026-m-000/",
@@ -1113,7 +1114,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "026-m-001": {
-    "name": { "ja": "カンボジャク P-1", "en": "Kambojaku P-1" },
+    "name": { "ja": "カンボジャク P-1", "en": "Kambojaku P-1", "zh": "金瓜雀P-1" },
     "potion": "plusterin",
     "base": "026-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/026-m-001/mono_kambojaku_P1_Idle.png",
@@ -1123,7 +1124,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "026-m-002": {
-    "name": { "ja": "カンボジャク P-2", "en": "Kambojaku P-2" },
+    "name": { "ja": "カンボジャク P-2", "en": "Kambojaku P-2", "zh": "金瓜雀P-2" },
     "potion": "plusterin",
     "base": "026-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/026-m-002/mono_kambojaku_P2_Idle.png",
@@ -1133,7 +1134,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "026-m-003": {
-    "name": { "ja": "カンボジャク P-3", "en": "Kambojaku P-3" },
+    "name": { "ja": "カンボジャク P-3", "en": "Kambojaku P-3", "zh": "金瓜雀P-3" },
     "potion": "plusterin",
     "base": "026-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/026-m-003/mono_kambojaku_P3_Idle.png",
@@ -1143,7 +1144,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "026-m-004": {
-    "name": { "ja": "カンボジャク P-4", "en": "Kambojaku P-4" },
+    "name": { "ja": "カンボジャク P-4", "en": "Kambojaku P-4", "zh": "金瓜雀P-4" },
     "potion": "plusterin",
     "base": "026-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/026-m-004/mono_kambojaku_P4_Idle.png",
@@ -1153,7 +1154,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "027-m-000": {
-    "name": { "ja": "クンパ", "en": "Kumpa" },
+    "name": { "ja": "クンパ", "en": "Kumpa", "zh": "坤帕" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/027-m-000/mono_kumpa_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/027-m-000/",
@@ -1162,7 +1163,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "027-m-001": {
-    "name": { "ja": "クンパ P-1", "en": "Kumpa P-1" },
+    "name": { "ja": "クンパ P-1", "en": "Kumpa P-1", "zh": "坤帕P-1" },
     "potion": "plusterin",
     "base": "027-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/027-m-001/mono_kumpa_P1_Idle.png",
@@ -1172,7 +1173,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "027-m-002": {
-    "name": { "ja": "クンパ P-2", "en": "Kumpa P-2" },
+    "name": { "ja": "クンパ P-2", "en": "Kumpa P-2", "zh": "坤帕P-2" },
     "potion": "plusterin",
     "base": "027-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/027-m-002/mono_kumpa_P2_Idle.png",
@@ -1182,7 +1183,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "027-m-003": {
-    "name": { "ja": "クンパ P-3", "en": "Kumpa P-3" },
+    "name": { "ja": "クンパ P-3", "en": "Kumpa P-3", "zh": "坤帕P-3" },
     "potion": "plusterin",
     "base": "027-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/027-m-003/mono_kumpa_P3_Idle.png",
@@ -1192,7 +1193,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "028-m-000": {
-    "name": { "ja": "イッカクフェレル", "en": "Ikkaku Ferel" },
+    "name": { "ja": "イッカクフェレル", "en": "Ikkaku Ferel", "zh": "獨角羊" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/028-m-000/mono_ikkakuferel_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/028-m-000/",
@@ -1202,7 +1203,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "028-m-001": {
-    "name": { "ja": "イッカクフェレル P-1", "en": "Ikkaku Ferel P-1" },
+    "name": { "ja": "イッカクフェレル P-1", "en": "Ikkaku Ferel P-1", "zh": "獨角羊P-1" },
     "potion": "plusterin",
     "base": "028-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/028-m-001/mono_ikkakuferel_P1_Idle.png",
@@ -1212,7 +1213,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "028-m-002": {
-    "name": { "ja": "イッカクフェレル P-2", "en": "Ikkaku Ferel P-2" },
+    "name": { "ja": "イッカクフェレル P-2", "en": "Ikkaku Ferel P-2", "zh": "獨角羊P-2" },
     "potion": "plusterin",
     "base": "028-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/028-m-002/mono_ikkakuferel_P2_Idle.png",
@@ -1222,7 +1223,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "028-m-003": {
-    "name": { "ja": "イッカクフェレル P-3", "en": "Ikkaku Ferel P-3" },
+    "name": { "ja": "イッカクフェレル P-3", "en": "Ikkaku Ferel P-3", "zh": "獨角羊P-3" },
     "potion": "plusterin",
     "base": "028-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/028-m-003/mono_ikkakuferel_P3_Idle.png",
@@ -1232,7 +1233,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "029-m-000": {
-    "name": { "ja": "ラビネ", "en": "Rabine" },
+    "name": { "ja": "ラビネ", "en": "Rabine", "zh": "拉比鼠" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/029-m-000/mono_rabine_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/029-m-000/",
@@ -1241,7 +1242,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "029-m-001": {
-    "name": { "ja": "ラビネ P-1", "en": "Rabine P-1" },
+    "name": { "ja": "ラビネ P-1", "en": "Rabine P-1", "zh": "拉比鼠P-1" },
     "potion": "plusterin",
     "base": "029-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/029-m-001/mono_rabine_P1_Idle.png",
@@ -1251,7 +1252,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "029-m-002": {
-    "name": { "ja": "ラビネ P-2", "en": "Rabine P-2" },
+    "name": { "ja": "ラビネ P-2", "en": "Rabine P-2", "zh": "拉比鼠P-2" },
     "potion": "plusterin",
     "base": "029-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/029-m-002/mono_rabine_P2_Idle.png",
@@ -1261,7 +1262,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "029-m-003": {
-    "name": { "ja": "ラビネ P-3", "en": "Rabine P-3" },
+    "name": { "ja": "ラビネ P-3", "en": "Rabine P-3", "zh": "拉比鼠P-3" },
     "potion": "plusterin",
     "base": "029-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/029-m-003/mono_rabine_P3_Idle.png",
@@ -1271,7 +1272,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "030-n-000": {
-    "name": { "ja": "ハムロット", "en": "Hamlot" },
+    "name": { "ja": "ハムロット", "en": "Hamlot", "zh": "哈姆洛特" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/030-n-000/mono_hamlot_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/030-n-000/",
@@ -1281,7 +1282,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "030-n-001": {
-    "name": { "ja": "ハムロット P-1", "en": "Hamlot P-1" },
+    "name": { "ja": "ハムロット P-1", "en": "Hamlot P-1", "zh": "哈姆洛特P-1" },
     "potion": "plusterin",
     "base": "030-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/030-n-001/mono_hamlot_P1_Idle.png",
@@ -1291,7 +1292,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "030-n-002": {
-    "name": { "ja": "ハムロット P-2", "en": "Hamlot P-2" },
+    "name": { "ja": "ハムロット P-2", "en": "Hamlot P-2", "zh": "哈姆洛特P-2" },
     "potion": "plusterin",
     "base": "030-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/030-n-002/mono_hamlot_P2_Idle.png",
@@ -1301,7 +1302,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "030-n-003": {
-    "name": { "ja": "ハムロット P-3", "en": "Hamlot P-3" },
+    "name": { "ja": "ハムロット P-3", "en": "Hamlot P-3", "zh": "哈姆洛特P-3" },
     "potion": "plusterin",
     "base": "030-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/030-n-003/mono_hamlot_P3_Idle.png",
@@ -1311,7 +1312,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "031-m-000": {
-    "name": { "ja": "ミミマキムクネ", "en": "Mimimaki Mukune" },
+    "name": { "ja": "ミミマキムクネ", "en": "Mimimaki Mukune", "zh": "旋耳鼓鼓鼠" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/031-m-000/mono_mimimakimukune_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/031-m-000/",
@@ -1320,7 +1321,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "031-m-001": {
-    "name": { "ja": "ミミマキムクネ P-1", "en": "Mimimaki Mukune P-1" },
+    "name": { "ja": "ミミマキムクネ P-1", "en": "Mimimaki Mukune P-1", "zh": "旋耳鼓鼓鼠P-1" },
     "potion": "plusterin",
     "base": "031-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/031-m-001/mono_mimimakimukune_P1_Idle.png",
@@ -1330,7 +1331,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "031-m-002": {
-    "name": { "ja": "ミミマキムクネ P-2", "en": "Mimimaki Mukune P-2" },
+    "name": { "ja": "ミミマキムクネ P-2", "en": "Mimimaki Mukune P-2", "zh": "旋耳鼓鼓鼠P-2" },
     "potion": "plusterin",
     "base": "031-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/031-m-002/mono_mimimakimukune_P2_Idle.png",
@@ -1340,7 +1341,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "031-m-003": {
-    "name": { "ja": "ミミマキムクネ P-3", "en": "Mimimaki Mukune P-3" },
+    "name": { "ja": "ミミマキムクネ P-3", "en": "Mimimaki Mukune P-3", "zh": "旋耳鼓鼓鼠P-3" },
     "potion": "plusterin",
     "base": "031-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/031-m-003/mono_mimimakimukune_P3_Idle.png",
@@ -1350,7 +1351,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "032-m-000": {
-    "name": { "ja": "ゲッコウヤグラ", "en": "Gekko Yagura" },
+    "name": { "ja": "ゲッコウヤグラ", "en": "Gekko Yagura", "zh": "月光傘" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/032-m-000/mono_gekkoyagura_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/032-m-000/",
@@ -1359,7 +1360,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "032-m-001": {
-    "name": { "ja": "ゲッコウヤグラ P-1", "en": "Gekko Yagura P-1" },
+    "name": { "ja": "ゲッコウヤグラ P-1", "en": "Gekko Yagura P-1", "zh": "月光傘P-1" },
     "potion": "plusterin",
     "base": "032-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/032-m-001/mono_gekkoyagura_P1_Idle.png",
@@ -1369,7 +1370,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "032-m-002": {
-    "name": { "ja": "ゲッコウヤグラ P-2", "en": "Gekko Yagura P-2" },
+    "name": { "ja": "ゲッコウヤグラ P-2", "en": "Gekko Yagura P-2", "zh": "月光傘P-2" },
     "potion": "plusterin",
     "base": "032-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/032-m-002/mono_gekkoyagura_P2_Idle.png",
@@ -1379,7 +1380,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "033-n-000": {
-    "name": { "ja": "バングス", "en": "Bangth" },
+    "name": { "ja": "バングス", "en": "Bangth", "zh": "龐格斯" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/033-n-000/mono_bangth_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/033-n-000/",
@@ -1388,7 +1389,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "033-n-001": {
-    "name": { "ja": "バングス P-1", "en": "Bangth P-1" },
+    "name": { "ja": "バングス P-1", "en": "Bangth P-1", "zh": "龐格斯P-1" },
     "potion": "plusterin",
     "base": "033-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/033-n-001/mono_bangth_P1_Idle.png",
@@ -1398,7 +1399,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "033-n-002": {
-    "name": { "ja": "バングス P-2", "en": "Bangth P-2" },
+    "name": { "ja": "バングス P-2", "en": "Bangth P-2", "zh": "龐格斯P-2" },
     "potion": "plusterin",
     "base": "033-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/033-n-002/mono_bangth_P2_Idle.png",
@@ -1408,7 +1409,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "033-n-003": {
-    "name": { "ja": "バングス P-3", "en": "Bangth P-3" },
+    "name": { "ja": "バングス P-3", "en": "Bangth P-3", "zh": "龐格斯P-3" },
     "potion": "plusterin",
     "base": "033-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/033-n-003/mono_bangth_P3_Idle.png",
@@ -1418,7 +1419,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "034-n-000": {
-    "name": { "ja": "ホプレクス", "en": "Hoprex" },
+    "name": { "ja": "ホプレクス", "en": "Hoprex", "zh": "巧躍龍" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/034-n-000/mono_hoprex_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/034-n-000/",
@@ -1427,7 +1428,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "034-n-001": {
-    "name": { "ja": "ホプレクス P-1", "en": "Hoprex P-1" },
+    "name": { "ja": "ホプレクス P-1", "en": "Hoprex P-1", "zh": "巧躍龍P-1" },
     "potion": "plusterin",
     "base": "034-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/034-n-001/mono_hoprex_P1_Idle.png",
@@ -1437,7 +1438,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "034-n-002": {
-    "name": { "ja": "ホプレクス P-2", "en": "Hoprex P-2" },
+    "name": { "ja": "ホプレクス P-2", "en": "Hoprex P-2", "zh": "巧躍龍P-2" },
     "potion": "plusterin",
     "base": "034-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/034-n-002/mono_hoprex_P2_Idle.png",
@@ -1447,7 +1448,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "034-n-003": {
-    "name": { "ja": "ホプレクス P-3", "en": "Hoprex P-3" },
+    "name": { "ja": "ホプレクス P-3", "en": "Hoprex P-3", "zh": "巧躍龍P-3" },
     "potion": "plusterin",
     "base": "034-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/034-n-003/mono_hoprex_P3_Idle.png",
@@ -1457,7 +1458,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "035-m-000": {
-    "name": { "ja": "スナイロユンク", "en": "Sunairo Yunk" },
+    "name": { "ja": "スナイロユンク", "en": "Sunairo Yunk", "zh": "沙悅鼠" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/035-m-000/mono_sunairoyunk_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/035-m-000/",
@@ -1467,7 +1468,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "035-m-001": {
-    "name": { "ja": "スナイロユンク P-1", "en": "Sunairo Yunk P-1" },
+    "name": { "ja": "スナイロユンク P-1", "en": "Sunairo Yunk P-1", "zh": "沙悅鼠P-1" },
     "potion": "plusterin",
     "base": "035-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/035-m-001/mono_sunairoyunk_P1_Idle.png",
@@ -1477,7 +1478,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "035-m-002": {
-    "name": { "ja": "スナイロユンク P-2", "en": "Sunairo Yunk P-2" },
+    "name": { "ja": "スナイロユンク P-2", "en": "Sunairo Yunk P-2", "zh": "沙悅鼠P-2" },
     "potion": "plusterin",
     "base": "035-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/035-m-002/mono_sunairoyunk_P2_Idle.png",
@@ -1487,7 +1488,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "035-m-003": {
-    "name": { "ja": "スナイロユンク P-3", "en": "Sunairo Yunk P-3" },
+    "name": { "ja": "スナイロユンク P-3", "en": "Sunairo Yunk P-3", "zh": "沙悅鼠P-3" },
     "potion": "plusterin",
     "base": "035-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/035-m-003/mono_sunairoyunk_P3_Idle.png",
@@ -1497,7 +1498,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "036-n-000": {
-    "name": { "ja": "ユキムスビ", "en": "Yuki Musubi" },
+    "name": { "ja": "ユキムスビ", "en": "Yuki Musubi", "zh": "雪糰糰" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/036-n-000/mono_yukimusubi_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/036-n-000/",
@@ -1506,7 +1507,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "036-n-001": {
-    "name": { "ja": "ユキムスビ P-1", "en": "Yuki Musubi P-1" },
+    "name": { "ja": "ユキムスビ P-1", "en": "Yuki Musubi P-1", "zh": "雪糰糰P-1" },
     "potion": "plusterin",
     "base": "036-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/036-n-001/mono_yukimusubi_P1_Idle.png",
@@ -1516,7 +1517,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "036-n-002": {
-    "name": { "ja": "ユキムスビ P-2", "en": "Yuki Musubi P-2" },
+    "name": { "ja": "ユキムスビ P-2", "en": "Yuki Musubi P-2", "zh": "雪糰糰P-2" },
     "potion": "plusterin",
     "base": "036-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/036-n-002/mono_yukimusubi_P2_Idle.png",
@@ -1526,7 +1527,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "036-n-003": {
-    "name": { "ja": "ユキムスビ P-3", "en": "Yuki Musubi P-3" },
+    "name": { "ja": "ユキムスビ P-3", "en": "Yuki Musubi P-3", "zh": "雪糰糰P-3" },
     "potion": "plusterin",
     "base": "036-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/036-n-003/mono_yukimusubi_P3_Idle.png",
@@ -1536,7 +1537,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "037-m-000": {
-    "name": { "ja": "ビズー", "en": "Bizoo" },
+    "name": { "ja": "ビズー", "en": "Bizoo", "zh": "鼻茲" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/037-m-000/mono_bizoo_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/037-m-000/",
@@ -1546,7 +1547,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "037-m-001": {
-    "name": { "ja": "ビズー P-1", "en": "Bizoo P-1" },
+    "name": { "ja": "ビズー P-1", "en": "Bizoo P-1", "zh": "鼻茲P-1" },
     "potion": "plusterin",
     "base": "037-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/037-m-001/mono_bizoo_P1_Idle.png",
@@ -1556,7 +1557,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "037-m-002": {
-    "name": { "ja": "ビズー P-2", "en": "Bizoo P-2" },
+    "name": { "ja": "ビズー P-2", "en": "Bizoo P-2", "zh": "鼻茲P-2" },
     "potion": "plusterin",
     "base": "037-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/037-m-002/mono_bizoo_P2_Idle.png",
@@ -1566,7 +1567,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "037-m-003": {
-    "name": { "ja": "ビズー P-3", "en": "Bizoo P-3" },
+    "name": { "ja": "ビズー P-3", "en": "Bizoo P-3", "zh": "鼻茲P-3" },
     "potion": "plusterin",
     "base": "037-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/037-m-003/mono_bizoo_P3_Idle.png",
@@ -1576,7 +1577,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "038-m-000": {
-    "name": { "ja": "ヘンプクジンチョウ", "en": "Hempuku Jincho" },
+    "name": { "ja": "ヘンプクジンチョウ", "en": "Hempuku Jincho", "zh": "夜音蝙蝠" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/038-m-000/mono_hempukujincho_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/038-m-000/",
@@ -1586,7 +1587,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "038-m-001": {
-    "name": { "ja": "ヘンプクジンチョウ P-1", "en": "Hempuku Jincho P-1" },
+    "name": { "ja": "ヘンプクジンチョウ P-1", "en": "Hempuku Jincho P-1", "zh": "夜音蝙蝠P-1" },
     "potion": "plusterin",
     "base": "038-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/038-m-001/mono_hempukujincho_P1_Idle.png",
@@ -1596,7 +1597,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "038-m-002": {
-    "name": { "ja": "ヘンプクジンチョウ P-2", "en": "Hempuku Jincho P-2" },
+    "name": { "ja": "ヘンプクジンチョウ P-2", "en": "Hempuku Jincho P-2", "zh": "夜音蝙蝠P-2" },
     "potion": "plusterin",
     "base": "038-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/038-m-002/mono_hempukujincho_P2_Idle.png",
@@ -1606,7 +1607,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "038-m-003": {
-    "name": { "ja": "ヘンプクジンチョウ P-3", "en": "Hempuku Jincho P-3" },
+    "name": { "ja": "ヘンプクジンチョウ P-3", "en": "Hempuku Jincho P-3", "zh": "夜音蝙蝠P-3" },
     "potion": "plusterin",
     "base": "038-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/038-m-003/mono_hempukujincho_P3_Idle.png",
@@ -1616,7 +1617,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "039-m-000": {
-    "name": { "ja": "ウォーム", "en": "Warm" },
+    "name": { "ja": "ウォーム", "en": "Warm", "zh": "沃姆" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/039-m-000/mono_warm_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/039-m-000/",
@@ -1626,7 +1627,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "039-m-001": {
-    "name": { "ja": "ウォーム P-1", "en": "Warm P-1" },
+    "name": { "ja": "ウォーム P-1", "en": "Warm P-1", "zh": "沃姆P-1" },
     "potion": "plusterin",
     "base": "039-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/039-m-001/mono_warm_P1_Idle.png",
@@ -1636,7 +1637,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "039-m-002": {
-    "name": { "ja": "ウォーム P-2", "en": "Warm P-2" },
+    "name": { "ja": "ウォーム P-2", "en": "Warm P-2", "zh": "沃姆P-2" },
     "potion": "plusterin",
     "base": "039-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/039-m-002/mono_warm_P2_Idle.png",
@@ -1646,7 +1647,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "039-m-003": {
-    "name": { "ja": "ウォーム P-3", "en": "Warm P-3" },
+    "name": { "ja": "ウォーム P-3", "en": "Warm P-3", "zh": "沃姆P-3" },
     "potion": "plusterin",
     "base": "039-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/039-m-003/mono_warm_P3_Idle.png",
@@ -1656,7 +1657,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "040-m-000": {
-    "name": { "ja": "ユキムグリ", "en": "Yuki Muguri" },
+    "name": { "ja": "ユキムグリ", "en": "Yuki Muguri", "zh": "雪慕禮" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/040-m-000/mono_yukimuguri_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/040-m-000/",
@@ -1665,7 +1666,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "040-m-001": {
-    "name": { "ja": "ユキムグリ P-1", "en": "Yuki Muguri P-1" },
+    "name": { "ja": "ユキムグリ P-1", "en": "Yuki Muguri P-1", "zh": "雪慕禮P-1" },
     "potion": "plusterin",
     "base": "040-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/040-m-001/mono_yukimuguri_P1_Idle.png",
@@ -1675,7 +1676,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "040-m-002": {
-    "name": { "ja": "ユキムグリ P-2", "en": "Yuki Muguri P-2" },
+    "name": { "ja": "ユキムグリ P-2", "en": "Yuki Muguri P-2", "zh": "雪慕禮P-2" },
     "potion": "plusterin",
     "base": "040-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/040-m-002/mono_yukimuguri_P2_Idle.png",
@@ -1685,7 +1686,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "041-m-000": {
-    "name": { "ja": "ジュラファント", "en": "Juraphant" },
+    "name": { "ja": "ジュラファント", "en": "Juraphant", "zh": "侏羅象" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/041-m-000/mono_juraphant_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/041-m-000/",
@@ -1694,7 +1695,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "041-m-001": {
-    "name": { "ja": "ジュラファント P-1", "en": "Juraphant P-1" },
+    "name": { "ja": "ジュラファント P-1", "en": "Juraphant P-1", "zh": "侏羅象P-1" },
     "potion": "plusterin",
     "base": "041-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/041-m-001/mono_juraphant_P1_Idle.png",
@@ -1704,7 +1705,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "041-m-002": {
-    "name": { "ja": "ジュラファント P-2", "en": "Juraphant P-2" },
+    "name": { "ja": "ジュラファント P-2", "en": "Juraphant P-2", "zh": "侏羅象P-2" },
     "potion": "plusterin",
     "base": "041-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/041-m-002/mono_juraphant_P2_Idle.png",
@@ -1714,7 +1715,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "042-m-000": {
-    "name": { "ja": "ツノツキウリュー", "en": "Tsunotsuki Uryu" },
+    "name": { "ja": "ツノツキウリュー", "en": "Tsunotsuki Uryu", "zh": "長角羽龍" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/042-m-000/mono_tsunotsukiuryu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/042-m-000/",
@@ -1723,7 +1724,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "042-m-001": {
-    "name": { "ja": "ツノツキウリュー P-1", "en": "Tsunotsuki Uryu P-1" },
+    "name": { "ja": "ツノツキウリュー P-1", "en": "Tsunotsuki Uryu P-1", "zh": "長角羽龍P-1" },
     "potion": "plusterin",
     "base": "042-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/042-m-001/mono_tsunotsukiuryu_P1_Idle.png",
@@ -1733,7 +1734,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "042-m-002": {
-    "name": { "ja": "ツノツキウリュー P-2", "en": "Tsunotsuki Uryu P-2" },
+    "name": { "ja": "ツノツキウリュー P-2", "en": "Tsunotsuki Uryu P-2", "zh": "長角羽龍P-2" },
     "potion": "plusterin",
     "base": "042-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/042-m-002/mono_tsunotsukiuryu_P2_Idle.png",
@@ -1743,7 +1744,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "043-m-000": {
-    "name": { "ja": "ハナアルキ", "en": "Hana Aruki" },
+    "name": { "ja": "ハナアルキ", "en": "Hana Aruki", "zh": "鼻魯奇" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/043-m-000/mono_hanaaruki_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/043-m-000/",
@@ -1752,7 +1753,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "043-m-001": {
-    "name": { "ja": "ハナアルキ P-1", "en": "Hana Aruki P-1" },
+    "name": { "ja": "ハナアルキ P-1", "en": "Hana Aruki P-1", "zh": "鼻魯奇P-1" },
     "potion": "plusterin",
     "base": "043-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/043-m-001/mono_hanaaruki_P1_Idle.png",
@@ -1762,7 +1763,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "043-m-002": {
-    "name": { "ja": "ハナアルキ P-2", "en": "Hana Aruki P-2" },
+    "name": { "ja": "ハナアルキ P-2", "en": "Hana Aruki P-2", "zh": "鼻魯奇P-2" },
     "potion": "plusterin",
     "base": "043-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/043-m-002/mono_hanaaruki_P2_Idle.png",
@@ -1772,7 +1773,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "043-m-003": {
-    "name": { "ja": "ハナアルキ P-3", "en": "Hana Aruki P-3" },
+    "name": { "ja": "ハナアルキ P-3", "en": "Hana Aruki P-3", "zh": "鼻魯奇P-3" },
     "potion": "plusterin",
     "base": "043-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/043-m-003/mono_hanaaruki_P3_Idle.png",
@@ -1782,7 +1783,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "044-n-000": {
-    "name": { "ja": "ハリニコゲ", "en": "Hari Nikoge" },
+    "name": { "ja": "ハリニコゲ", "en": "Hari Nikoge", "zh": "茸可" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/044-n-000/mono_harinikoge_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/044-n-000/",
@@ -1791,7 +1792,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "044-n-001": {
-    "name": { "ja": "ハリニコゲ P-1", "en": "Hari Nikoge P-1" },
+    "name": { "ja": "ハリニコゲ P-1", "en": "Hari Nikoge P-1", "zh": "茸可P-1" },
     "potion": "plusterin",
     "base": "044-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/044-n-001/mono_harinikoge_P1_Idle.png",
@@ -1801,7 +1802,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "044-n-002": {
-    "name": { "ja": "ハリニコゲ P-2", "en": "Hari Nikoge P-2" },
+    "name": { "ja": "ハリニコゲ P-2", "en": "Hari Nikoge P-2", "zh": "茸可P-2" },
     "potion": "plusterin",
     "base": "044-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/044-n-002/mono_harinikoge_P2_Idle.png",
@@ -1811,7 +1812,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "045-m-000": {
-    "name": { "ja": "ネタツザル", "en": "Netatsuzaru" },
+    "name": { "ja": "ネタツザル", "en": "Netatsuzaru", "zh": "子辰猿" },
     "potion": "mix",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/045-m-000/mono_netatsuzaru_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/045-m-000/",
@@ -1822,7 +1823,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "045-m-001": {
-    "name": { "ja": "ネタツザル P-1", "en": "Netatsuzaru P-1" },
+    "name": { "ja": "ネタツザル P-1", "en": "Netatsuzaru P-1", "zh": "子辰猿P-1" },
     "potion": "plusterin",
     "base": "045-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/045-m-001/mono_netatsuzaru_P1_Idle.png",
@@ -1832,7 +1833,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "045-m-002": {
-    "name": { "ja": "ネタツザル P-2", "en": "Netatsuzaru P-2" },
+    "name": { "ja": "ネタツザル P-2", "en": "Netatsuzaru P-2", "zh": "子辰猿P-2" },
     "potion": "plusterin",
     "base": "045-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/045-m-002/mono_netatsuzaru_P2_Idle.png",
@@ -1842,7 +1843,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "046-m-000": {
-    "name": { "ja": "ミズカミノオロチ", "en": "Mizukamino Orochi" },
+    "name": { "ja": "ミズカミノオロチ", "en": "Mizukamino Orochi", "zh": "水神大蛇" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/046-m-000/mono_mizukaminoorochi_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/046-m-000/",
@@ -1851,7 +1852,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "046-m-001": {
-    "name": { "ja": "ミズカミノオロチ P-1", "en": "Mizukamino Orochi P-1" },
+    "name": { "ja": "ミズカミノオロチ P-1", "en": "Mizukamino Orochi P-1", "zh": "水神大蛇P-1" },
     "potion": "plusterin",
     "base": "046-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/046-m-001/mono_mizukaminoorochi_P1_Idle.png",
@@ -1861,7 +1862,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "046-m-002": {
-    "name": { "ja": "ミズカミノオロチ P-2", "en": "Mizukamino Orochi P-2" },
+    "name": { "ja": "ミズカミノオロチ P-2", "en": "Mizukamino Orochi P-2", "zh": "水神大蛇P-2" },
     "potion": "plusterin",
     "base": "046-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/046-m-002/mono_mizukaminoorochi_P2_Idle.png",
@@ -1871,7 +1872,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "046-m-003": {
-    "name": { "ja": "ミズカミノオロチ P-3", "en": "Mizukamino Orochi P-3" },
+    "name": { "ja": "ミズカミノオロチ P-3", "en": "Mizukamino Orochi P-3", "zh": "水神大蛇P-3" },
     "potion": "plusterin",
     "base": "046-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/046-m-003/mono_mizukaminoorochi_P3_Idle.png",
@@ -1881,7 +1882,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "047-m-000": {
-    "name": { "ja": "ミンツ", "en": "Mints" },
+    "name": { "ja": "ミンツ", "en": "Mints", "zh": "敏茨" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/047-m-000/mono_mints_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/047-m-000/",
@@ -1890,7 +1891,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "047-m-001": {
-    "name": { "ja": "ミンツ P-1", "en": "Mints P-1" },
+    "name": { "ja": "ミンツ P-1", "en": "Mints P-1", "zh": "敏茨P-1" },
     "potion": "plusterin",
     "base": "047-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/047-m-001/mono_mints_P1_Idle.png",
@@ -1900,7 +1901,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "047-m-002": {
-    "name": { "ja": "ミンツ P-2", "en": "Mints P-2" },
+    "name": { "ja": "ミンツ P-2", "en": "Mints P-2", "zh": "敏茨P-2" },
     "potion": "plusterin",
     "base": "047-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/047-m-002/mono_mints_P2_Idle.png",
@@ -1910,7 +1911,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "048-m-000": {
-    "name": { "ja": "ルシア", "en": "Lucia" },
+    "name": { "ja": "ルシア", "en": "Lucia", "zh": "露熙雅" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/048-m-000/mono_lucia_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/048-m-000/",
@@ -1919,7 +1920,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "048-m-001": {
-    "name": { "ja": "ルシア P-1", "en": "Lucia P-1" },
+    "name": { "ja": "ルシア P-1", "en": "Lucia P-1", "zh": "露熙雅P-1" },
     "potion": "plusterin",
     "base": "048-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/048-m-001/mono_lucia_P1_Idle.png",
@@ -1929,7 +1930,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "048-m-002": {
-    "name": { "ja": "ルシア P-2", "en": "Lucia P-2" },
+    "name": { "ja": "ルシア P-2", "en": "Lucia P-2", "zh": "露熙雅P-2" },
     "potion": "plusterin",
     "base": "048-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/048-m-002/mono_lucia_P2_Idle.png",
@@ -1939,7 +1940,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "049-m-000": {
-    "name": { "ja": "マウンテンピグミー", "en": "Mountain Pygmy" },
+    "name": { "ja": "マウンテンピグミー", "en": "Mountain Pygmy", "zh": "高山提可咪" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/049-m-000/mono_mountainpygmy_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/049-m-000/",
@@ -1948,7 +1949,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "049-m-001": {
-    "name": { "ja": "マウンテンピグミー P-1", "en": "Mountain Pygmy P-1" },
+    "name": { "ja": "マウンテンピグミー P-1", "en": "Mountain Pygmy P-1", "zh": "高山提可咪P-1" },
     "potion": "plusterin",
     "base": "049-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/049-m-001/mono_mountainpygmy_P1_Idle.png",
@@ -1958,7 +1959,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "049-m-002": {
-    "name": { "ja": "マウンテンピグミーP-2", "en": "Mountain Pygmy P-2" },
+    "name": { "ja": "マウンテンピグミーP-2", "en": "Mountain Pygmy P-2", "zh": "高山提可咪P-2" },
     "potion": "plusterin",
     "base": "049-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/049-m-002/mono_mountainpygmy_P2_Idle.png",
@@ -1968,7 +1969,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "053-m-000": {
-    "name": { "ja": "オサナヒグラシ", "en": "Osanahigurashi" },
+    "name": { "ja": "オサナヒグラシ", "en": "Osanahigurashi", "zh": "稚氣蛙" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/053-m-000/mono_osanahigurashi_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/053-m-000/",
@@ -1977,7 +1978,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "053-m-001": {
-    "name": { "ja": "オサナヒグラシ P-1", "en": "Osanahigurashi P-1" },
+    "name": { "ja": "オサナヒグラシ P-1", "en": "Osanahigurashi P-1", "zh": "稚氣蛙P-1" },
     "potion": "plusterin",
     "base": "053-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/053-m-001/mono_osanahigurashi_P1_Idle.png",
@@ -1987,7 +1988,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "053-m-002": {
-    "name": { "ja": "オサナヒグラシ P-2", "en": "Osanahigurashi P-2" },
+    "name": { "ja": "オサナヒグラシ P-2", "en": "Osanahigurashi P-2", "zh": "稚氣蛙P-2" },
     "potion": "plusterin",
     "base": "053-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/053-m-002/mono_osanahigurashi_P2_Idle.png",
@@ -1997,7 +1998,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "054-m-000": {
-    "name": { "ja": "ムラクモノテンマ", "en": "Murakumono Temma" },
+    "name": { "ja": "ムラクモノテンマ", "en": "Murakumono Temma", "zh": "叢雲天馬" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/054-m-000/mono_murakumonotemma_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/054-m-000/",
@@ -2006,7 +2007,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "054-m-001": {
-    "name": { "ja": "ムラクモノテンマ P-1", "en": "Murakumono Temma P-1" },
+    "name": { "ja": "ムラクモノテンマ P-1", "en": "Murakumono Temma P-1", "zh": "叢雲天馬P-1" },
     "potion": "plusterin",
     "base": "054-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/054-m-001/mono_murakumonotemma_P1_Idle.png",
@@ -2016,7 +2017,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "054-m-002": {
-    "name": { "ja": "ムラクモノテンマ P-2", "en": "Murakumono Temma P-2" },
+    "name": { "ja": "ムラクモノテンマ P-2", "en": "Murakumono Temma P-2", "zh": "叢雲天馬P-2" },
     "potion": "plusterin",
     "base": "054-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/054-m-002/mono_murakumonotemma_P2_Idle.png",
@@ -2026,7 +2027,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "055-m-000": {
-    "name": { "ja": "ホオベニムクチョウ", "en": "Hobeni Mukucho" },
+    "name": { "ja": "ホオベニムクチョウ", "en": "Hobeni Mukucho", "zh": "腮紅雀" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/055-m-000/mono_hobenimukucho_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/055-m-000/",
@@ -2035,7 +2036,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "055-m-001": {
-    "name": { "ja": "ホオベニムクチョウ P-1", "en": "Hobeni Mukucho P-1" },
+    "name": { "ja": "ホオベニムクチョウ P-1", "en": "Hobeni Mukucho P-1", "zh": "腮紅雀P-1" },
     "potion": "plusterin",
     "base": "055-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/055-m-001/mono_hobenimukucho_P1_Idle.png",
@@ -2045,7 +2046,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "055-m-002": {
-    "name": { "ja": "ホオベニムクチョウ P-2", "en": "Hobeni Mukucho P-2" },
+    "name": { "ja": "ホオベニムクチョウ P-2", "en": "Hobeni Mukucho P-2", "zh": "腮紅雀P-2" },
     "potion": "plusterin",
     "base": "055-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/055-m-002/mono_hobenimukucho_P2_Idle.png",
@@ -2055,7 +2056,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "056-m-000": {
-    "name": { "ja": "オオツノワタケ", "en": "Otsuno Watake" },
+    "name": { "ja": "オオツノワタケ", "en": "Otsuno Watake", "zh": "大角綿綿" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/056-m-000/mono_otsunowatake_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/056-m-000/",
@@ -2064,7 +2065,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "056-m-001": {
-    "name": { "ja": "オオツノワタケ P-1", "en": "Otsuno Watake P-1" },
+    "name": { "ja": "オオツノワタケ P-1", "en": "Otsuno Watake P-1", "zh": "大角綿綿P-1" },
     "potion": "plusterin",
     "base": "056-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/056-m-001/mono_otsunowatake_P1_Idle.png",
@@ -2074,7 +2075,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "056-m-002": {
-    "name": { "ja": "オオツノワタケ P-2", "en": "Otsuno Watake P-2" },
+    "name": { "ja": "オオツノワタケ P-2", "en": "Otsuno Watake P-2", "zh": "大角綿綿P-2" },
     "potion": "plusterin",
     "base": "056-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/056-m-002/mono_otsunowatake_P2_Idle.png",
@@ -2084,7 +2085,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "057-n-000": {
-    "name": { "ja": "ムング", "en": "Muungu" },
+    "name": { "ja": "ムング", "en": "Muungu", "zh": "哞古" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/057-n-000/mono_muungu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/057-n-000/",
@@ -2093,7 +2094,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "057-n-001": {
-    "name": { "ja": "ムング P-1", "en": "Muungu P-1" },
+    "name": { "ja": "ムング P-1", "en": "Muungu P-1", "zh": "哞古P-1" },
     "potion": "plusterin",
     "base": "057-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/057-n-001/mono_muungu_P1_Idle.png",
@@ -2103,7 +2104,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "057-n-002": {
-    "name": { "ja": "ムング P-2", "en": "Muungu P-2" },
+    "name": { "ja": "ムング P-2", "en": "Muungu P-2", "zh": "哞古P-2" },
     "potion": "plusterin",
     "base": "057-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/057-n-002/mono_muungu_P2_Idle.png",
@@ -2113,7 +2114,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "058-m-000": {
-    "name": { "ja": "トウナスモドキ", "en": "Tonasu Modoki" },
+    "name": { "ja": "トウナスモドキ", "en": "Tonasu Modoki", "zh": "麥瓜豬" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/058-m-000/mono_tonasumodoki_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/058-m-000/",
@@ -2122,7 +2123,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "058-m-001": {
-    "name": { "ja": "トウナスモドキ P-1", "en": "Tonasu Modoki P-1" },
+    "name": { "ja": "トウナスモドキ P-1", "en": "Tonasu Modoki P-1", "zh": "麥瓜豬P-1" },
     "potion": "plusterin",
     "base": "058-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/058-m-001/mono_tonasumodoki_P1_Idle.png",
@@ -2132,7 +2133,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "059-m-000": {
-    "name": { "ja": "リオン", "en": "Rion" },
+    "name": { "ja": "リオン", "en": "Rion", "zh": "里恩" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/059-m-000/mono_rion_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/059-m-000/",
@@ -2141,7 +2142,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "059-m-001": {
-    "name": { "ja": "リオン P-1", "en": "Rion P-1" },
+    "name": { "ja": "リオン P-1", "en": "Rion P-1", "zh": "里恩P-1" },
     "potion": "plusterin",
     "base": "059-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/059-m-001/mono_rion_P1_Idle.png",
@@ -2151,7 +2152,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "059-m-002": {
-    "name": { "ja": "リオン P-2", "en": "Rion P-2" },
+    "name": { "ja": "リオン P-2", "en": "Rion P-2", "zh": "里恩P-2" },
     "potion": "plusterin",
     "base": "059-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/059-m-002/mono_rion_P2_Idle.png",
@@ -2161,7 +2162,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "060-m-000": {
-    "name": { "ja": "ヴォルフ", "en": "Volf" },
+    "name": { "ja": "ヴォルフ", "en": "Volf", "zh": "伯爾狼" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/060-m-000/mono_volf_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/060-m-000/",
@@ -2170,7 +2171,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "060-m-001": {
-    "name": { "ja": "ヴォルフ P-1", "en": "Volf P-1" },
+    "name": { "ja": "ヴォルフ P-1", "en": "Volf P-1", "zh": "伯爾狼P-1" },
     "potion": "plusterin",
     "base": "060-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/060-m-001/mono_volf_P1_Idle.png",
@@ -2180,7 +2181,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "061-m-000": {
-    "name": { "ja": "シャマネコ", "en": "Shamaneko" },
+    "name": { "ja": "シャマネコ", "en": "Shamaneko", "zh": "浣浣貓" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/061-m-000/mono_shamaneko_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/061-m-000/",
@@ -2189,7 +2190,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "061-m-001": {
-    "name": { "ja": "シャマネコ P-1", "en": "Shamaneko P-1" },
+    "name": { "ja": "シャマネコ P-1", "en": "Shamaneko P-1", "zh": "浣浣貓P-1" },
     "potion": "plusterin",
     "base": "061-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/061-m-001/mono_shamaneko_P1_Idle.png",
@@ -2199,7 +2200,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "061-m-002": {
-    "name": { "ja": "シャマネコ P-2", "en": "Shamaneko P-2" },
+    "name": { "ja": "シャマネコ P-2", "en": "Shamaneko P-2", "zh": "浣浣貓P-2" },
     "potion": "plusterin",
     "base": "061-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/061-m-002/mono_shamaneko_P2_Idle.png",
@@ -2209,7 +2210,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "062-n-000": {
-    "name": { "ja": "マーモール", "en": "Marmolu" },
+    "name": { "ja": "マーモール", "en": "Marmolu", "zh": "毛默魯" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/062-n-000/mono_marmolu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/062-n-000/",
@@ -2218,7 +2219,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "062-n-001": {
-    "name": { "ja": "マーモール P-1", "en": "Marmolu P-1" },
+    "name": { "ja": "マーモール P-1", "en": "Marmolu P-1", "zh": "毛默魯P-1" },
     "potion": "plusterin",
     "base": "062-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/062-n-001/mono_marmolu_P1_Idle.png",
@@ -2228,7 +2229,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "062-n-002": {
-    "name": { "ja": "マーモール P-2", "en": "Marmolu P-2" },
+    "name": { "ja": "マーモール P-2", "en": "Marmolu P-2", "zh": "毛默魯P-2" },
     "potion": "plusterin",
     "base": "062-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/062-n-002/mono_marmolu_P2_Idle.png",
@@ -2238,7 +2239,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "063-m-000": {
-    "name": { "ja": "ユキワラベ", "en": "Yuki Warabe" },
+    "name": { "ja": "ユキワラベ", "en": "Yuki Warabe", "zh": "雪童童" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/063-m-000/mono_yukiwarabe_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/063-m-000/",
@@ -2247,7 +2248,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "063-m-001": {
-    "name": { "ja": "ユキワラベ P-1", "en": "Yuki Warabe P-1" },
+    "name": { "ja": "ユキワラベ P-1", "en": "Yuki Warabe P-1", "zh": "雪童童P-1" },
     "potion": "plusterin",
     "base": "063-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/063-m-001/mono_yukiwarabe_P1_Idle.png",
@@ -2257,7 +2258,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "063-m-002": {
-    "name": { "ja": "ユキワラベ P-2", "en": "Yuki Warabe P-2" },
+    "name": { "ja": "ユキワラベ P-2", "en": "Yuki Warabe P-2", "zh": "雪童童P-2" },
     "potion": "plusterin",
     "base": "063-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/063-m-002/mono_yukiwarabe_P2_Idle.png",
@@ -2267,7 +2268,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "064-m-000": {
-    "name": { "ja": "スノードット", "en": "Snow Dot" },
+    "name": { "ja": "スノードット", "en": "Snow Dot", "zh": "雪花鹿" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/064-m-000/mono_snowdot_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/064-m-000/",
@@ -2276,7 +2277,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "064-m-001": {
-    "name": { "ja": "スノードット P-1", "en": "Snow Dot P-1" },
+    "name": { "ja": "スノードット P-1", "en": "Snow Dot P-1", "zh": "雪花鹿P-1" },
     "potion": "plusterin",
     "base": "064-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/064-m-001/mono_snowdot_P1_Idle.png",
@@ -2286,7 +2287,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "064-m-002": {
-    "name": { "ja": "スノードット P-2", "en": "Snow Dot P-2" },
+    "name": { "ja": "スノードット P-2", "en": "Snow Dot P-2", "zh": "雪花鹿P-2" },
     "potion": "plusterin",
     "base": "064-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/064-m-002/mono_snowdot_P2_Idle.png",
@@ -2296,7 +2297,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "065-m-000": {
-    "name": { "ja": "ステルラ", "en": "Stella" },
+    "name": { "ja": "ステルラ", "en": "Stella", "zh": "星斗鹿" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/065-m-000/mono_stella_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/065-m-000/",
@@ -2305,7 +2306,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "065-m-001": {
-    "name": { "ja": "ステルラ P-1", "en": "Stella P-1" },
+    "name": { "ja": "ステルラ P-1", "en": "Stella P-1", "zh": "星斗鹿P-1" },
     "potion": "plusterin",
     "base": "065-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/065-m-001/mono_stella_P1_Idle.png",
@@ -2315,7 +2316,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "066-n-000": {
-    "name": { "ja": "ジャノモノケ", "en": "Janomonoke" },
+    "name": { "ja": "ジャノモノケ", "en": "Janomonoke", "zh": "妖朧蛇" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/066-n-000/mono_janomonoke_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/066-n-000/",
@@ -2324,7 +2325,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "066-n-001": {
-    "name": { "ja": "ジャノモノケ P-1", "en": "Janomonoke P-1" },
+    "name": { "ja": "ジャノモノケ P-1", "en": "Janomonoke P-1", "zh": "妖朧蛇P-1" },
     "potion": "plusterin",
     "base": "066-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/066-n-001/mono_janomonoke_P1_Idle.png",
@@ -2334,7 +2335,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "066-n-002": {
-    "name": { "ja": "ジャノモノケ P-2", "en": "Janomonoke P-2" },
+    "name": { "ja": "ジャノモノケ P-2", "en": "Janomonoke P-2", "zh": "妖朧蛇P-2" },
     "potion": "plusterin",
     "base": "066-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/066-n-002/mono_janomonoke_P2_Idle.png",
@@ -2344,7 +2345,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "067-m-000": {
-    "name": { "ja": "キャンディスノー", "en": "Candy Snow" },
+    "name": { "ja": "キャンディスノー", "en": "Candy Snow", "zh": "棉雪糖" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/067-m-000/mono_candysnow_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/067-m-000/",
@@ -2353,7 +2354,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "067-m-001": {
-    "name": { "ja": "キャンディスノー P-1", "en": "Candy Snow P-1" },
+    "name": { "ja": "キャンディスノー P-1", "en": "Candy Snow P-1", "zh": "棉雪糖P-1" },
     "potion": "plusterin",
     "base": "067-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/067-m-001/mono_candysnow_P1_Idle.png",
@@ -2363,7 +2364,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "067-m-002": {
-    "name": { "ja": "キャンディスノー P-2", "en": "Candy Snow P-2" },
+    "name": { "ja": "キャンディスノー P-2", "en": "Candy Snow P-2", "zh": "棉雪糖P-2" },
     "potion": "plusterin",
     "base": "067-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/067-m-002/mono_candysnow_P2_Idle.png",
@@ -2373,7 +2374,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "068-n-000": {
-    "name": { "ja": "ロゼルラ", "en": "Rozella" },
+    "name": { "ja": "ロゼルラ", "en": "Rozella", "zh": "玫瑰羚" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/068-n-000/mono_rozella_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/068-n-000/",
@@ -2382,7 +2383,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "068-n-001": {
-    "name": { "ja": "ロゼルラ P-1", "en": "Rozella P-1" },
+    "name": { "ja": "ロゼルラ P-1", "en": "Rozella P-1", "zh": "玫瑰羚P-1" },
     "potion": "plusterin",
     "base": "068-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/068-n-001/mono_rozella_P1_Idle.png",
@@ -2392,7 +2393,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "069-m-000": {
-    "name": { "ja": "ワング", "en": "Wanguu" },
+    "name": { "ja": "ワング", "en": "Wanguu", "zh": "汪格" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/069-m-000/mono_wanguu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/069-m-000/",
@@ -2401,7 +2402,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "069-m-001": {
-    "name": { "ja": "ワング P-1", "en": "Wanguu P-1" },
+    "name": { "ja": "ワング P-1", "en": "Wanguu P-1", "zh": "汪格P-1" },
     "potion": "plusterin",
     "base": "069-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/069-m-001/mono_wanguu_P1_Idle.png",
@@ -2411,7 +2412,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "069-m-002": {
-    "name": { "ja": "ワング P-2", "en": "Wanguu P-2" },
+    "name": { "ja": "ワング P-2", "en": "Wanguu P-2", "zh": "汪格P-2" },
     "potion": "plusterin",
     "base": "069-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/069-m-002/mono_wanguu_P2_Idle.png",
@@ -2421,7 +2422,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "070-a-000": {
-    "name": { "ja": "ヒメゼルラ", "en": "Hime Zella" },
+    "name": { "ja": "ヒメゼルラ", "en": "Hime Zella", "zh": "幼幼羚" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/070-a-000/mono_himezella_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/070-a-000/",
@@ -2430,7 +2431,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "070-a-001": {
-    "name": { "ja": "ヒメゼルラ P-1", "en": "Hime Zella P-1" },
+    "name": { "ja": "ヒメゼルラ P-1", "en": "Hime Zella P-1", "zh": "幼幼羚P-1" },
     "potion": "plusterin",
     "base": "070-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/070-a-001/mono_himezella_P1_Idle.png",
@@ -2440,7 +2441,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "070-a-002": {
-    "name": { "ja": "ヒメゼルラ P-2", "en": "Hime Zella P-2" },
+    "name": { "ja": "ヒメゼルラ P-2", "en": "Hime Zella P-2", "zh": "幼幼羚P-2" },
     "potion": "plusterin",
     "base": "070-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/070-a-002/mono_himezella_P2_Idle.png",
@@ -2450,7 +2451,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "071-n-000": {
-    "name": { "ja": "レオソルム", "en": "Leosolem" },
+    "name": { "ja": "レオソルム", "en": "Leosolem", "zh": "金陽獅" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/071-n-000/mono_leosolem_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/071-n-000/",
@@ -2459,7 +2460,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "071-n-001": {
-    "name": { "ja": "レオソルム P-1", "en": "Leosolem P-1" },
+    "name": { "ja": "レオソルム P-1", "en": "Leosolem P-1", "zh": "金陽獅P-1" },
     "potion": "plusterin",
     "base": "071-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/071-n-001/mono_leosolem_P1_Idle.png",
@@ -2469,7 +2470,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "071-n-002": {
-    "name": { "ja": "レオソルム P-2", "en": "Leosolem P-2" },
+    "name": { "ja": "レオソルム P-2", "en": "Leosolem P-2", "zh": "金陽獅P-2" },
     "potion": "plusterin",
     "base": "071-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/071-n-002/mono_leosolem_P2_Idle.png",
@@ -2479,7 +2480,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "072-m-000": {
-    "name": { "ja": "プリミティブピグミー", "en": "Primitive Pygmy" },
+    "name": { "ja": "プリミティブピグミー", "en": "Primitive Pygmy", "zh": "原始提可咪" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/072-m-000/mono_primitivepygmy_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/072-m-000/",
@@ -2488,7 +2489,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "072-m-001": {
-    "name": { "ja": "プリミティブピグミー P-1", "en": "Primitive Pygmy P-1" },
+    "name": { "ja": "プリミティブピグミー P-1", "en": "Primitive Pygmy P-1", "zh": "原始提可咪P-1" },
     "potion": "plusterin",
     "base": "072-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/072-m-001/mono_primitivepygmy_P1_Idle.png",
@@ -2498,7 +2499,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "072-m-002": {
-    "name": { "ja": "プリミティブピグミー P-2", "en": "Primitive Pygmy P-2" },
+    "name": { "ja": "プリミティブピグミー P-2", "en": "Primitive Pygmy P-2", "zh": "原始提可咪P-2" },
     "potion": "plusterin",
     "base": "072-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/072-m-002/mono_primitivepygmy_P2_Idle.png",
@@ -2508,7 +2509,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "076-n-000": {
-    "name": { "ja": "ポムフロート", "en": "Pomfloat" },
+    "name": { "ja": "ポムフロート", "en": "Pomfloat", "zh": "飄飄啵姆" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/076-n-000/mono_pomfloat_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/076-n-000/",
@@ -2517,7 +2518,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "076-n-001": {
-    "name": { "ja": "ポムフロート P-1", "en": "Pomfloat P-1" },
+    "name": { "ja": "ポムフロート P-1", "en": "Pomfloat P-1", "zh": "飄飄啵姆P-1" },
     "potion": "plusterin",
     "base": "076-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/076-n-001/mono_pomfloat_P1_Idle.png",
@@ -2527,7 +2528,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "076-n-002": {
-    "name": { "ja": "ポムフロート P-2", "en": "Pomfloat P-2" },
+    "name": { "ja": "ポムフロート P-2", "en": "Pomfloat P-2", "zh": "飄飄啵姆P-2" },
     "potion": "plusterin",
     "base": "076-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/076-n-002/mono_pomfloat_P2_Idle.png",
@@ -2537,7 +2538,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "077-n-000": {
-    "name": { "ja": "レミント", "en": "Remmint" },
+    "name": { "ja": "レミント", "en": "Remmint", "zh": "蕾眠特" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/077-n-000/mono_remmint_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/077-n-000/",
@@ -2546,7 +2547,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "077-n-001": {
-    "name": { "ja": "レミント P-1", "en": "Remmint P-1" },
+    "name": { "ja": "レミント P-1", "en": "Remmint P-1", "zh": "蕾眠特P-1" },
     "potion": "plusterin",
     "base": "077-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/077-n-001/mono_remmint_P1_Idle.png",
@@ -2556,7 +2557,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "073-n-000": {
-    "name": { "ja": "アニュリラ", "en": "Annulila" },
+    "name": { "ja": "アニュリラ", "en": "Annulila", "zh": "雅琉莉拉" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/073-n-000/mono_annulila_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/073-n-000/",
@@ -2565,7 +2566,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "073-n-001": {
-    "name": { "ja": "アニュリラ P-1", "en": "Annulila P-1" },
+    "name": { "ja": "アニュリラ P-1", "en": "Annulila P-1", "zh": "雅琉莉拉P-1" },
     "potion": "plusterin",
     "base": "073-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/073-n-001/mono_annulila_P1_Idle.png",
@@ -2575,7 +2576,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "074-n-000": {
-    "name": { "ja": "ミミリット", "en": "Mimilit" },
+    "name": { "ja": "ミミリット", "en": "Mimilit", "zh": "迷耳托" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/074-n-000/mono_mimilit_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/074-n-000/",
@@ -2584,7 +2585,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "074-n-001": {
-    "name": { "ja": "ミミリット P-1", "en": "Mimilit P-1" },
+    "name": { "ja": "ミミリット P-1", "en": "Mimilit P-1", "zh": "迷耳托P-1" },
     "potion": "plusterin",
     "base": "074-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/074-n-001/mono_mimilit_P1_Idle.png",
@@ -2594,7 +2595,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "075-a-000": {
-    "name": { "ja": "ドワーフピグミー", "en": "Dwarf Pygmy" },
+    "name": { "ja": "ドワーフピグミー", "en": "Dwarf Pygmy", "zh": "矮人提可咪" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/075-a-000/mono_dwarfpygmy_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/075-a-000/",
@@ -2603,7 +2604,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "075-a-001": {
-    "name": { "ja": "ドワーフピグミー P-1", "en": "Dwarf Pygmy P-1" },
+    "name": { "ja": "ドワーフピグミー P-1", "en": "Dwarf Pygmy P-1", "zh": "矮人提可咪P-1" },
     "potion": "plusterin",
     "base": "075-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/075-a-001/mono_dwarfpygmy_P1_Idle.png",
@@ -2613,7 +2614,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "075-a-002": {
-    "name": { "ja": "ドワーフピグミー P-2", "en": "Dwarf Pygmy P-2" },
+    "name": { "ja": "ドワーフピグミー P-2", "en": "Dwarf Pygmy P-2", "zh": "矮人提可咪P-2" },
     "potion": "plusterin",
     "base": "075-a-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/075-a-002/mono_dwarfpygmy_P2_Idle.png",
@@ -2623,7 +2624,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "081-n-000": {
-    "name": { "ja": "シャークビット", "en": "Sharkbit" },
+    "name": { "ja": "シャークビット", "en": "Sharkbit", "zh": "鯊酷比兔" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/081-n-000/mono_sharkbit_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/081-n-000/",
@@ -2632,7 +2633,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "081-n-001": {
-    "name": { "ja": "シャークビット P-1", "en": "Sharkbit P-1" },
+    "name": { "ja": "シャークビット P-1", "en": "Sharkbit P-1", "zh": "鯊酷比兔P-1" },
     "potion": "plusterin",
     "base": "081-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/081-n-001/mono_sharkbit_P1_Idle.png",
@@ -2642,7 +2643,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "082-m-000": {
-    "name": { "ja": "フィンク", "en": "Finck" },
+    "name": { "ja": "フィンク", "en": "Finck", "zh": "芬克" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/082-m-000/mono_finck_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/082-m-000/",
@@ -2651,7 +2652,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "083-m-000": {
-    "name": { "ja": "ナイトメア", "en": "Nightmare" },
+    "name": { "ja": "ナイトメア", "en": "Nightmare", "zh": "夜魘魔" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/083-m-000/mono_nightmare_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/083-m-000/",
@@ -2660,7 +2661,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "083-m-001": {
-    "name": { "ja": "ナイトメア P-1", "en": "Nightmare P-1" },
+    "name": { "ja": "ナイトメア P-1", "en": "Nightmare P-1", "zh": "夜魘魔P-1" },
     "potion": "plusterin",
     "base": "083-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/083-m-001/mono_nightmare_P1_Idle.png",
@@ -2670,7 +2671,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "084-m-000": {
-    "name": { "ja": "レヴナント", "en": "Revenant" },
+    "name": { "ja": "レヴナント", "en": "Revenant", "zh": "歸魂者" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/084-m-000/mono_revenant_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/084-m-000/",
@@ -2679,7 +2680,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "084-m-001": {
-    "name": { "ja": "レヴナント P-1", "en": "Revenant P-1" },
+    "name": { "ja": "レヴナント P-1", "en": "Revenant P-1", "zh": "歸魂者P-1" },
     "potion": "plusterin",
     "base": "084-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/084-m-001/mono_revenant_P1_Idle.png",
@@ -2689,7 +2690,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "085-m-000": {
-    "name": { "ja": "ウルラ", "en": "Ulula" },
+    "name": { "ja": "ウルラ", "en": "Ulula", "zh": "烏璐拉" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/085-m-000/mono_ulula_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/085-m-000/",
@@ -2698,7 +2699,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "085-m-001": {
-    "name": { "ja": "ウルラ P-1", "en": "Ulula P-1" },
+    "name": { "ja": "ウルラ P-1", "en": "Ulula P-1", "zh": "烏璐拉P-1" },
     "potion": "plusterin",
     "base": "085-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/085-m-001/mono_ulula_P1_Idle.png",
@@ -2708,7 +2709,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "086-m-000": {
-    "name": { "ja": "アシェット", "en": "Assiette" },
+    "name": { "ja": "アシェット", "en": "Assiette", "zh": "雅席耶特" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/086-m-000/mono_assiette_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/086-m-000/",
@@ -2717,7 +2718,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "086-m-001": {
-    "name": { "ja": "アシェット P-1", "en": "Assiette P-1" },
+    "name": { "ja": "アシェット P-1", "en": "Assiette P-1", "zh": "雅席耶特P-1" },
     "potion": "plusterin",
     "base": "086-m-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/086-m-001/mono_assiette_P1_Idle.png",
@@ -2727,7 +2728,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "088-m-000": {
-    "name": { "ja": "ナタリス", "en": "Natalis" },
+    "name": { "ja": "ナタリス", "en": "Natalis", "zh": "納塔莉絲" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/088-m-000/mono_natalis_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/088-m-000/",
@@ -2736,7 +2737,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "087-n-000": {
-    "name": { "ja": "マルコマ", "en": "Marukoma" },
+    "name": { "ja": "マルコマ", "en": "Marukoma", "zh": "圓圓駒" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/087-n-000/mono_marukoma_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/087-n-000/",
@@ -2745,7 +2746,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "089-m-000": {
-    "name": { "ja": "ゴズ", "en": "Gozu" },
+    "name": { "ja": "ゴズ", "en": "Gozu", "zh": "牛頭" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/089-m-000/mono_gozu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/089-m-000/",
@@ -2754,7 +2755,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "090-n-000": {
-    "name": { "ja": "パフー", "en": "Paffuu" },
+    "name": { "ja": "パフー", "en": "Paffuu", "zh": "帕芙" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/090-n-000/mono_paffuu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/090-n-000/",
@@ -2763,7 +2764,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "090-n-001": {
-    "name": { "ja": "パフー P-1", "en": "Paffuu P-1" },
+    "name": { "ja": "パフー P-1", "en": "Paffuu P-1", "zh": "帕芙P-1" },
     "potion": "plusterin",
     "base": "090-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/090-n-001/mono_paffuu_P1_Idle.png",
@@ -2773,7 +2774,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "091-m-000": {
-    "name": { "ja": "リルネ", "en": "Rirune" },
+    "name": { "ja": "リルネ", "en": "Rirune", "zh": "栗兒鼠" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/091-m-000/mono_rirune_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/091-m-000/",
@@ -2782,7 +2783,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "092-n-000": {
-    "name": { "ja": "スカシアカリネ", "en": "Sukashi Akarine" },
+    "name": { "ja": "スカシアカリネ", "en": "Sukashi Akarine", "zh": "花靈鼠" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/092-n-000/mono_sukashiakarine_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/092-n-000/",
@@ -2791,7 +2792,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "092-n-001": {
-    "name": { "ja": "スカシアカリネ P-1", "en": "Sukashi Akarine P-1" },
+    "name": { "ja": "スカシアカリネ P-1", "en": "Sukashi Akarine P-1", "zh": "花靈鼠P-1" },
     "potion": "plusterin",
     "base": "092-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/092-n-001/mono_sukashiakarine_P1_Idle.png",
@@ -2801,7 +2802,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "093-n-000": {
-    "name": { "ja": "フェザームー", "en": "Feathermou" },
+    "name": { "ja": "フェザームー", "en": "Feathermou", "zh": "菲澤姆" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/093-n-000/mono_feathermou_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/093-n-000/",
@@ -2810,7 +2811,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "093-n-001": {
-    "name": { "ja": "フェザームー P-1", "en": "Feathermou P-1" },
+    "name": { "ja": "フェザームー P-1", "en": "Feathermou P-1", "zh": "菲澤姆P-1" },
     "potion": "plusterin",
     "base": "093-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/093-n-001/mono_feathermou_P1_Idle.png",
@@ -2820,7 +2821,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "094-n-000": {
-    "name": { "ja": "ルナルリア", "en": "Lunaluria" },
+    "name": { "ja": "ルナルリア", "en": "Lunaluria", "zh": "新月羊" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/094-n-000/mono_lunaluria_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/094-n-000/",
@@ -2829,7 +2830,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "094-n-001": {
-    "name": { "ja": "ルナルリア P-1", "en": "Lunaluria P-1" },
+    "name": { "ja": "ルナルリア P-1", "en": "Lunaluria P-1", "zh": "新月羊P-1" },
     "potion": "plusterin",
     "base": "094-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/094-n-001/mono_lunaluria_P1_Idle.png",
@@ -2839,7 +2840,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "095-m-000": {
-    "name": { "ja": "プリミティブトビネ", "en": "Primitive Tobine" },
+    "name": { "ja": "プリミティブトビネ", "en": "Primitive Tobine", "zh": "原始豆鼻鼠" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/095-m-000/mono_primitivetobine_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/095-m-000/",
@@ -2848,7 +2849,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "096-n-000": {
-    "name": { "ja": "モンモーク", "en": "Monmork" },
+    "name": { "ja": "モンモーク", "en": "Monmork", "zh": "紋摩客" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/096-n-000/mono_monmork_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/096-n-000/",
@@ -2857,7 +2858,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "099-m-000": {
-    "name": { "ja": "ツノナデシ", "en": "Tsunonadeshi" },
+    "name": { "ja": "ツノナデシ", "en": "Tsunonadeshi", "zh": "六角納希" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/099-m-000/mono_tsunonadeshi_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/099-m-000/",
@@ -2866,7 +2867,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "100-n-000": {
-    "name": { "ja": "イリシア", "en": "Illisia" },
+    "name": { "ja": "イリシア", "en": "Illisia", "zh": "伊璃希雅" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/100-n-000/mono_Illisia_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/100-n-000/",
@@ -2875,7 +2876,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "100-n-001": {
-    "name": { "ja": "イリシア P-1", "en": "Illisia P-1" },
+    "name": { "ja": "イリシア P-1", "en": "Illisia P-1", "zh": "伊璃希雅P-1" },
     "potion": "plusterin",
     "base": "100-n-000",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/100-n-001/mono_Illisia_P1_Idle.png",
@@ -2885,7 +2886,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "101-n-000": {
-    "name": { "ja": "オオヤワイモチ", "en": "Oyawaimochi" },
+    "name": { "ja": "オオヤワイモチ", "en": "Oyawaimochi", "zh": "軟軟抹奇" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/101-n-000/mono_oyawaimochi_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/101-n-000/",
@@ -2894,7 +2895,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "102-n-000": {
-    "name": { "ja": "ハユニシキ", "en": "Hayunishiki" },
+    "name": { "ja": "ハユニシキ", "en": "Hayunishiki", "zh": "鱗彩錦" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/102-n-000/mono_hayunishiki_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/102-n-000/",
@@ -2903,7 +2904,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "097-n-000": {
-    "name": { "ja": "キキツムリ", "en": "Kiki Tsumuri" },
+    "name": { "ja": "キキツムリ", "en": "Kiki Tsumuri", "zh": "吱吱奇姆" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/097-n-000/mono_kikitsumuri_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/097-n-000/",
@@ -2912,7 +2913,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "103-m-000": {
-    "name": { "ja": "クイ", "en": "Kui" },
+    "name": { "ja": "クイ", "en": "Kui", "zh": "柯伊犬" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/103-m-000/mono_kui_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/103-m-000/",
@@ -2921,7 +2922,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "104-m-000": {
-    "name": { "ja": "オルフ", "en": "Orufu" },
+    "name": { "ja": "オルフ", "en": "Orufu", "zh": "奧兒狼" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/104-m-000/mono_orufu_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/104-m-000/",
@@ -2930,7 +2931,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "105-m-000": {
-    "name": { "ja": "ウボー", "en": "Ubo" },
+    "name": { "ja": "ウボー", "en": "Ubo", "zh": "烏博" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/105-m-000/mono_ubo_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/105-m-000/",
@@ -2939,7 +2940,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "106-m-000": {
-    "name": { "ja": "ギッテム", "en": "Gittem" },
+    "name": { "ja": "ギッテム", "en": "Gittem", "zh": "基坦" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/106-m-000/mono_gittem_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/106-m-000/",
@@ -2948,7 +2949,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "107-m-000": {
-    "name": { "ja": "フォスク", "en": "Fosk" },
+    "name": { "ja": "フォスク", "en": "Fosk", "zh": "狐司克" },
     "potion": "neobelmin",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/107-m-000/mono_fosk_P0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/107-m-000/",
@@ -2957,7 +2958,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "001-c-000": {
-    "name": { "ja": "ハローキティピグミー", "en": "Hello Kitty Pygmy" },
+    "name": { "ja": "ハローキティピグミー", "en": "Hello Kitty Pygmy", "zh": "Hello Kitty提可咪" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/001-c-000/mono_pygmy_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/001-c-000/",
@@ -2967,7 +2968,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "002-c-000": {
-    "name": { "ja": "マイメロディコルヌレプス", "en": "My Melody Cornu Lepus" },
+    "name": { "ja": "マイメロディコルヌレプス", "en": "My Melody Cornu Lepus", "zh": "美樂蒂有角兔" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/002-c-000/mono_cornulepus_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/002-c-000/",
@@ -2977,7 +2978,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "027-c-000": {
-    "name": { "ja": "クロミクンパ", "en": "Kuromi Kumpa" },
+    "name": { "ja": "クロミクンパ", "en": "Kuromi Kumpa", "zh": "酷洛米坤帕" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/027-c-000/mono_kumpa_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/027-c-000/",
@@ -2987,7 +2988,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "007-c-000": {
-    "name": { "ja": "ハンギョドン オーガ", "en": "Hangyodon Ogre" },
+    "name": { "ja": "ハンギョドン オーガ", "en": "Hangyodon Ogre", "zh": "人魚漢頓 歐卡" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/007-c-000/mono_oga_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/007-c-000/",
@@ -2997,7 +2998,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "052-c-000": {
-    "name": { "ja": "リョウプミリオ", "en": "Ryo Pumilio" },
+    "name": { "ja": "リョウプミリオ", "en": "Ryo Pumilio", "zh": "涼米歐" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/052-c-000/mono_ryopumilio_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/052-c-000/",
@@ -3006,7 +3007,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "050-c-000": {
-    "name": { "ja": "モトプミリオ", "en": "Moto Pumilio" },
+    "name": { "ja": "モトプミリオ", "en": "Moto Pumilio", "zh": "元米歐" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/050-c-000/mono_motopumilio_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/050-c-000/",
@@ -3015,7 +3016,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "051-c-000": {
-    "name": { "ja": "ヒロプミリオ", "en": "Hilo Pumilio" },
+    "name": { "ja": "ヒロプミリオ", "en": "Hilo Pumilio", "zh": "滉米歐" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/051-c-000/mono_hilopumilio_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/051-c-000/",
@@ -3024,7 +3025,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "078-c-000": {
-    "name": { "ja": "トココルヌレプス", "en": "Toko Cornu Lepus" },
+    "name": { "ja": "トココルヌレプス", "en": "Toko Cornu Lepus", "zh": "Toko Cornu Lepus" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/078-c-000/mono_tokocornulepus_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/078-c-000/",
@@ -3034,7 +3035,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "079-c-000": {
-    "name": { "ja": "チマコルヌレプス", "en": "Chima Cornu Lepus" },
+    "name": { "ja": "チマコルヌレプス", "en": "Chima Cornu Lepus", "zh": "Chima Cornu Lepus" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/079-c-000/mono_chimacornulepus_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/079-c-000/",
@@ -3044,7 +3045,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "080-c-000": {
-    "name": { "ja": "サロメコルヌレプス", "en": "Salome Cornu Lepus" },
+    "name": { "ja": "サロメコルヌレプス", "en": "Salome Cornu Lepus", "zh": "Salome Cornu Lepus" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/080-c-000/mono_salomecornulepus_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/080-c-000/",
@@ -3054,7 +3055,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "029-c-000": {
-    "name": { "ja": "リゼラビネ", "en": "Lize Rabine" },
+    "name": { "ja": "リゼラビネ", "en": "Lize Rabine", "zh": "Lize Rabine" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/029-c-000/mono_lizerabine_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/029-c-000/",
@@ -3064,7 +3065,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "062-c-000": {
-    "name": { "ja": "アンジュマーモール", "en": "Ange Marmolu" },
+    "name": { "ja": "アンジュマーモール", "en": "Ange Marmolu", "zh": "Ange Marmolu" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/062-c-000/mono_angemarmolu_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/062-c-000/",
@@ -3074,7 +3075,7 @@ LIVLY_DATA.livlies = {
     ]
   },
   "049-c-000": {
-    "name": { "ja": "カガミマウンテンピグミー", "en": "Kagami Mountain Pygmy" },
+    "name": { "ja": "カガミマウンテンピグミー", "en": "Kagami Mountain Pygmy", "zh": "Kagami Mountain Pygmy" },
     "potion": "collab",
     "image": "https://www.livly.com/picturebook/img/main/mono/motion/049-c-000/mono_kagamimountainpygmy_C0_Idle.png",
     "page": "https://www.livly.com/picturebook/detail/049-c-000/",

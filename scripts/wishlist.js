@@ -6,7 +6,7 @@
  * Wishlists are saved with the accounts in this browser (scripts/store.js).
  * ========================================================= */
 
-const LANGS = ["ja", "en"];
+const LANGS = ["ja", "en", "zh"];   // zh = Traditional Chinese (Taiwan)
 const LANG_STORAGE_KEY = "livlyTreeViewer.lang";          // shared with the other pages
 const SHARED_STORAGE_KEY = "livlyTreeViewer.sharedFruit"; // the viewer's "share fruit" switch
 const TAB_STORAGE_KEY = "livlyTreeTracker.wishlistTab";
@@ -29,7 +29,7 @@ function pickLanguage() {
   if (LANGS.includes(fromUrl)) return fromUrl;
   const saved = safeGet(LANG_STORAGE_KEY);
   if (LANGS.includes(saved)) return saved;
-  return (navigator.language || "").toLowerCase().startsWith("ja") ? "ja" : "en";
+  return browserLanguage();
 }
 
 function pickTab() {
@@ -47,10 +47,19 @@ function store(key, value) {
   try { localStorage.setItem(key, value); } catch (e) { /* ignore */ }
 }
 
+/** First language from the browser settings that the page supports. */
+function browserLanguage() {
+  const code = (navigator.language || "").toLowerCase();
+  if (code.startsWith("ja")) return "ja";
+  if (code.startsWith("zh")) return "zh";
+  return "en";
+}
+
 function tr(value) {
   if (value == null) return "";
   if (typeof value === "string") return value;
-  return value[lang] || value.ja || value.en || "";
+  // Chinese names are missing for a few entries: show English there (closer for most readers than Japanese)
+  return value[lang] || (lang === "zh" ? value.en || value.ja : value.ja || value.en) || "";
 }
 
 function el(tag, attrs = {}, ...children) {
@@ -149,7 +158,7 @@ function livlyChip(u, withName) {
 
 function renderChrome() {
   const t = ui();
-  document.documentElement.lang = lang;
+  document.documentElement.lang = lang === "zh" ? "zh-Hant-TW" : lang;
   document.title = `${t.wishTitle} · ${t.appName}`;
   LivlyNav.render("wishlist", lang, (code) => { lang = code; store(LANG_STORAGE_KEY, code); render(); });
   LivlyNav.header($("section-header"), "wishlist", t.wishTitle, TABS.map((code) => ({
@@ -218,7 +227,7 @@ function searchText(treeId) {
   if (!searchCache[treeId]) {
     const tree = trees[treeId];
     const names = [tree.name, tree.fruit, tree.source, ...livliesOf(treeId).map((id) => livlies[id].name)];
-    searchCache[treeId] = names.flatMap((v) => [v?.ja, v?.en]).join(" ").toLowerCase();
+    searchCache[treeId] = names.flatMap((v) => [v?.ja, v?.en, v?.zh]).join(" ").toLowerCase();
   }
   return searchCache[treeId];
 }

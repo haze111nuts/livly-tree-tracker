@@ -18,7 +18,7 @@ const ASSET_DIRS = {
 };
 
 
-const LANGS = ["ja", "en"];
+const LANGS = ["ja", "en", "zh"];   // zh = Traditional Chinese (Taiwan)
 const LANG_STORAGE_KEY = "livlyTreeViewer.lang";
 
 // Card layouts. "compact" is the default; the last choice is remembered.
@@ -38,7 +38,7 @@ function pickLanguage() {
     const saved = localStorage.getItem(LANG_STORAGE_KEY);
     if (LANGS.includes(saved)) return saved;
   } catch (e) { /* storage can be unavailable; ignore */ }
-  return (navigator.language || "").toLowerCase().startsWith("ja") ? "ja" : "en";
+  return browserLanguage();
 }
 
 function saveLanguage(lang) {
@@ -69,10 +69,19 @@ function pickView() {
 const ui = () => window.LIVLY_I18N[lang];
 
 /** Picks the current language from a { ja, en } value (falls back to the other one). */
+/** First language from the browser settings that the page supports. */
+function browserLanguage() {
+  const code = (navigator.language || "").toLowerCase();
+  if (code.startsWith("ja")) return "ja";
+  if (code.startsWith("zh")) return "zh";
+  return "en";
+}
+
 function tr(value) {
   if (value == null) return "";
   if (typeof value === "string") return value;
-  return value[lang] || value.ja || value.en || "";
+  // Chinese names are missing for a few entries: show English there (closer for most readers than Japanese)
+  return value[lang] || (lang === "zh" ? value.en || value.ja : value.ja || value.en) || "";
 }
 
 /* ---------- helpers ---------- */
@@ -592,7 +601,7 @@ function renderEmptyState() {
 /** Top bar, header text, legend and the View switch. */
 function renderChrome(data) {
   const t = ui();
-  document.documentElement.lang = lang;
+  document.documentElement.lang = lang === "zh" ? "zh-Hant-TW" : lang;
   document.title = t.pageTitle;
   LivlyNav.render("viewer", lang, (code) => { lang = code; saveLanguage(code); render(); });
   LivlyNav.treesHeader(document.getElementById("section-header"), lang, "viewer");

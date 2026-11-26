@@ -29,6 +29,8 @@ body {
   background-size: 18px 18px;
   color: var(--text);
 }
+/* Traditional Chinese: Taiwanese fonts, so characters use Taiwan glyph shapes */
+html:lang(zh-Hant-TW) body { font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif; }
 
 /* ===== Top navigation bar (both pages) ===== */
 .site-nav {
